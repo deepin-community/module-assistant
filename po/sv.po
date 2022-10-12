@@ -1,0 +1,721 @@
+# Swedish translation of module-assistant.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the module-assistant package.
+# Daniel Nylander <po@danielnylander.se>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: module-assistant\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-06-25 22:16+0200\n"
+"PO-Revision-Date: 2006-09-19 15:38+0100\n"
+"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../module-assistant:57
+#, fuzzy
+msgid ""
+"USAGE:\n"
+"\n"
+"  module-assistant update\n"
+"  module-assistant [options] COMMAND [ packages ]\n"
+"\n"
+"module-assistant is the tool to get debianized source of kernel modules,\n"
+"build module package from it and install them. The most frequently used\n"
+"command may be auto-install followed by the 'alli' argument.\n"
+"\n"
+"Commands:\n"
+"\n"
+"  update - refresh internal information about the packages\n"
+"  unpack - unpacks the tarballs of specified packages (or similar action)\n"
+"  get - download/install the source (package) and unpack if needed\n"
+"  build - build the specified package(s)\n"
+"  list - print information about installed/available/compiled packages\n"
+"  install - install the generated binary modules DEB package with dpkg\n"
+"  auto-install - the whole process, get & build & install (abbreviated: a-"
+"i)\n"
+"  prepare - install headers for the current kernel and set the linux "
+"symlink\n"
+"  clean - quick clean of the source (eg. wiping the build directory)\n"
+"  purge - removes cached data and existing modules packages\n"
+"  la (alias for \"list all\"), li (= \"list all installed\"), search (= "
+"\"list -s\")\n"
+"\n"
+"Package arguments:\n"
+"\n"
+"  Source package name(s). If -src or -source is omitted, name\n"
+"  completion will try to guess the package name. If the first argument\n"
+"  is 'all', the list will be expanded to all packages. 'alli' will be\n"
+"  expanded to \"all installed\".\n"
+"\n"
+"Options:\n"
+" -h, --help        Print this help screen\n"
+" -v, --verbose     Be verbose, show full paths, etc.\n"
+" -q, --quiet       The opposite of verbose\n"
+" -n, --no-rebuild  Don't rebuild when any usable modules package for \n"
+"                   this kernel exists (even an old one)\n"
+" -i, --non-inter   Don't stop on build failures, auto-install deps when "
+"needed\n"
+" -o, --unpack-once Unpack the source only once after source upgrade or "
+"clean\n"
+" -O, --not-unpack  Don't unpack the source at all\n"
+" -s, --apt-search  Search for installation candidates in the Debian archive\n"
+" -S, --sudo-cmd    An alternative command for sudo\n"
+" -f, --force       Force duplicated work: source package reinstallation,\n"
+"                   rebuild though existing packages are found, etc.\n"
+" -t, --text-mode   Text mode, no dialog boxes\n"
+" -u, --userdir     Specifies a (writeable) replacement directory for /var&/"
+"usr\n"
+" -k, --kernel-dir  List of kernel headers/source directories, comma "
+"separated\n"
+" -l, --kvers-list  List of kernel versions to work on (default: current "
+"version)\n"
+"Lists in options are strings separated by commas, spaces or newlines.\n"
+"\n"
+"Example:\n"
+"  m-a update ; m-a a-i nvidia-kernel ; echo Enjoy!"
+msgstr ""
+"ANVÄNDNING:\n"
+"\n"
+"  module-assistant update\n"
+"  module-assistant [flaggor] KOMMANDO [ paket ]\n"
+"\n"
+"module-assistant är verktyget för att hämta debianiserad källkod för\n"
+"kärnmoduler, bygga modulpaket från dem och installera dem. Det mest\n"
+"vanliga kommandot kan vara auto-install följt av argumentet \"alli\".\n"
+"\n"
+"Kommandon:\n"
+"\n"
+"  update - uppdatera intern information om paketen\n"
+"  unpack - packa upp tar-filerna för angivna paket (eller liknande åtgärd)\n"
+"  get - hämta/installera källkoden (paket) och packa upp om det behövs\n"
+"  build - bygg angivet/angivna paket\n"
+"  list - skriv ut information om installerade/tillgängliga/byggda paket\n"
+"  install - installera genererade DEB-binärmodulpaket med dpkg\n"
+"  auto-install - hela processen, hämta, bygg och installera (förkortning: a-"
+"i)\n"
+"  prepare - installera header-filer för aktuell kärna och ställ in linux-"
+"symlänk\n"
+"  clean - snabb rensning av källkoden (t.ex. spola rent byggkatalogen)\n"
+"  purge - tar bort mellanlagrat data och existerande modulpaket\n"
+"  la (alias för \"lista alla\"), li (= \"lista alla installerade\"), search "
+"(= \"list -s\")\n"
+"\n"
+"Paketargument:\n"
+"\n"
+"  Paketnamn för källkod. Om -src eller -source utesluts kommer namn-\n"
+"  kompletering att försöka gissa paketnamnet. Om första argumentet\n"
+"  är \"all\" kommer listan att utökas till alla paket, \"alli\" kommer att\n"
+"  utökas till \"alla installerade\".\n"
+"\n"
+"Flaggor:\n"
+" -h, --help        Skriv ut den här hjälpskärmen\n"
+" -v, --verbose     Var informativ, visa fullständiga sökvägar, etc.\n"
+" -q, --quiet       Motsatsen till informativ\n"
+" -n, --no-rebuild  Bygg inte om när några användbara modulpaket för \n"
+"                   den här kärnan finns (även en gammal)\n"
+" -i, --non-inter   Stoppa inte vid byggnationsfel, auto-install-beroenden "
+"vid\n"
+"                   behov\n"
+" -o, --unpack-once Packa endast upp källkod efter källkodsuppgradering\n"
+"                   eller rensning\n"
+" -s, --apt-search  Sök efter installationskandidater i Debian-arkivet\n"
+" -S, --sudo-cmd    Ett alternativt kommando för sudo\n"
+" -f, --force       Tvinga dubbelt arbete: ominstallation av källkodspaket,\n"
+"                   bygg om även om existerande paket hittats, etc.\n"
+" -t, --text-mode   Textläge, inga dialogrutor\n"
+" -u, --userdir     Anger en (skrivbar) ersättande katalog för /var&/usr\n"
+" -k, --kernel-dir  Lista header-/källkodskataloger för kärnan, "
+"kommaseparerat\n"
+" -l, --kvers-list  Lista kärnversioner att arbeta mot (standard: aktuell \n"
+"                   version)\n"
+"Listor i flaggorna är strängar, separerade med kommatecken, mellanslag eller "
+"ny-rad.\n"
+"\n"
+"Exempel:\n"
+"  m-a update ; m-a a-i nvidia-kernel ; echo Ha det bra!"
+
+#: ../module-assistant:110
+msgid ""
+"Warning: the selected module source is known to require a complete\n"
+"kernel source structure in order to be built correctly. However, only\n"
+"a reduced version of the source (linux-headers) has been found, so\n"
+"the build process will probably fail.\n"
+"\n"
+"In order to get a full kernel source, you have the following options:\n"
+"\n"
+" - fake the source directory - create one that may look very similar\n"
+"   to the one that has been used to build your kernel (based on its\n"
+"   configuration and fresh source archive). The results are uncertain,\n"
+"   but it should work in most cases.\n"
+"   Call \"module-assistant fakesource\" to automate this.\n"
+" - use a custom kernel built from scratch (custom configuration,\n"
+"   custom source, custom kernel package installed). Please read the\n"
+"   Kernel HOWTO and/or make-kpkg documentation for the further steps."
+msgstr ""
+"Varning: den valda modulkällkoden är känd att kräva en komplett\n"
+"kärnkällkodsstruktur för att bli byggd korrekt. Dock hittades endast\n"
+"en reducerad version av källkoden (linux-headers), så byggprocessen\n"
+"kommer antagligen att misslyckas.\n"
+"\n"
+"Du har två möjligheter för att få en fullständig kärnkällkod:\n"
+"\n"
+" - fuska med källkodskatalogen - skapa en som ser mycket lik ut\n"
+"   den som har används för att bygga din kärna (baserat på dess\n"
+"   konfiguration och färskt källkodsarkiv). Resultaten är ovissa,\n"
+"   men det bör fungera i de flesta fall.\n"
+"   Anropa \"module-assistant fakesource\" för att automatisera det här.\n"
+" - använd en anpassad kärna byggd från källkod (anpassad konfiguration,\n"
+"   anpassad källkod, anpassat kärnpaket installerat). Läs dokumentationen\n"
+"   Kernel HOWTO och/eller make-kpkg för ytterligare steg."
+
+#: ../module-assistant:335 ../module-assistant:338
+msgid "module-assistant, error message"
+msgstr "module-assistant, felmeddelande"
+
+#: ../module-assistant:354
+msgid "Press Return to continue... (ctrl-c to abort)"
+msgstr "Tryck Return för att fortsätta... (ctrl-c för att avbryta)"
+
+#: ../module-assistant:363
+#, perl-format
+msgid "%s is not a directory!"
+msgstr "%s är inte en katalog!"
+
+#: ../module-assistant:364 ../module-assistant:369
+#, perl-format
+msgid "%s is not writeable!"
+msgstr "%s är inte skrivbar!"
+
+#: ../module-assistant:376
+msgid "Found sudo, will use it for %s and dpkg commands."
+msgstr "Hittade sudo, kommer att använda den för kommandona %s och dpkg."
+
+#: ../module-assistant:380
+msgid "Warning: sudo not found. Automatic package installations not possible!"
+msgstr ""
+"Varning: sudo hittades inte. Automatiska paketinstallationer är inte möjliga!"
+
+#: ../module-assistant:410
+msgid ""
+"Bad luck, the kernel headers for the target kernel version could not be "
+"found and you did not specify other valid kernel headers to use."
+msgstr ""
+"Tyvärr, kärnans header-filer för målkärnans version kunde inte hittas och du "
+"angav inga andra giltiga kärn-header-filer att använda."
+
+#: ../module-assistant:416
+#, perl-format
+msgid ""
+"However, you can install the header files for your kernel which are provided "
+"by the %s package. For most modules packages, these files are perfectly "
+"sufficient without having the original kernel source.\n"
+"\n"
+"To install the package, run"
+msgstr ""
+"Dock kan du installera header-filerna för din kärna som tillhandahålls av "
+"paketet %s. För de flesta modulpaket är dessa filer tillräckliga utan att ha "
+"den ursprungliga källkoden för kärnan.\n"
+"\n"
+"För att installera paketet, kör"
+
+#: ../module-assistant:420
+msgid " the PREPARE command from the main menu, or on the command line"
+msgstr " kommandot PREPARE från huvudmenyn, eller på kommandoraden"
+
+#: ../module-assistant:421
+#, perl-format
+msgid ""
+":\n"
+"\n"
+"module-assistant prepare\n"
+"\n"
+"or\n"
+"\n"
+"%s install %s"
+msgstr ""
+":\n"
+"\n"
+"module-assistant prepare\n"
+"\n"
+"eller\n"
+"\n"
+"%s install %s"
+
+#: ../module-assistant:436
+#, perl-format
+msgid ""
+"If the running kernel has been shipped with the Debian distribution, please "
+"install the package %s. If your kernel source tree (or headers) is located "
+"in some non-usual location, please set the KERNELDIRS environment variable "
+"to the path of this directory, or (alternatively) specify the source "
+"directory we build for with the --kernel-dir option in module-assistant "
+"calls."
+msgstr ""
+"Om den körande kärnan har distribuerats med Debian-utgåvan, installera "
+"paketet %s. Om ditt kärnkällkodsträd (eller header-filer) finns på en "
+"ickestandard plats, ställ in miljövariabeln KERNELDIRS till sökvägen till "
+"den här katalogen, eller (alternativt) ange källkodskatalogen vi byggde för "
+"med flaggan --kernel-dir i module-assistant ."
+
+#: ../module-assistant:484
+msgid "Updating cached package data"
+msgstr "Uppdaterar mellanlagrad paketdata"
+
+#: ../module-assistant:484
+msgid "Reading apt-cache output..."
+msgstr "Läser utdata från apt-cache..."
+
+#: ../module-assistant:494
+#, perl-format
+msgid "Updating info about %s"
+msgstr "Uppdaterar information om %s"
+
+#: ../module-assistant:524
+#, perl-format
+msgid "Updated infos about %s packages"
+msgstr "Uppdaterade informationen om paketen %s"
+
+#: ../module-assistant:524
+#, perl-format
+msgid "Updated infos about %s package"
+msgstr "Uppdaterade informationen om paket %s"
+
+#: ../module-assistant:567
+msgid "Getting source for kernel version:"
+msgstr "Hämta källkod för kärnversion:"
+
+#: ../module-assistant:568
+#, perl-format
+msgid "%s."
+msgstr "%s."
+
+#: ../module-assistant:572
+#, perl-format
+msgid "Kernel headers available in %s"
+msgstr "Kärnans header-filer finns tillgängliga i %s"
+
+#: ../module-assistant:592
+msgid "Creating symlink..."
+msgstr "Skapar symbolisk länk..."
+
+#: ../module-assistant:594
+#, perl-format
+msgid "Couldn't create the %s/linux symlink!"
+msgstr "Kunde inte skapa symbolisk länk till %s/linux!"
+
+#: ../module-assistant:598
+msgid "Installing packages needed for the build environment..."
+msgstr "Installerar paket som är nödvändiga för byggnationsmiljön..."
+
+#: ../module-assistant:601
+msgid "Done!"
+msgstr "Klar!"
+
+#: ../module-assistant:626
+msgid "PROBE:"
+msgstr "SÖK AV:"
+
+#: ../module-assistant:629
+msgid "GOT NAME:"
+msgstr "FICK NAMNET:"
+
+#: ../module-assistant:660
+#, perl-format
+msgid "%s, what is %s?"
+msgstr "%s, vad är %s?"
+
+#: ../module-assistant:738
+#, perl-format
+msgid "Installation of the %s source failed."
+msgstr "Installation av källkoden för %s misslyckades."
+
+#: ../module-assistant:742
+msgid ""
+"Ignoring this package. Maybe you need to add something to sources.list, "
+"maybe the contrib and non-free archives."
+msgstr ""
+"Ignorerar det här paketet. Kanske behöver du lägga till något till sources."
+"list, kanske arkiven för contrib och non-free."
+
+#: ../module-assistant:798
+msgid "$KPKG_DEST_DIR is not set and the target directory"
+msgstr "$KPKG_DEST_DIR är inte inställt och målkatalogen"
+
+#: ../module-assistant:799
+#, perl-format
+msgid ""
+"%s is not writeable for you!\n"
+"Your build will probably fail!"
+msgstr ""
+"%s är inte skrivbar för dig!\n"
+"Din byggnation kommer antagligen att misslyckas!"
+
+#: ../module-assistant:846
+#, perl-format
+msgid "Recently built package %s found, not rebuilding %s"
+msgstr "Tidigare byggda paketet %s hittades, bygger inte om %s"
+
+#: ../module-assistant:851
+#, perl-format
+msgid "Target package file %s already exists, not rebuilding!"
+msgstr "Målpaketfilen %s finns redan, bygger inte om!"
+
+#: ../module-assistant:879 ../module-assistant:905
+#, perl-format
+msgid "Building %s, step %d, please wait..."
+msgstr "Bygger %s, steg %d, var god vänta..."
+
+#: ../module-assistant:879
+msgid "Build starting..."
+msgstr "Byggnation påbörjad..."
+
+#: ../module-assistant:905
+msgid "Build continues..."
+msgstr "Byggnation fortsätter..."
+
+#: ../module-assistant:923
+#, perl-format
+msgid ""
+"Done! Run\n"
+"m-a install %s\n"
+"to install."
+msgstr ""
+"Klar! Kör\n"
+"m-a install %s\n"
+"för att installera."
+
+#: ../module-assistant:935 ../module-assistant:1507
+msgid "module-assistant, interactive mode"
+msgstr "module-assistant, interaktivt läge"
+
+#: ../module-assistant:935
+#, perl-format
+msgid "Build of the package %s failed! How do you wish to proceed?"
+msgstr "Byggnationen av paketet %s misslyckades! Hur vill du fortsätta?"
+
+#: ../module-assistant:935
+msgid "Examine the build log file"
+msgstr "Undersök byggloggfilen"
+
+#: ../module-assistant:935
+msgid "Skip and continue with the next operation"
+msgstr "Hoppa över och fortsätt med nästa åtgärd"
+
+#: ../module-assistant:935
+msgid "Stop processing the build commands"
+msgstr "Stoppa bearbetning av byggnationskommandon"
+
+#: ../module-assistant:940 ../module-assistant:1464
+msgid "Dialog command not working correctly!"
+msgstr "Dialogkommandot fungerar inte korrekt!"
+
+#: ../module-assistant:943
+msgid "module-assistant, log file viewer"
+msgstr "module-assistant, loggfilsvisare"
+
+#: ../module-assistant:954
+#, perl-format
+msgid "Build failed! See %s for details!"
+msgstr "Byggnation misslyckades! Se %s för detaljer!"
+
+#: ../module-assistant:957
+#, perl-format
+msgid "Done with %s ."
+msgstr "Klar med %s ."
+
+#: ../module-assistant:962
+msgid "Build failed. Press Return to continue..."
+msgstr "Byggnation misslyckades. Tryck Return för att fortsätta..."
+
+#: ../module-assistant:1002
+#, perl-format
+msgid "Package %s was not built successfully, see %s for details!"
+msgstr "Paketet %s blev inte byggt korrekt, se %s för detaljer!"
+
+#: ../module-assistant:1004
+msgid "You maybe want to run \"auto-install\" instead of install."
+msgstr "Du kanske vill köra \"auto-install\" istället för install."
+
+#: ../module-assistant:1013
+msgid "Direct installation failed, trying to post-install the dependencies"
+msgstr ""
+"Direktinstallation misslyckades, försöker att efterinstallera beroenden"
+
+#: ../module-assistant:1037
+msgid ""
+"Warning, the cache is empty. You maybe wish to run the command \"module-"
+"assistant update\" first!"
+msgstr ""
+"Varning, cachen är tom. Du kanske vill köra kommandot \"module-assistant "
+"update\" först!"
+
+#: ../module-assistant:1054
+#, perl-format
+msgid "%s (source) available (not up-to-date, V: %s vs. %s)"
+msgstr "%s (källkod) tillgängligt (inte uppdaterat, V: %s mot %s)"
+
+#: ../module-assistant:1057
+#, perl-format
+msgid "%s (source) installed (V: %s):"
+msgstr "%s (källkod) installerat (V: %s):"
+
+#: ../module-assistant:1064
+#, perl-format
+msgid "%s (source package not installed):"
+msgstr "%s (källkodspaket inte installerade):"
+
+#: ../module-assistant:1097
+msgid "not found, possible candidate(s) installable with %s:"
+msgstr "hittades inte, möjliga kandidater är installerbara med %s:"
+
+#: ../module-assistant:1100
+msgid "package not found, but following is already installed:"
+msgstr "paket hittades inte, men följande är redan installerat:"
+
+#: ../module-assistant:1106
+msgid "not found"
+msgstr "hittades inte"
+
+#: ../module-assistant:1111
+msgid "-- Binary package(s) for kernel(s):"
+msgstr "-- Binärpaket för kärna/kärnor:"
+
+#: ../module-assistant:1127
+msgid ""
+"Some packages could not be found. The \"search\" command can search in the "
+"package pool for precompiled packages."
+msgstr ""
+"Vissa paket kunde inte hittas. Kommandot \"search\" kan sök i paketpoolen "
+"efter förbyggda paket."
+
+#: ../module-assistant:1131
+msgid "No data? You maybe want to run \"module-assistant update\" first."
+msgstr "Inget data? Du kanske vill köra \"module-assistant update\" först."
+
+#: ../module-assistant:1217
+msgid ""
+"Experimental kernel source recreating method...\n"
+"Getting source..."
+msgstr ""
+"Experimentell återskapningsmetod för kärnkällkod...\n"
+"Hämtar källkod..."
+
+#: ../module-assistant:1220
+msgid "Config not found, getting headers to extract the config..."
+msgstr ""
+"Konfigurationen hittades inte, hämtar header-filer för att extrahera "
+"konfigurationen..."
+
+#: ../module-assistant:1227
+msgid "Extracting pristine kernel source, please wait..."
+msgstr "Extraherar ren kärnkällkod, var god vänta..."
+
+#: ../module-assistant:1229
+msgid "Installing to final location and configuring, please wait..."
+msgstr "Installerar till slutlig plats och konfigurerar, var god vänta..."
+
+#: ../module-assistant:1258
+#, perl-format
+msgid ""
+"Faked kernel source for the Kernel %s.\n"
+"Warning: the configuration may not match the running kernel."
+msgstr ""
+"Falsk kärnkällkod för kärnan %s.\n"
+"Varning: konfigurationen kanske inte matchar den körande kärnan."
+
+#: ../module-assistant:1292
+#, perl-format
+msgid ""
+"Warning, %s seems to contain unconfigured kernel source (see manpage for "
+"details)!"
+msgstr ""
+"Varning, %s verkar innehålla okonfigurerad kärnkällkod (se manpage för "
+"detaljer)!"
+
+#: ../module-assistant:1296
+#, perl-format
+msgid "Warning, could not access the %s directory!"
+msgstr "Varning, kunde inte komma åt katalogen %s!"
+
+#: ../module-assistant:1300
+#, perl-format
+msgid "Warning, %s does not contain a valid kernel source tree, skipping!"
+msgstr ""
+"Varning, %s verkar inte innehålla ett giltigt källkodsträd för kärnan, "
+"hoppar över!"
+
+#: ../module-assistant:1458
+msgid ""
+"Welcome to the dialog frontend of module-assistant. This user interface "
+"provides access to the few commands of this program."
+msgstr ""
+"Välkommen till dialoggränssnittet för module-assistant. Det här "
+"användargränssnittet tillhandahåller åtkomst till programmets kommandon."
+
+#: ../module-assistant:1458
+msgid "If you wish to learn more, choose the OVERVIEW option."
+msgstr "Om du önskar att lära dig mer, välj alternativet OVERVIEW."
+
+#: ../module-assistant:1458
+msgid "You should better run UPDATE once before you proceed."
+msgstr "Du bör hellre köra UPDATE en gång innan du fortsätter."
+
+#: ../module-assistant:1458
+msgid ""
+"If you wish to look for existing module packages for your needs or wish to "
+"compile a new one from source, choose them in the SELECT dialog and continue "
+"with possible commands."
+msgstr ""
+"Om du önskar leta efter existerande modulpaket för dina behov eller önskar "
+"att bygga en ny från källkod, välj dem i dialogen SELECT och fortsätt med "
+"möjliga kommandon."
+
+#: ../module-assistant:1458
+msgid "Show all possible command line commands"
+msgstr "Visa alla möjliga kommandoradskommandon"
+
+#: ../module-assistant:1458
+msgid "Update the cached package information"
+msgstr "Uppdatera mellanlagrad paketinformation"
+
+#: ../module-assistant:1458
+msgid "Configure the system to compile modules"
+msgstr "Konfigurera systemet att bygga moduler"
+
+#: ../module-assistant:1458
+msgid "Select the module/source packages to work on"
+msgstr "Välj modul-/källkodspaket att arbeta mot"
+
+#: ../module-assistant:1458
+msgid "Exit the program"
+msgstr "Avsluta programmet"
+
+#: ../module-assistant:1470
+msgid "module-assistant, command overview"
+msgstr "module-assistant, kommandoöversikt"
+
+#: ../module-assistant:1478
+msgid "Press Return to continue..."
+msgstr "Tryck Return för att fortsätta..."
+
+#: ../module-assistant:1489
+msgid "module-assistant, package selection"
+msgstr "module-assistant, paketval"
+
+#: ../module-assistant:1489
+msgid "Please select the interesting module (source) packages."
+msgstr "Välj de intressant modulpaketen (källkod)."
+
+#: ../module-assistant:1489
+msgid "Use Cursor keys to browse, Space to select and Return to continue."
+msgstr ""
+"Använd piltangenterna för att bläddra, mellanslag för att välja och Return "
+"för att fortsätta."
+
+#: ../module-assistant:1489
+msgid "Cancel to return to the main menu."
+msgstr "Avbryt för att återgå till huvudmenyn."
+
+#: ../module-assistant:1507
+msgid "You have selected the following packages:"
+msgstr "Du har valt följande paket:"
+
+#: ../module-assistant:1509
+msgid ""
+"Choose one of the following commands to proceed or Cancel to return to the "
+"selection menu."
+msgstr ""
+"Välj en av följande kommandon för att fortsätta eller Avbryt för att återgå "
+"till valmenyn."
+
+#: ../module-assistant:1509
+msgid "List installed (binary) packages"
+msgstr "Lista installerade (binära) paket"
+
+#: ../module-assistant:1509
+msgid "List and search with apt-cache"
+msgstr "Lista och sök med apt-cache"
+
+#: ../module-assistant:1509
+msgid "Get or update the source package"
+msgstr "Hämta eller uppdatera källkodspaketet"
+
+#: ../module-assistant:1509
+msgid "Compiles module packages for the current kernel"
+msgstr "Bygger modulpaket för aktuell kärna"
+
+#: ../module-assistant:1509
+msgid "Installs the packages for the current kernel"
+msgstr "Installerar paketen för aktuell kärna"
+
+#: ../module-assistant:1509
+msgid "Returns to the module selection"
+msgstr "Återvänder till modulvalet"
+
+#: ../module-assistant:1524
+msgid "module-assistant, present packages"
+msgstr "module-assistant, aktuella paket"
+
+#: ../module-assistant:1537
+msgid "module-assistant, source installation"
+msgstr "module-assistant, källkodsinstallation"
+
+#: ../module-assistant:1537
+msgid ""
+"The source package may not to be installed. Would you like to install or "
+"upgrade selected source packages now?"
+msgstr ""
+"Källkodspaketet kanske inte kan installeras. Vill du installera eller "
+"uppgradera valda källkodspaket nu?"
+
+#: ../module-assistant:1546
+msgid "module-assistant, package installation"
+msgstr "module-assistant, paketinstallation"
+
+#: ../module-assistant:1546
+msgid "Would you like to install the created module package(s) now?"
+msgstr "Vill du installera de skapade modulpaketen nu?"
+
+#: ../module-assistant:1573
+#, perl-format
+msgid ""
+"NOTE: You are not root but member of the src group. Mapping the base working "
+"directory to \"%s\"."
+msgstr ""
+"OBSERVERA: Du är inte root men medlem av gruppen src. Kopplar "
+"arbetskatalogen till \"%s\"."
+
+#: ../module-assistant:1581
+#, perl-format
+msgid ""
+"You are member of the src group but the replacement directory %s could not "
+"be created or is not writeable."
+msgstr ""
+"Du är medlem av gruppen src men ersättningskatalogen %s kunde inte skapas "
+"eller är inte skrivbar."
+
+#: ../module-assistant:1590
+msgid ""
+"You are not root and no replacement directory (the -u option) is specified. "
+"Unable to continue."
+msgstr ""
+"Du är inte root och ingen ersättningskatalog (flaggan -u) har angivits. Kan "
+"inte fortsätta."
+
+#~ msgid "No package specified. STOP."
+#~ msgstr "Inget paket angivet. STOPP."
+
+#~ msgid ""
+#~ "Do you really wish to remove all binary packages?\n"
+#~ "If so, use the --force option."
+#~ msgstr ""
+#~ "Vill du verkligen ta bort alla binära paket?\n"
+#~ "Om du vill, använd flaggan --force."
+
+#~ msgid "Starting the Dialog UI..."
+#~ msgstr "Startar dialoganvändargränssnittet..."

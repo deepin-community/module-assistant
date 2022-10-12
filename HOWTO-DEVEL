@@ -1,0 +1,135 @@
+CREATING MODULE PACKAGES WITH M-A, MINI-HOWTO
+---------------------------------------------
+
+Table of contents:
+------------------
+
+ - Howto
+ - Notes
+ - Troubleshooting
+
+Howto:
+------
+
+Let's look on how we create a module-package with source package, using
+module-assistant where possible.
+
+A sample snapshot of the debian/ directory is located in the
+/usr/share/doc/module-assistant/examples/.
+
+To demonstrate the steps to package something from scratch, I will take shfs as
+example:
+
+1. Get the upstream source (I had to repack the upstream tarball,
+   removing the half-cooked debian/ directory in shfs source, btw.)
+2. Run dh_make as usual and select "multiple binary"
+3. Edit debian/control and assign proper package names (I rename shfs to
+   shfs-utils and shfs-doc to shfs-src and give proper descriptions). Don't
+   forget to add debhelper to Depends of the -source package if it is used.
+4. Edit debian/rules and substitute the package names to match those in control
+5. Adapt or remove the example files in debian/
+6. Edit the build-arch-stamp and install-arch rules to build/install
+   ONLY the user applications (here: to build only the mount utilities)
+7. Edit the build-indep rule to do nothing and the install rule to
+   install the package source into a tarball, as following example
+   shows. Optionaly, the -utils package can get a control script for
+   module-assistant, which is simply the "default.sh" from m-a.
+
+# create needed directories
+	dh_installdirs -i usr/src/modules
+# only if needed
+	dh_installdirs -a usr/share/modass/overrides
+
+# copy the driver source from shfs/
+	cp -a shfs debian/shfs-source/usr/src/modules/
+
+# copy all relevant debian/ files.
+	mkdir debian/shfs-source/usr/src/modules/shfs/debian
+	cd debian ; cp changelog control compat *.modules.in rules copyright shfs-source/usr/src/modules/shfs/debian
+
+# entar the source
+	cd debian/shfs-source/usr/src/ ; tar -c modules | bzip2 -9 > shfs.tar.bz2 && rm -rf modules
+
+# install the control script, if wished. Not really required for package to be
+# processed but helps m-a frontend: puts the package into the list of known
+# packages
+	ln -s ../packages/default.sh debian/shfs-utils/usr/share/modass/overrides/shfs-source
+
+8. Return to the file header (or some position right before the module specific
+   targets begin) and load the m-a includes:
+
+# prefix of the target package name
+PACKAGE=shfs-module
+# modifieable for experiments or debugging m-a
+MA_DIR ?= /usr/share/modass
+# load generic variable handling
+-include $(MA_DIR)/include/generic.make
+# load default rules
+-include $(MA_DIR)/include/common-rules.make
+
+8. Complete the module-building routines, adding missig rules:
+
+8.1. Add a cleaning rule
+
+MAJOR=$(shell echo $(KVERS) | sed -e 's/\(...\).*/\1/')
+ifeq ($(MAJOR),2.6)
+KO=k
+endif
+
+kdist_clean:
+	dh_clean
+	make -C Linux-$(MAJOR) clean
+
+8.2. Add the configuring rule and map the conventional target name to m-a
+
+# prep-deb-files rewrites the debian/ files as needed. See README for
+# details
+kdist_config: prep-deb-files
+# ... additional kernel specific things to configure...
+
+kdist_configure: kdist_config
+
+8.2. Create the binary-modules rule, like the following one:
+
+binary-modules: prep-deb-files
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	make -C Linux-$(MAJOR) KERNEL_SOURCES=$(KSRC) MODVERSIONS=detect KERNEL=linux-$(KVERS)
+	install -m644 -b -D Linux-$(MAJOR)/shfs.$(KO)o $(CURDIR)/debian/$(PKGNAME)/lib/modules/$(KVERS)/shfs/shfs.$(KO)o
+	dh_installdocs
+	dh_installchangelogs
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol -- -v$(VERSION)
+	dh_md5sums
+	dh_builddeb --destdir=$(DEB_DESTDIR)
+
+9. Add some hints for the users into README.Debian in both, utils and the
+   -source package (the usual blah, blah, suggesting make-kpkg,
+   "m-a a-i thismodule" or similar things)
+
+10. Add a thisPackage-_KVERS_.postinst.modules.in file where you invoke depmod
+    (see other examples), restart some daemon, etc.pp.
+
+DONE!
+
+
+NOTES:
+------
+
+NOTE (2006-06-22): There is a variable named CDBS_SAFE_DEB_DESTDIR which can be
+used like DEB_DESTDIR when CDBS is involved (because the later may override our
+variable).
+
+
+TROUBLESHOOTING:
+----------------
+
+Q: I cannot understand what m-a is doing in background.
+A: Luke, use the undocumented option -d aka --debug.
+
+Q: How to prevent m-a from cleaning up after build?
+A: Edit /usr/share/modass/include/common-rules.make and remove the clean call
+   from the kdist rule.

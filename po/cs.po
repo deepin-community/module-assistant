@@ -1,0 +1,708 @@
+# Czech translation of module-assistant
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the module-assistant package.
+# Miroslav Kure <kurem@debian.cz>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: module-assistant\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-06-25 22:16+0200\n"
+"PO-Revision-Date: 2006-09-28 16:18+0200\n"
+"Last-Translator: Miroslav Kure <kurem@debian.cz>\n"
+"Language-Team: Czech <debian-l10n-czech@lists.debian.org>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../module-assistant:57
+#, fuzzy
+msgid ""
+"USAGE:\n"
+"\n"
+"  module-assistant update\n"
+"  module-assistant [options] COMMAND [ packages ]\n"
+"\n"
+"module-assistant is the tool to get debianized source of kernel modules,\n"
+"build module package from it and install them. The most frequently used\n"
+"command may be auto-install followed by the 'alli' argument.\n"
+"\n"
+"Commands:\n"
+"\n"
+"  update - refresh internal information about the packages\n"
+"  unpack - unpacks the tarballs of specified packages (or similar action)\n"
+"  get - download/install the source (package) and unpack if needed\n"
+"  build - build the specified package(s)\n"
+"  list - print information about installed/available/compiled packages\n"
+"  install - install the generated binary modules DEB package with dpkg\n"
+"  auto-install - the whole process, get & build & install (abbreviated: a-"
+"i)\n"
+"  prepare - install headers for the current kernel and set the linux "
+"symlink\n"
+"  clean - quick clean of the source (eg. wiping the build directory)\n"
+"  purge - removes cached data and existing modules packages\n"
+"  la (alias for \"list all\"), li (= \"list all installed\"), search (= "
+"\"list -s\")\n"
+"\n"
+"Package arguments:\n"
+"\n"
+"  Source package name(s). If -src or -source is omitted, name\n"
+"  completion will try to guess the package name. If the first argument\n"
+"  is 'all', the list will be expanded to all packages. 'alli' will be\n"
+"  expanded to \"all installed\".\n"
+"\n"
+"Options:\n"
+" -h, --help        Print this help screen\n"
+" -v, --verbose     Be verbose, show full paths, etc.\n"
+" -q, --quiet       The opposite of verbose\n"
+" -n, --no-rebuild  Don't rebuild when any usable modules package for \n"
+"                   this kernel exists (even an old one)\n"
+" -i, --non-inter   Don't stop on build failures, auto-install deps when "
+"needed\n"
+" -o, --unpack-once Unpack the source only once after source upgrade or "
+"clean\n"
+" -O, --not-unpack  Don't unpack the source at all\n"
+" -s, --apt-search  Search for installation candidates in the Debian archive\n"
+" -S, --sudo-cmd    An alternative command for sudo\n"
+" -f, --force       Force duplicated work: source package reinstallation,\n"
+"                   rebuild though existing packages are found, etc.\n"
+" -t, --text-mode   Text mode, no dialog boxes\n"
+" -u, --userdir     Specifies a (writeable) replacement directory for /var&/"
+"usr\n"
+" -k, --kernel-dir  List of kernel headers/source directories, comma "
+"separated\n"
+" -l, --kvers-list  List of kernel versions to work on (default: current "
+"version)\n"
+"Lists in options are strings separated by commas, spaces or newlines.\n"
+"\n"
+"Example:\n"
+"  m-a update ; m-a a-i nvidia-kernel ; echo Enjoy!"
+msgstr ""
+"POUŽITÍ:\n"
+"\n"
+"  module-assistant update\n"
+"  module-assistant [volby] PŘÍKAZ [ balíky ]\n"
+"\n"
+"module-assistant je nástroj, který ze zdrojové podoby jaderných modulů\n"
+"vytvoří balíky a následně je nainstaluje. Nejpoužívanější příkaz bude\n"
+"asi auto-install následovaný argumentem 'alli'.\n"
+"\n"
+"Příkazy:\n"
+"\n"
+"  update - obnoví vnitřní informace o balících\n"
+"  unpack - rozbalí tar archivy zadaných balíků (nebo něco podobného)\n"
+"  get - stáhne/rozbalí nebo nainstaluje zdrojové balíky \n"
+"  build - sestaví zadané balíky\n"
+"  list - vypíše informace o instalovaných/dostupných/kompilovaných balících\n"
+"  install - nainstaluje vytvořený DEB s binárními moduly pomocí dpkg\n"
+"  auto-install - celý proces stažení & sestavení & instalace (zkr.: a-i)\n"
+"  prepare - nainstaluje hlavičky aktuálního jádra a nastaví odkaz linux\n"
+"  clean - rychle vyčistí zdrojové texty (např. vymaže adresář build)\n"
+"  purge - odstraní cachovaná data a stávající balíky modulů\n"
+"  la (alias pro \"list all\"), li (= \"list all installed\"), search (= "
+"\"list -s\")\n"
+"\n"
+"Argumenty balíků:\n"
+"\n"
+"  Jména zdrojových balíků. Pokud vynecháte -src nebo -source, doplňování\n"
+"  jmen se pokusí odhadnout jméno balíku. Jestliže je první argument\n"
+"  'all', rozbalí se seznam na všechny balíky. 'alli' se rozbalí na\n"
+"  \"all installed\".\n"
+"\n"
+"Volby:\n"
+" -h, --help        Zobrazí tuto nápovědu\n"
+" -v, --verbose     Bude upovídaný, zobrazí celé cesty, atd.\n"
+" -q, --quiet       Opak verbose\n"
+" -n, --no-rebuild  Pokud již nějaký použitelný balík s moduly (i starší)\n"
+"                   pro toto jádro existuje, nebude jej znovu sestavovat\n"
+" -i, --non-inter   Nezastaví při chybách, automaticky doinstaluje "
+"závislosti\n"
+" -o, --unpack-once Rozbalí zdroj pouze jednou\n"
+" -s, --apt-search  Hledá kandidáty pro instalaci v archivu Debianu\n"
+" -S, --sudo-cmd    Alternativní příkaz místo sudo\n"
+" -f, --force       Vynutí duplikovanou práci: novou instalaci zdrojových\n"
+"                   balíků, nové sestavení i když již balíky existují, atd.\n"
+" -t, --text-mode   Textový režim, žádná dialogová okna\n"
+" -u, --userdir     Určí (zapisovatelný) náhradní adresář pro /var&/usr\n"
+" -k, --kernel-dir  Čárkami oddělený seznam adresářů s hlavičkami/zdroji "
+"jádra\n"
+" -l, --kvers-list  Seznam verzí jádra, se kterými pracovat (výchozí: "
+"aktuální verze)\n"
+"Za seznamy se u voleb berou řetězce oddělené čárkami, mezerami nebo\n"
+"novými řádky.\n"
+"\n"
+"Příklad:\n"
+"  m-a update ; m-a a-i nvidia-kernel ; echo Enjoy!"
+
+#: ../module-assistant:110
+msgid ""
+"Warning: the selected module source is known to require a complete\n"
+"kernel source structure in order to be built correctly. However, only\n"
+"a reduced version of the source (linux-headers) has been found, so\n"
+"the build process will probably fail.\n"
+"\n"
+"In order to get a full kernel source, you have the following options:\n"
+"\n"
+" - fake the source directory - create one that may look very similar\n"
+"   to the one that has been used to build your kernel (based on its\n"
+"   configuration and fresh source archive). The results are uncertain,\n"
+"   but it should work in most cases.\n"
+"   Call \"module-assistant fakesource\" to automate this.\n"
+" - use a custom kernel built from scratch (custom configuration,\n"
+"   custom source, custom kernel package installed). Please read the\n"
+"   Kernel HOWTO and/or make-kpkg documentation for the further steps."
+msgstr ""
+"Varování: je známo, že zvolený modul vyžaduje pro korektní sestavení\n"
+"kompletní zdrojové texty jádra, nicméně byla nalezena pouze redukovaná\n"
+" verze (linux-headers). Je pravděpodobné, že sestavení modulu selže.\n"
+"\n"
+"Pro získání kompletních zdrojových textů jádra máte několik možností:\n"
+"\n"
+" - podvrhnout zdrojový adresář - vytvořit adresářovou strukturu, která\n"
+"   bude vypadat podobně jako ta, co se používá pro sestavení jádra\n"
+"   (založená na čistém zdrojovém archivu jádra). Výsledky jsou nejisté,\n"
+"   ale ve většině případů by to mohlo fungovat.\n"
+"   Můžete to zautomatizovat příkazem \"module-assistant fakesource\".\n"
+" - použít vlastní jádro sestavené od nuly (vlastní zdroj, vlastní\n"
+"   nastavení, nainstalovaný vlastní balík s jádrem). Pro další postup\n"
+"   si prosím přečtěte Kernel HOWTO a/nebo dokumentaci k make-kpkg."
+
+#: ../module-assistant:335 ../module-assistant:338
+msgid "module-assistant, error message"
+msgstr "module-assistant, hlášení o chybě"
+
+#: ../module-assistant:354
+msgid "Press Return to continue... (ctrl-c to abort)"
+msgstr "Pro pokračování stiskněte enter... (ctrl-c pro přerušení)"
+
+#: ../module-assistant:363
+#, perl-format
+msgid "%s is not a directory!"
+msgstr "%s není adresářem!"
+
+#: ../module-assistant:364 ../module-assistant:369
+#, perl-format
+msgid "%s is not writeable!"
+msgstr "%s není zapisovatelný!"
+
+#: ../module-assistant:376
+msgid "Found sudo, will use it for %s and dpkg commands."
+msgstr "Nalezeno sudo, použiji je pro příkazy %s a dpkg."
+
+#: ../module-assistant:380
+msgid "Warning: sudo not found. Automatic package installations not possible!"
+msgstr ""
+"Varování: sudo nebylo nalezeno. Nebude možné nainstalovat balíky automaticky!"
+
+#: ../module-assistant:410
+msgid ""
+"Bad luck, the kernel headers for the target kernel version could not be "
+"found and you did not specify other valid kernel headers to use."
+msgstr ""
+"Smůla, hlavičkové soubory jádra pro cílovou verzi jádra nebyly nalezeny a "
+"nezadali jste jiné platné hlavičkové soubory, které by se daly použít."
+
+#: ../module-assistant:416
+#, perl-format
+msgid ""
+"However, you can install the header files for your kernel which are provided "
+"by the %s package. For most modules packages, these files are perfectly "
+"sufficient without having the original kernel source.\n"
+"\n"
+"To install the package, run"
+msgstr ""
+"Hlavičkové soubory pro své jádro můžete doinstalovat z balíku %s. Většina "
+"balíků s moduly se spokojí pouze s těmito hlavičkami a nevyžadují původní "
+"zdrojové texty celého jádra.\n"
+"\n"
+"Pro instalaci balíku spusťte"
+
+#: ../module-assistant:420
+msgid " the PREPARE command from the main menu, or on the command line"
+msgstr " z hlavní nabídky nebo z příkazové řádky příkaz PREPARE"
+
+#: ../module-assistant:421
+#, perl-format
+msgid ""
+":\n"
+"\n"
+"module-assistant prepare\n"
+"\n"
+"or\n"
+"\n"
+"%s install %s"
+msgstr ""
+":\n"
+"\n"
+"module-assistant prepare\n"
+"\n"
+"nebo\n"
+"\n"
+"%s install %s"
+
+#: ../module-assistant:436
+#, perl-format
+msgid ""
+"If the running kernel has been shipped with the Debian distribution, please "
+"install the package %s. If your kernel source tree (or headers) is located "
+"in some non-usual location, please set the KERNELDIRS environment variable "
+"to the path of this directory, or (alternatively) specify the source "
+"directory we build for with the --kernel-dir option in module-assistant "
+"calls."
+msgstr ""
+"Pokud bylo běžící jádro dodáno s distribucí Debian, nainstalujte si prosím "
+"balík %s. Je-li váš zdrojový strom jádra (nebo hlavičkové soubory) umístěn "
+"na nestandardním místě, nastavte prosím proměnnou prostředí KERNELDIRS na "
+"cestu k tomuto adresáři. Alternativně můžete také zadat zdrojový adresář "
+"jádra, pro které sestavujeme moduly, pomocí přepínače --kernel-dir."
+
+#: ../module-assistant:484
+msgid "Updating cached package data"
+msgstr "Aktualizuji uložená data o balících"
+
+#: ../module-assistant:484
+msgid "Reading apt-cache output..."
+msgstr "Čtu výstup apt-cache..."
+
+#: ../module-assistant:494
+#, perl-format
+msgid "Updating info about %s"
+msgstr "Aktualizuji informace o %s"
+
+#: ../module-assistant:524
+#, perl-format
+msgid "Updated infos about %s packages"
+msgstr "Aktualizovány informace o %s balících"
+
+#: ../module-assistant:524
+#, perl-format
+msgid "Updated infos about %s package"
+msgstr "Aktualizovány informace o %s balíku"
+
+#: ../module-assistant:567
+msgid "Getting source for kernel version:"
+msgstr "Stahuji zdrojové texty jádra verze:"
+
+#: ../module-assistant:568
+#, perl-format
+msgid "%s."
+msgstr "%s."
+
+#: ../module-assistant:572
+#, perl-format
+msgid "Kernel headers available in %s"
+msgstr "Hlavičkové soubory jádra dostupné v %s"
+
+#: ../module-assistant:592
+msgid "Creating symlink..."
+msgstr "Vytvářím symbolický odkaz..."
+
+#: ../module-assistant:594
+#, perl-format
+msgid "Couldn't create the %s/linux symlink!"
+msgstr "Nelze vytvořit symbolický odkaz %s/linux!"
+
+#: ../module-assistant:598
+msgid "Installing packages needed for the build environment..."
+msgstr "Instaluji balíky nutné pro sestavování balíků..."
+
+#: ../module-assistant:601
+msgid "Done!"
+msgstr "Hotovo!"
+
+#: ../module-assistant:626
+msgid "PROBE:"
+msgstr "ZKOUŠKA:"
+
+#: ../module-assistant:629
+msgid "GOT NAME:"
+msgstr "MÁM JMÉNO:"
+
+#: ../module-assistant:660
+#, perl-format
+msgid "%s, what is %s?"
+msgstr "%s, co je %s?"
+
+#: ../module-assistant:738
+#, perl-format
+msgid "Installation of the %s source failed."
+msgstr "Instalace zdrojového %s selhala."
+
+#: ../module-assistant:742
+msgid ""
+"Ignoring this package. Maybe you need to add something to sources.list, "
+"maybe the contrib and non-free archives."
+msgstr ""
+"Ignoruji tento balík. Možná musíte přidat něco do svého sources.list, např. "
+"archivy contrib a non-free."
+
+#: ../module-assistant:798
+msgid "$KPKG_DEST_DIR is not set and the target directory"
+msgstr "Proměnná $KPKG_DEST_DIR není nastavena a do cílového adresáře"
+
+#: ../module-assistant:799
+#, perl-format
+msgid ""
+"%s is not writeable for you!\n"
+"Your build will probably fail!"
+msgstr ""
+"%s nemůžete zapisovat!\n"
+"Sestavení pravděpodobně selže!"
+
+#: ../module-assistant:846
+#, perl-format
+msgid "Recently built package %s found, not rebuilding %s"
+msgstr "Nalezen nedávno vytvořený balík %s, nesestavuji znovu %s"
+
+#: ../module-assistant:851
+#, perl-format
+msgid "Target package file %s already exists, not rebuilding!"
+msgstr "Cílový balík %s již existuje, nesestavuji znovu!"
+
+#: ../module-assistant:879 ../module-assistant:905
+#, perl-format
+msgid "Building %s, step %d, please wait..."
+msgstr "Sestavuji %s, krok %d, čekejte prosím..."
+
+#: ../module-assistant:879
+msgid "Build starting..."
+msgstr "Sestavení začíná..."
+
+#: ../module-assistant:905
+msgid "Build continues..."
+msgstr "Sestavení pokračuje..."
+
+#: ../module-assistant:923
+#, perl-format
+msgid ""
+"Done! Run\n"
+"m-a install %s\n"
+"to install."
+msgstr ""
+"Hotovo!\n"
+"Instalaci spustíte pomocí\n"
+"m-a install %s"
+
+#: ../module-assistant:935 ../module-assistant:1507
+msgid "module-assistant, interactive mode"
+msgstr "module-assistant, interaktivní režim"
+
+#: ../module-assistant:935
+#, perl-format
+msgid "Build of the package %s failed! How do you wish to proceed?"
+msgstr "Sestavení balíku %s selhalo! Jak chcete pokračovat?"
+
+#: ../module-assistant:935
+msgid "Examine the build log file"
+msgstr "Prozkoumá záznamy ze sestavování"
+
+#: ../module-assistant:935
+msgid "Skip and continue with the next operation"
+msgstr "Přeskočí a pokračuje další operací"
+
+#: ../module-assistant:935
+msgid "Stop processing the build commands"
+msgstr "Ukončí další příkazy k sestavení"
+
+#: ../module-assistant:940 ../module-assistant:1464
+msgid "Dialog command not working correctly!"
+msgstr "Dialogový příkaz nefunguje správně!"
+
+#: ../module-assistant:943
+msgid "module-assistant, log file viewer"
+msgstr "module-assistant, prohlížeč záznamů"
+
+#: ../module-assistant:954
+#, perl-format
+msgid "Build failed! See %s for details!"
+msgstr "Sestavení selhalo! Podrobnosti naleznete v %s!"
+
+#: ../module-assistant:957
+#, perl-format
+msgid "Done with %s ."
+msgstr "Hotov s %s ."
+
+#: ../module-assistant:962
+msgid "Build failed. Press Return to continue..."
+msgstr "Sestavení selhalo. Pro pokračování stiskněte Enter..."
+
+#: ../module-assistant:1002
+#, perl-format
+msgid "Package %s was not built successfully, see %s for details!"
+msgstr "Balík %s nebyl sestaven korektně, podrobnosti naleznete v %s!"
+
+#: ../module-assistant:1004
+msgid "You maybe want to run \"auto-install\" instead of install."
+msgstr "Možná chcete místo install spustit \"auto-install\"."
+
+#: ../module-assistant:1013
+msgid "Direct installation failed, trying to post-install the dependencies"
+msgstr "Přímá instalace selhala, zkouším doinstalovat závislosti"
+
+#: ../module-assistant:1037
+msgid ""
+"Warning, the cache is empty. You maybe wish to run the command \"module-"
+"assistant update\" first!"
+msgstr ""
+"Varování, cache je prázdná. Možná nejprve musíte spustit příkaz \"module-"
+"assistant update\"!"
+
+#: ../module-assistant:1054
+#, perl-format
+msgid "%s (source) available (not up-to-date, V: %s vs. %s)"
+msgstr "%s (zdrojový) dostupný (není aktuální, V: %s vs. %s)"
+
+#: ../module-assistant:1057
+#, perl-format
+msgid "%s (source) installed (V: %s):"
+msgstr "%s (zdrojový) instalován (V: %s):"
+
+#: ../module-assistant:1064
+#, perl-format
+msgid "%s (source package not installed):"
+msgstr "%s (zdrojový balík není nainstalován):"
+
+#: ../module-assistant:1097
+msgid "not found, possible candidate(s) installable with %s:"
+msgstr "nenalezen, možní kandidáti pro instalaci pomocí %s:"
+
+#: ../module-assistant:1100
+msgid "package not found, but following is already installed:"
+msgstr "balík nenalezen, ale následující jsou již instalovány:"
+
+#: ../module-assistant:1106
+msgid "not found"
+msgstr "nenalezen"
+
+#: ../module-assistant:1111
+msgid "-- Binary package(s) for kernel(s):"
+msgstr "-- Binární balík(y) pro jádra:"
+
+#: ../module-assistant:1127
+msgid ""
+"Some packages could not be found. The \"search\" command can search in the "
+"package pool for precompiled packages."
+msgstr ""
+"Některá balíky nebyly nalezeny. Příkaz \"search\" může hledat "
+"předkompilované balíky ve fondu balíků."
+
+#: ../module-assistant:1131
+msgid "No data? You maybe want to run \"module-assistant update\" first."
+msgstr "Žádná data? Možná musíte nejprve spustit \"module-assistant update\"."
+
+#: ../module-assistant:1217
+msgid ""
+"Experimental kernel source recreating method...\n"
+"Getting source..."
+msgstr ""
+"Experimentální způsob znovuvytvoření zdrojů jádra...\n"
+"Stahuji zdroje..."
+
+#: ../module-assistant:1220
+msgid "Config not found, getting headers to extract the config..."
+msgstr "Soubor config nenalezen, stahuji hlavičky pro získání configu..."
+
+#: ../module-assistant:1227
+msgid "Extracting pristine kernel source, please wait..."
+msgstr "Rozbaluji čisté zdrojové texty jádra, čekejte prosím..."
+
+#: ../module-assistant:1229
+msgid "Installing to final location and configuring, please wait..."
+msgstr "Instaluji do cílového umístění a nastavuji, čekejte prosím..."
+
+#: ../module-assistant:1258
+#, perl-format
+msgid ""
+"Faked kernel source for the Kernel %s.\n"
+"Warning: the configuration may not match the running kernel."
+msgstr ""
+"Podvržené zdrojové texty jádra %s.\n"
+"Varování: konfigurace nemusí odpovídat běžícímu jádru."
+
+#: ../module-assistant:1292
+#, perl-format
+msgid ""
+"Warning, %s seems to contain unconfigured kernel source (see manpage for "
+"details)!"
+msgstr ""
+"Varování, zdá se, že %s obsahuje nenakonfigurované zdrojové texty jádra "
+"(podrobnosti naleznete v manuálové stránce)."
+
+#: ../module-assistant:1296
+#, perl-format
+msgid "Warning, could not access the %s directory!"
+msgstr "Varování, nemám přístup k adresáři %s!"
+
+#: ../module-assistant:1300
+#, perl-format
+msgid "Warning, %s does not contain a valid kernel source tree, skipping!"
+msgstr "Varování, %s neobsahuje platný zdrojový strom jádra, přeskakuji!"
+
+#: ../module-assistant:1458
+msgid ""
+"Welcome to the dialog frontend of module-assistant. This user interface "
+"provides access to the few commands of this program."
+msgstr ""
+"Vítejte v dialogovém rozhraní module-assistantu. Toto uživatelské rozhraní "
+"poskytuje přístup k několika příkazům tohoto programu."
+
+#: ../module-assistant:1458
+msgid "If you wish to learn more, choose the OVERVIEW option."
+msgstr "Chcete-li se dozvědět více, zvolte možnost OVERVIEW."
+
+#: ../module-assistant:1458
+msgid "You should better run UPDATE once before you proceed."
+msgstr "Před pokračováním byste měli spustit UPDATE."
+
+#: ../module-assistant:1458
+msgid ""
+"If you wish to look for existing module packages for your needs or wish to "
+"compile a new one from source, choose them in the SELECT dialog and continue "
+"with possible commands."
+msgstr ""
+"Chcete-li se podívat na seznam stávajících balíků s moduly, nebo chcete-li "
+"ze zdrojových textů modulu zkompilovat nový balík, zvolte je v okně SELECT a "
+"pokračujte dále možnými příkazy."
+
+#: ../module-assistant:1458
+msgid "Show all possible command line commands"
+msgstr "Zobrazí všechny příkazy příkazové řádky"
+
+#: ../module-assistant:1458
+msgid "Update the cached package information"
+msgstr "Aktualizuje uložené informace o modulech"
+
+#: ../module-assistant:1458
+msgid "Configure the system to compile modules"
+msgstr "Nastaví systém pro kompilaci modulů"
+
+#: ../module-assistant:1458
+msgid "Select the module/source packages to work on"
+msgstr "Vybere moduly/zdrojové balíky, se kterými má pracovat"
+
+#: ../module-assistant:1458
+msgid "Exit the program"
+msgstr "Ukončí program"
+
+#: ../module-assistant:1470
+msgid "module-assistant, command overview"
+msgstr "module-assistant, přehled příkazů"
+
+#: ../module-assistant:1478
+msgid "Press Return to continue..."
+msgstr "Pro pokračování stiskněte enter..."
+
+#: ../module-assistant:1489
+msgid "module-assistant, package selection"
+msgstr "module-assistant, výběr balíků"
+
+#: ../module-assistant:1489
+msgid "Please select the interesting module (source) packages."
+msgstr "Vyberte prosím zajímavé (zdrojové) balíky s moduly."
+
+#: ../module-assistant:1489
+msgid "Use Cursor keys to browse, Space to select and Return to continue."
+msgstr "Šipky slouží k procházení, mezera pro výběr a enter k pokračování."
+
+#: ../module-assistant:1489
+msgid "Cancel to return to the main menu."
+msgstr "Tlačítkem Storno se vrátíte zpět do hlavní nabídky."
+
+#: ../module-assistant:1507
+msgid "You have selected the following packages:"
+msgstr "Vybrali jste následující balíky:"
+
+#: ../module-assistant:1509
+msgid ""
+"Choose one of the following commands to proceed or Cancel to return to the "
+"selection menu."
+msgstr ""
+"Pokračujte výběrem z následujících příkazů, nebo se vraťte do hlavní nabídky "
+"příkazem Storno."
+
+#: ../module-assistant:1509
+msgid "List installed (binary) packages"
+msgstr "Vypíše instalované (binární) balíky"
+
+#: ../module-assistant:1509
+msgid "List and search with apt-cache"
+msgstr "Hledá pomocí apt-cache"
+
+#: ../module-assistant:1509
+msgid "Get or update the source package"
+msgstr "Stáhne nebo aktualizuje zdrojové balíky"
+
+#: ../module-assistant:1509
+msgid "Compiles module packages for the current kernel"
+msgstr "Zkompiluje balíky s moduly pro aktuální jádro"
+
+#: ../module-assistant:1509
+msgid "Installs the packages for the current kernel"
+msgstr "Nainstaluje balíky pro aktuální jádro"
+
+#: ../module-assistant:1509
+msgid "Returns to the module selection"
+msgstr "Vrátí se k výběru modulů"
+
+#: ../module-assistant:1524
+msgid "module-assistant, present packages"
+msgstr "module-assistant, současné balíky"
+
+#: ../module-assistant:1537
+msgid "module-assistant, source installation"
+msgstr "module-assistant, instalace zdrojů"
+
+#: ../module-assistant:1537
+msgid ""
+"The source package may not to be installed. Would you like to install or "
+"upgrade selected source packages now?"
+msgstr ""
+"Zdrojový balík nemusí být instalován. Přejete si nyní instalovat nebo "
+"aktualizovat vybrané zdrojové balíky?"
+
+#: ../module-assistant:1546
+msgid "module-assistant, package installation"
+msgstr "module-assistant, instalace balíků"
+
+#: ../module-assistant:1546
+msgid "Would you like to install the created module package(s) now?"
+msgstr "Chcete nyní nainstalovat vytvořené balíky s moduly?"
+
+#: ../module-assistant:1573
+#, perl-format
+msgid ""
+"NOTE: You are not root but member of the src group. Mapping the base working "
+"directory to \"%s\"."
+msgstr ""
+"POZNÁMKA: nejste root, ale jste členem skupiny src. Měním základní pracovní "
+"adresář na \"%s\"."
+
+#: ../module-assistant:1581
+#, perl-format
+msgid ""
+"You are member of the src group but the replacement directory %s could not "
+"be created or is not writeable."
+msgstr ""
+"Jste členem skupiny src, ale náhradní adresář %s nemohl být vytvořen, nebo "
+"není zapisovatelný."
+
+#: ../module-assistant:1590
+msgid ""
+"You are not root and no replacement directory (the -u option) is specified. "
+"Unable to continue."
+msgstr ""
+"Nejste root a nebyl zadán náhradní adresář (parametr -u). Nemohu pokračovat."
+
+#~ msgid "No package specified. STOP."
+#~ msgstr "Nebyl zadán žádný balík. STOP"
+
+#~ msgid ""
+#~ "Do you really wish to remove all binary packages?\n"
+#~ "If so, use the --force option."
+#~ msgstr ""
+#~ "Opravdu chcete odstranit všechny binární balíky?\n"
+#~ "Pokud ano, použijte přepínač --force."
+
+#~ msgid "Starting the Dialog UI..."
+#~ msgstr "Startuji dialogové rozhraní..."

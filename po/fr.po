@@ -1,0 +1,746 @@
+# translation of fr.po to french
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) 2005 Debian french localization team
+# Previous translator
+#   Guilhelm Panaget <guilhelm.panaget@free.fr>, 2005.
+#   Clément Stenac <zorglub@via.ecp.fr>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fr\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-06-25 22:16+0200\n"
+"PO-Revision-Date: 2006-10-21 18:08+0200\n"
+"Last-Translator: Simon Paillard <simon.paillard@resel.enst-bretagne.fr>\n"
+"Language-Team: French <debian-l10n-french@lists.debian.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-15\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Vim\n"
+
+#: ../module-assistant:57
+msgid ""
+"USAGE:\n"
+"\n"
+"  module-assistant update\n"
+"  module-assistant [options] COMMAND [ packages ]\n"
+"\n"
+"module-assistant is the tool to get debianized source of kernel modules,\n"
+"build module package from it and install them. The most frequently used\n"
+"command may be auto-install followed by the 'alli' argument.\n"
+"\n"
+"Commands:\n"
+"\n"
+"  update - refresh internal information about the packages\n"
+"  unpack - unpacks the tarballs of specified packages (or similar action)\n"
+"  get - download/install the source (package) and unpack if needed\n"
+"  build - build the specified package(s)\n"
+"  list - print information about installed/available/compiled packages\n"
+"  install - install the generated binary modules DEB package with dpkg\n"
+"  auto-install - the whole process, get & build & install (abbreviated: a-"
+"i)\n"
+"  prepare - install headers for the current kernel and set the linux "
+"symlink\n"
+"  clean - quick clean of the source (eg. wiping the build directory)\n"
+"  purge - removes cached data and existing modules packages\n"
+"  la (alias for \"list all\"), li (= \"list all installed\"), search (= "
+"\"list -s\")\n"
+"\n"
+"Package arguments:\n"
+"\n"
+"  Source package name(s). If -src or -source is omitted, name\n"
+"  completion will try to guess the package name. If the first argument\n"
+"  is 'all', the list will be expanded to all packages. 'alli' will be\n"
+"  expanded to \"all installed\".\n"
+"\n"
+"Options:\n"
+" -h, --help        Print this help screen\n"
+" -v, --verbose     Be verbose, show full paths, etc.\n"
+" -q, --quiet       The opposite of verbose\n"
+" -n, --no-rebuild  Don't rebuild when any usable modules package for \n"
+"                   this kernel exists (even an old one)\n"
+" -i, --non-inter   Don't stop on build failures, auto-install deps when "
+"needed\n"
+" -o, --unpack-once Unpack the source only once after source upgrade or "
+"clean\n"
+" -O, --not-unpack  Don't unpack the source at all\n"
+" -s, --apt-search  Search for installation candidates in the Debian archive\n"
+" -S, --sudo-cmd    An alternative command for sudo\n"
+" -f, --force       Force duplicated work: source package reinstallation,\n"
+"                   rebuild though existing packages are found, etc.\n"
+" -t, --text-mode   Text mode, no dialog boxes\n"
+" -u, --userdir     Specifies a (writeable) replacement directory for /var&/"
+"usr\n"
+" -k, --kernel-dir  List of kernel headers/source directories, comma "
+"separated\n"
+" -l, --kvers-list  List of kernel versions to work on (default: current "
+"version)\n"
+"Lists in options are strings separated by commas, spaces or newlines.\n"
+"\n"
+"Example:\n"
+"  m-a update ; m-a a-i nvidia-kernel ; echo Enjoy!"
+msgstr ""
+"UTILISATION :\n"
+"\n"
+"  module-assistant update\n"
+"  module-assistant [options] COMMANDE [paquets]\n"
+"\n"
+"module-assistant est l'outil qui permet d'obtenir les sources des modules\n"
+"du noyau à la mode Debian, d'en construire des paquets et de les installer.\n"
+"La commande la plus fréquente est peut-être « auto-install » avec le\n"
+"paramètre « alli ».\n"
+"Commandes :\n"
+"\n"
+" update        met à jour les informations internes des paquets\n"
+" unpack        dépaquette les archives des paquets indiqués (ou action\n"
+"               du même type)\n"
+" get           télécharge/installe les paquets source et les dépaquette\n"
+"               si nécessaire\n"
+" build         construit le(s) paquet(s) indiqué(s)\n"
+" list          affiche les informations des paquets installés, disponibles\n"
+"               ou compilés\n"
+" install       installe le paquet DEB du binaire généré du module\n"
+"               avec dpkg\n"
+" auto-install  le processus complet : télécharge, construit et installe\n"
+"               (abrégé : a-i)\n"
+" prepare       installe les en-têtes pour le noyau actuellement utilisé \n"
+"               et crée le lien symbolique « linux »\n"
+" clean         nettoie sommairement les sources (vidage du répertoire de\n"
+"               construction)\n"
+" purge         supprime les informations en cache et les paquets modules\n"
+"               existants\n"
+" la            alias pour « list all » : tout lister\n"
+" li            alias pour « list all installed » : lister tous ceux\n"
+"               qui sont installés\n"
+" search        alias pour « list -s »\n"
+"\n"
+"Paramètres pour les paquets :\n"
+"\n"
+"  Nom des paquets source. Si -src ou -source n'est pas précisé, le\n"
+"  complètement essaiera de deviner le nom du paquet. Si « all » est\n"
+"  indiqué en premier paramètre, il listera tous les paquets, « alli »\n"
+"  affichera tous les paquets installés.\n"
+"\n"
+"Options :\n"
+" -h, --help        afficher cet écran d'aide.\n"
+" -v, --verbose     mode verbeux, afficher les chemins complets, etc.\n"
+" -q, --quiet       le contraire du mode verbeux.\n"
+" -n, --no-rebuild  ne pas reconstruire lorsqu'un paquet de modules est\n"
+"                   utilisable pour ce noyau (même s'il est ancien).\n"
+" -i, --non-inter   ne pas s'interrompre lors d'échecs de construction,\n"
+"                   installer automatiquement les dépendances nécessaires.\n"
+" -o, --unpack-once ne dépaqueter les sources qu'après une mise à niveau\n"
+"                   ou un nettoyage des sources.\n"
+" -O, --not-unpack  ne pas dépaqueter les sources\n"
+" -s, --apt-search  rechercher les paquets installables dans\n"
+"                   l'archive Debian.\n"
+" -S, --sudo-cmd    une commande alternative pour sudo.\n"
+" -f, --force       forcer même si la tâche a déjà été réalisée :\n"
+"                   réinstallation du paquet source, reconstruction même\n"
+"                   si paquet existe, etc.\n"
+" -t, --text-mode   mode texte, sans boîtes de dialogue.\n"
+" -u, --userdir     indiquer un répertoire ouvert en écriture en\n"
+"                   remplacement de /var&/usr.\n"
+" -k, --kernel-dir  liste des répertoires d'en-têtes ou des sources du\n"
+"                   noyau, séparés par une virgule.\n"
+" -l, --kvers-list  Liste des versions de noyau avec lesquelles\n"
+"                   travailler (par défaut la version du noyau en cours).\n"
+"Les listes dans les options sont des chaînes séparées par une virgule, une\n"
+"espace ou un retour à la ligne.\n"
+"\n"
+"Par Exemple :\n"
+"  m-a update ; m-a a-i nvidia-kernel ; echo Amusez-vous !"
+
+#: ../module-assistant:110
+msgid ""
+"Warning: the selected module source is known to require a complete\n"
+"kernel source structure in order to be built correctly. However, only\n"
+"a reduced version of the source (linux-headers) has been found, so\n"
+"the build process will probably fail.\n"
+"\n"
+"In order to get a full kernel source, you have the following options:\n"
+"\n"
+" - fake the source directory - create one that may look very similar\n"
+"   to the one that has been used to build your kernel (based on its\n"
+"   configuration and fresh source archive). The results are uncertain,\n"
+"   but it should work in most cases.\n"
+"   Call \"module-assistant fakesource\" to automate this.\n"
+" - use a custom kernel built from scratch (custom configuration,\n"
+"   custom source, custom kernel package installed). Please read the\n"
+"   Kernel HOWTO and/or make-kpkg documentation for the further steps."
+msgstr ""
+"Attention : les sources du module choisi nécessitent la présence des\n"
+"sources complètes du noyau pour être construites correctement. Néanmoins,\n"
+"seuls les en-têtes du noyau ont été trouvés. Le processus de construction\n"
+"échouera probablement.\n"
+"Pour obtenir les sources complètes du noyau, vous avez les options\n"
+"suivantes :\n"
+"\n"
+" - simuler le répertoire source - en créer un qui ressemble beaucoup à\n"
+"   celui qui a été utilisé pour construire votre noyau (basé sur sa\n"
+"   configuration et sur une archive source neuve). Les résultats sont\n"
+"   incertains, mais cela devrait fonctionner dans la plupart des cas.\n"
+"   Utilisez « module-assistant fakesource » pour automatiser ce processus.\n"
+" - utiliser un noyau construit intégralement (configuration personnalisée,\n"
+"   sources personnalisées, paquet du noyau personnalisé). Veuillez lire le\n"
+"   « Kernel HOWTO » et/ou la documentation de make-kpkg pour plus de\n"
+"   détails."
+
+#: ../module-assistant:335 ../module-assistant:338
+msgid "module-assistant, error message"
+msgstr "module-assistant, message d'erreur"
+
+#: ../module-assistant:354
+msgid "Press Return to continue... (ctrl-c to abort)"
+msgstr "Appuyer sur Entrée pour continuer... (ctrl+c pour arrêter)"
+
+#: ../module-assistant:363
+#, perl-format
+msgid "%s is not a directory!"
+msgstr "%s n'est pas un répertoire."
+
+#: ../module-assistant:364 ../module-assistant:369
+#, perl-format
+msgid "%s is not writeable!"
+msgstr "%s n'est pas accessible en écriture."
+
+#: ../module-assistant:376
+msgid "Found sudo, will use it for %s and dpkg commands."
+msgstr "sudo a été trouvé, il sera utilisé pour les commandes %s et dpkg."
+
+#: ../module-assistant:380
+msgid "Warning: sudo not found. Automatic package installations not possible!"
+msgstr ""
+"Attention : impossible de trouver sudo. L'installation automatique ne sera "
+"pas possible."
+
+#: ../module-assistant:410
+msgid ""
+"Bad luck, the kernel headers for the target kernel version could not be "
+"found and you did not specify other valid kernel headers to use."
+msgstr ""
+"Les en-têtes du noyau pour la version cible n'ont pas pu être trouvés et "
+"vous n'avez pas indiqué d'autres en-têtes valables à utiliser."
+
+#: ../module-assistant:416
+#, perl-format
+msgid ""
+"However, you can install the header files for your kernel which are provided "
+"by the %s package. For most modules packages, these files are perfectly "
+"sufficient without having the original kernel source.\n"
+"\n"
+"To install the package, run"
+msgstr ""
+"Toutefois, vous pouvez installer les fichiers d'en-têtes pour votre noyau, "
+"fournis par le paquet %s. Pour la plupart des paquets de modules, ces "
+"fichiers sont tout à fait suffisants, et il n'est pas nécessaire d'avoir les "
+"sources originales du noyau.\n"
+"\n"
+"Pour installer ce paquet, lancez"
+
+#: ../module-assistant:420
+msgid " the PREPARE command from the main menu, or on the command line"
+msgstr " la commande PREPARE depuis le menu principal ou en ligne de commande."
+
+#: ../module-assistant:421
+#, perl-format
+msgid ""
+":\n"
+"\n"
+"module-assistant prepare\n"
+"\n"
+"or\n"
+"\n"
+"%s install %s"
+msgstr ""
+" :\n"
+"\n"
+"module-assistant prepare\n"
+"\n"
+"ou\n"
+"\n"
+"%s install %s"
+
+#: ../module-assistant:436
+#, perl-format
+msgid ""
+"If the running kernel has been shipped with the Debian distribution, please "
+"install the package %s. If your kernel source tree (or headers) is located "
+"in some non-usual location, please set the KERNELDIRS environment variable "
+"to the path of this directory, or (alternatively) specify the source "
+"directory we build for with the --kernel-dir option in module-assistant "
+"calls."
+msgstr ""
+"Si le noyau actuellement utilisé a été fourni avec votre distribution "
+"Debian, veuillez installer le paquet %s. Si votre répertoire source (ou les "
+"en-têtes) de votre noyau est situé dans un endroit inhabituel, veuillez "
+"indiquer à la variable d'environnement KERNELDIRS le chemin de ce "
+"répertoire, ou (solution alternative) veuillez indiquer le répertoire source "
+"à utiliser pour la construction avec l'option --kernel-dir de module-"
+"assistant."
+
+#: ../module-assistant:484
+msgid "Updating cached package data"
+msgstr "Mise à jour des données de paquets en cache"
+
+#: ../module-assistant:484
+msgid "Reading apt-cache output..."
+msgstr "Lecture de la sortie d'apt-cache..."
+
+#: ../module-assistant:494
+#, perl-format
+msgid "Updating info about %s"
+msgstr "Mise à jour des données de %s"
+
+#: ../module-assistant:524
+#, perl-format
+msgid "Updated infos about %s packages"
+msgstr "Données de %s paquets mises à jour"
+
+#: ../module-assistant:524
+#, perl-format
+msgid "Updated infos about %s package"
+msgstr "Données de %s paquet mises à jour"
+
+#: ../module-assistant:567
+msgid "Getting source for kernel version:"
+msgstr "Récupération des sources du noyau de la version :"
+
+#: ../module-assistant:568
+#, perl-format
+msgid "%s."
+msgstr "%s."
+
+#: ../module-assistant:572
+#, perl-format
+msgid "Kernel headers available in %s"
+msgstr "En-têtes du noyau disponibles dans %s"
+
+#: ../module-assistant:592
+msgid "Creating symlink..."
+msgstr "Création du lien symbolique..."
+
+#: ../module-assistant:594
+#, perl-format
+msgid "Couldn't create the %s/linux symlink!"
+msgstr "Impossible de créer le lien symbolique %s/linux."
+
+#: ../module-assistant:598
+msgid "Installing packages needed for the build environment..."
+msgstr ""
+"Installation des paquets nécessaires pour l'environnement de construction..."
+
+#: ../module-assistant:601
+msgid "Done!"
+msgstr "Fait."
+
+#: ../module-assistant:626
+msgid "PROBE:"
+msgstr "INTERROGATION :"
+
+#: ../module-assistant:629
+msgid "GOT NAME:"
+msgstr "NOM REÇU  :"
+
+#: ../module-assistant:660
+#, perl-format
+msgid "%s, what is %s?"
+msgstr "%s, qu'est-ce que %s ?"
+
+#: ../module-assistant:738
+#, perl-format
+msgid "Installation of the %s source failed."
+msgstr "Échec de l'installation des sources de %s."
+
+#: ../module-assistant:742
+msgid ""
+"Ignoring this package. Maybe you need to add something to sources.list, "
+"maybe the contrib and non-free archives."
+msgstr ""
+"Paquet ignoré. Vous devez peut-être ajouter quelque chose à sources.list, "
+"comme les archives « contrib » et « non-free »."
+
+#: ../module-assistant:798
+msgid "$KPKG_DEST_DIR is not set and the target directory"
+msgstr "$KPKG_DEST_DIR n'est pas réglé et le répertoire cible"
+
+#: ../module-assistant:799
+#, perl-format
+msgid ""
+"%s is not writeable for you!\n"
+"Your build will probably fail!"
+msgstr ""
+"Vous ne pouvez pas écrire dans %s.\n"
+"Votre compilation échouera probablement."
+
+#: ../module-assistant:846
+#, perl-format
+msgid "Recently built package %s found, not rebuilding %s"
+msgstr "Paquet %s récemment construit trouvé, pas de reconstruction de %s"
+
+#: ../module-assistant:851
+#, perl-format
+msgid "Target package file %s already exists, not rebuilding!"
+msgstr ""
+"Le fichier de paquet de destination %s existe déjà, pas de reconstruction."
+
+#: ../module-assistant:879 ../module-assistant:905
+#, perl-format
+msgid "Building %s, step %d, please wait..."
+msgstr "Construction de %s, étape %d, veuillez patienter..."
+
+#: ../module-assistant:879
+msgid "Build starting..."
+msgstr "Démarrage de la construction..."
+
+#: ../module-assistant:905
+msgid "Build continues..."
+msgstr "La construction continue..."
+
+#: ../module-assistant:923
+#, perl-format
+msgid ""
+"Done! Run\n"
+"m-a install %s\n"
+"to install."
+msgstr ""
+"Terminé. Lancez\n"
+"m-a install %s\n"
+"pour installer."
+
+#: ../module-assistant:935 ../module-assistant:1507
+msgid "module-assistant, interactive mode"
+msgstr "module-assistant, mode interactif"
+
+#: ../module-assistant:935
+#, perl-format
+msgid "Build of the package %s failed! How do you wish to proceed?"
+msgstr "La construction du paquet %s a échoué. Que souhaitez-vous faire ?"
+
+#: ../module-assistant:935
+msgid "Examine the build log file"
+msgstr "Examiner le fichier journal de la construction"
+
+#: ../module-assistant:935
+msgid "Skip and continue with the next operation"
+msgstr "Passer et continuer avec l'opération suivante"
+
+#: ../module-assistant:935
+msgid "Stop processing the build commands"
+msgstr "Arrêt du traitement des commandes de construction"
+
+#: ../module-assistant:940 ../module-assistant:1464
+msgid "Dialog command not working correctly!"
+msgstr "La commande « dialog » ne fonctionne pas correctement."
+
+#: ../module-assistant:943
+msgid "module-assistant, log file viewer"
+msgstr "module-assistant, visualiseur de fichiers journaux"
+
+#: ../module-assistant:954
+#, perl-format
+msgid "Build failed! See %s for details!"
+msgstr "La construction a échoué. Voir %s pour plus de détails."
+
+#: ../module-assistant:957
+#, perl-format
+msgid "Done with %s ."
+msgstr "Terminé pour %s."
+
+#: ../module-assistant:962
+msgid "Build failed. Press Return to continue..."
+msgstr "La construction a échoué. Appuyez sur Entrée pour continuer..."
+
+#: ../module-assistant:1002
+#, perl-format
+msgid "Package %s was not built successfully, see %s for details!"
+msgstr "Le paquet %s n'a pas pu être construit, voir %s pour plus de détails."
+
+#: ../module-assistant:1004
+msgid "You maybe want to run \"auto-install\" instead of install."
+msgstr "Vous souhaitez peut-être utiliser « auto-install » au lieu de install."
+
+#: ../module-assistant:1013
+msgid "Direct installation failed, trying to post-install the dependencies"
+msgstr ""
+"L'installation directe a échoué, tentative de postinstallation des "
+"dépendances"
+
+#: ../module-assistant:1037
+msgid ""
+"Warning, the cache is empty. You maybe wish to run the command \"module-"
+"assistant update\" first!"
+msgstr ""
+"Attention, le cache est vide. Vous devriez peut-être lancer la commande "
+"« module-assistant update » préalablement."
+
+#: ../module-assistant:1054
+#, perl-format
+msgid "%s (source) available (not up-to-date, V: %s vs. %s)"
+msgstr "%s (source) disponible (non à jour, V : %s au lieu de %s)"
+
+#: ../module-assistant:1057
+#, perl-format
+msgid "%s (source) installed (V: %s):"
+msgstr "%s (source) installé (V : %s) :"
+
+#: ../module-assistant:1064
+#, perl-format
+msgid "%s (source package not installed):"
+msgstr "%s (paquet source non installé) :"
+
+#: ../module-assistant:1097
+msgid "not found, possible candidate(s) installable with %s:"
+msgstr "non trouvé, candidats possibles pouvant être installés avec %s :"
+
+#: ../module-assistant:1100
+msgid "package not found, but following is already installed:"
+msgstr "paquet non trouvé, mais les suivants sont déjà installés :"
+
+#: ../module-assistant:1106
+msgid "not found"
+msgstr "non trouvé"
+
+#: ../module-assistant:1111
+msgid "-- Binary package(s) for kernel(s):"
+msgstr "-- Paquet(s) binaires pour le(s) noyau(x) :"
+
+#: ../module-assistant:1127
+msgid ""
+"Some packages could not be found. The \"search\" command can search in the "
+"package pool for precompiled packages."
+msgstr ""
+"Certains paquets n'ont pas pu être trouvés. La commande « search » permet de "
+"rechercher des paquets précompilés dans la liste."
+
+#: ../module-assistant:1131
+msgid "No data? You maybe want to run \"module-assistant update\" first."
+msgstr ""
+"Pas de données ? Vous devriez lancer « module-assistant update » "
+"préalablement."
+
+#: ../module-assistant:1217
+msgid ""
+"Experimental kernel source recreating method...\n"
+"Getting source..."
+msgstr ""
+"Méthode expérimentale de recréation des sources du noyau...\n"
+"Récupération des sources..."
+
+#: ../module-assistant:1220
+msgid "Config not found, getting headers to extract the config..."
+msgstr "Configuration non trouvée, utilisation des en-têtes pour l'extraire..."
+
+#: ../module-assistant:1227
+msgid "Extracting pristine kernel source, please wait..."
+msgstr "Extraction des sources originales du noyau, veuillez patienter..."
+
+#: ../module-assistant:1229
+msgid "Installing to final location and configuring, please wait..."
+msgstr ""
+"Installation dans l'emplacement final et configuration, veuillez patienter..."
+
+#: ../module-assistant:1258
+#, perl-format
+msgid ""
+"Faked kernel source for the Kernel %s.\n"
+"Warning: the configuration may not match the running kernel."
+msgstr ""
+"Sources du noyau factices pour le noyau %s.\n"
+"Attention : il se peut que la configuration ne corresponde pas au noyau "
+"actuellement utilisé."
+
+#: ../module-assistant:1292
+#, perl-format
+msgid ""
+"Warning, %s seems to contain unconfigured kernel source (see manpage for "
+"details)!"
+msgstr ""
+"Attention, %s semble contenir des sources de noyau non configurées (référez-"
+"vous à la page de manuel pour plus de détails)."
+
+#: ../module-assistant:1296
+#, perl-format
+msgid "Warning, could not access the %s directory!"
+msgstr "Attention, impossible d'accéder au répertoire %s."
+
+#: ../module-assistant:1300
+#, perl-format
+msgid "Warning, %s does not contain a valid kernel source tree, skipping!"
+msgstr "Attention, %s ne contient pas de sources valides du noyau, ignoré."
+
+#: ../module-assistant:1458
+msgid ""
+"Welcome to the dialog frontend of module-assistant. This user interface "
+"provides access to the few commands of this program."
+msgstr ""
+"Bienvenue sur l'interface « Dialog » de module-assistant. Cette interface "
+"permet l'accès aux commandes de ce programme."
+
+#: ../module-assistant:1458
+msgid "If you wish to learn more, choose the OVERVIEW option."
+msgstr "Si vous désirez en savoir plus, choisissez l'option APERÇU."
+
+#: ../module-assistant:1458
+msgid "You should better run UPDATE once before you proceed."
+msgstr "Vous devriez lancer UPDATE avant de commencer."
+
+#: ../module-assistant:1458
+msgid ""
+"If you wish to look for existing module packages for your needs or wish to "
+"compile a new one from source, choose them in the SELECT dialog and continue "
+"with possible commands."
+msgstr ""
+"Si vous désirez chercher des paquets de modules existants pour vos besoins "
+"ou compiler un nouveau paquet depuis les sources, veuillez les sélectionner "
+"dans la page SELECT, et continuer avec les commandes disponibles."
+
+#: ../module-assistant:1458
+msgid "Show all possible command line commands"
+msgstr "Afficher toutes les commandes accessibles en ligne de commandes"
+
+#: ../module-assistant:1458
+msgid "Update the cached package information"
+msgstr "Mettre à jour les informations des paquets en cache"
+
+#: ../module-assistant:1458
+msgid "Configure the system to compile modules"
+msgstr "Configurer le système pour compiler des modules"
+
+#: ../module-assistant:1458
+msgid "Select the module/source packages to work on"
+msgstr "Sélectionner le module ou le paquet source à traiter"
+
+#: ../module-assistant:1458
+msgid "Exit the program"
+msgstr "Quitter le programme"
+
+#: ../module-assistant:1470
+msgid "module-assistant, command overview"
+msgstr "module-assistant, aperçu des commandes"
+
+#: ../module-assistant:1478
+msgid "Press Return to continue..."
+msgstr "Appuyez sur Entrée pour continuer..."
+
+#: ../module-assistant:1489
+msgid "module-assistant, package selection"
+msgstr "module-assistant, sélection des paquets"
+
+#: ../module-assistant:1489
+msgid "Please select the interesting module (source) packages."
+msgstr "Veuillez choisir les paquets (source) de modules intéressants"
+
+#: ../module-assistant:1489
+msgid "Use Cursor keys to browse, Space to select and Return to continue."
+msgstr ""
+"Utilisez les flèches pour vous déplacer, Espace pour sélectionner et Entrée "
+"pour continuer."
+
+#: ../module-assistant:1489
+msgid "Cancel to return to the main menu."
+msgstr "Annuler pour revenir au menu principal."
+
+#: ../module-assistant:1507
+msgid "You have selected the following packages:"
+msgstr "Vous avez sélectionné les paquets suivants :"
+
+#: ../module-assistant:1509
+msgid ""
+"Choose one of the following commands to proceed or Cancel to return to the "
+"selection menu."
+msgstr ""
+"Veuillez choisir l'une des commandes suivantes ou Annuler pour revenir au "
+"menu de sélection."
+
+#: ../module-assistant:1509
+msgid "List installed (binary) packages"
+msgstr "Lister les paquets binaires installés"
+
+#: ../module-assistant:1509
+msgid "List and search with apt-cache"
+msgstr "Lister et chercher avec apt-cache"
+
+#: ../module-assistant:1509
+msgid "Get or update the source package"
+msgstr "Récupérer ou mettre à jour le paquet source"
+
+#: ../module-assistant:1509
+msgid "Compiles module packages for the current kernel"
+msgstr "Compiler les paquets de modules pour le noyau actuellement utilisé"
+
+#: ../module-assistant:1509
+msgid "Installs the packages for the current kernel"
+msgstr "Installer les paquets pour le noyau actuellement utilisé"
+
+#: ../module-assistant:1509
+msgid "Returns to the module selection"
+msgstr "Retourner à la sélection des modules"
+
+#: ../module-assistant:1524
+msgid "module-assistant, present packages"
+msgstr "module-assistant, paquets présents"
+
+#: ../module-assistant:1537
+msgid "module-assistant, source installation"
+msgstr "module-assistant, installation des sources"
+
+# VO ERROR
+#: ../module-assistant:1537
+msgid ""
+"The source package may not to be installed. Would you like to install or "
+"upgrade selected source packages now?"
+msgstr ""
+"Le paquet source peut ne pas être installé. Voulez-vous installer ou mettre "
+"à jour maintenant les paquets source sélectionnés ?"
+
+#: ../module-assistant:1546
+msgid "module-assistant, package installation"
+msgstr "module-assistant, installation des paquets"
+
+#: ../module-assistant:1546
+msgid "Would you like to install the created module package(s) now?"
+msgstr "Souhaitez-vous installer les paquets de modules créés maintenant ?"
+
+#: ../module-assistant:1573
+#, perl-format
+msgid ""
+"NOTE: You are not root but member of the src group. Mapping the base working "
+"directory to \"%s\"."
+msgstr ""
+"NOTE : Vous n'êtes pas superutilisateur mais vous êtes membre du groupe "
+"« src ». Le répertoire de travail utilisé sera « %s »."
+
+#: ../module-assistant:1581
+#, perl-format
+msgid ""
+"You are member of the src group but the replacement directory %s could not "
+"be created or is not writeable."
+msgstr ""
+"Vous êtes membre du groupe src, mais le répertoire de remplacement %s n'a "
+"pas pu être créé ou n'est pas ouvert en écriture."
+
+#: ../module-assistant:1590
+msgid ""
+"You are not root and no replacement directory (the -u option) is specified. "
+"Unable to continue."
+msgstr ""
+"Vous n'êtes pas superutilisateur et aucun répertoire de remplacement\n"
+"n'a été spécifié (option -u). Impossible de continuer."
+
+#~ msgid "No package specified. STOP."
+#~ msgstr "Pas de paquet spécifié. Arrêt."
+
+#~ msgid ""
+#~ "Do you really wish to remove all binary packages?\n"
+#~ "If so, use the --force option."
+#~ msgstr ""
+#~ "Désirez-vous vraiment supprimer tous les paquets binaires ?\n"
+#~ "Si oui, utilisez l'option --force."
+
+#~ msgid "Starting the Dialog UI..."
+#~ msgstr "Démarrage de l'interface « Dialog »..."
+
+#~ msgid "Warning, %s seems to contain unconfigured kernel source!"
+#~ msgstr "Attention, %s semble contenir des sources de noyau non configurées."

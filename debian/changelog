@@ -1,0 +1,1132 @@
+module-assistant (0.11.10) unstable; urgency=medium
+
+  * Switch Vcs-* URLs to salsa.debian.org.
+  * Switch to debhelper compat level 11.
+  * Bump Standards-Version to 4.1.4 (no changes needed).
+  * Create the template tarball reproducibly, thanks to Reiner Herrmann.
+    (Closes: #828778)
+  * Convert debian/copyright to DEP5 format.
+  * Use dpkg makefile snippets instead of manual changelog parsing.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 23 Apr 2018 01:15:33 +0200
+
+module-assistant (0.11.9) unstable; urgency=low
+
+  * When debian/rules is called without frontend, try to get information from
+    include/generated/utsrelease.h as well
+  * In generic.sh, rename the internal override variable $BUILDDIR to avoid
+    confusion by environments like pbuilder shell
+  * Also considering tar.lzma extension in tarball lookup
+  * Don't attempt to install linux headers if they have been configured by the
+    user via command line option (closes: #437466)
+  * Mark module packages as auto-installed (by David Kalnischkies,
+    closes: #829595)
+
+ -- Eduard Bloch <blade@debian.org>  Sat, 03 Sep 2016 20:02:21 +0200
+
+module-assistant (0.11.8) unstable; urgency=medium
+
+  * Switch to debhelper compat level 9 and simplify d/rules.
+  * Create examples tarball reproducibly.
+  * Update compliant.list:
+    + martian-modem-source
+    - nvidia-legacy-173xx-kernel-source
+    - nvidia-legacy-96xx-kernel-source
+    - nvidia-kernel-legacy-173xx-source
+    - nvidia-kernel-legacy-71xx-source
+    - nvidia-kernel-legacy-96xx-source
+    + nvidia-legacy-340xx-kernel-source
+  * Bump Standards-Version to 3.9.6 (no changes needed).
+  * Update Vcs-* URLs.
+  * Use dh_bash-completion to install completions in /usr/share.
+  * Cleanup the old conffile /etc/bash_completion.d/m-a.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 23 Sep 2015 03:36:32 +0200
+
+module-assistant (0.11.7) unstable; urgency=low
+
+  * d/rules: pristine-tar-commit: Apply s/~/_/ when converting version to tag.
+  * Fix most hyphen-used-as-minus-sign in the manpage.
+  * Remove support for compilers that have been removed after squeeze.
+  * Add Build-Depends: docbook.  (Closes: #744819)
+  * Update compliant.list:
+    - acerhk-source
+    - alsa-source  (Closes: #699858)
+    + bbswitch-source
+    - bcm5700-source
+    - cdfs-src
+    - comedi-source
+    - ipset-source
+    - linux-wlan-ng-source
+    - lirc-modules-source
+    - loop-aes-source
+    - lustre-source
+    - qc-usb-source
+    - sysprof-module-source
+    - virtualbox-ose-source
+  * Bump Standards-Version to 3.9.5 (no changes needed).
+  * Do not call tput in non-gui sessions, thanks to Francois Marier.
+    (Closes: #459977) (LP: #284181)
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 23 Apr 2014 10:28:50 +0200
+
+module-assistant (0.11.6) unstable; urgency=low
+
+  * If --userdir is given, additionally look for tarballs in
+    <userdir>/usr_src/.
+  * Add "-kernel" to the list of tarball pre-suffixes.
+  * Update compliant.list:
+    + nvidia-legacy-173xx-kernel-source
+    + nvidia-legacy-304xx-kernel-source
+    + nvidia-legacy-96xx-kernel-source
+    + nvidia-kernel-source
+  * Add Depends: xz-utils.
+  * Add support for .tar.xz source tarballs.  (Closes: #710034)
+    Users of this feature should add Breaks: module-assistant (<< 0.11.6~).
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 06 Jul 2013 20:09:25 +0200
+
+module-assistant (0.11.5) unstable; urgency=low
+
+  [ David Kalnischkies ]
+  * try to open new (Linux >= 3.7) location for version.h aswell
+    as the old location(s), thanks to Evgeni Golov (Closes: #697269, #702648)
+    (LP: #1114426)
+  * fix xgettext 'invalid variable interpolation at "$"' error in
+    strings, thanks to Stefan Lippers-Hollmann (also in #697269)
+  * add Portuguese translation by Américo Monteiro (Closes: #591421)
+  * change from (implicit) source format v1 to v3 (native)
+  * fix "useful"-typo in manpage (found by lintian)
+  * bump Standards-Version to 3.9.4 (no changes needed)
+  * remove \w from the dpkg-deb matching regex as utf-8 characters
+    like "»«" 'qualify' as such so that m-a isn't extracting the path
+    correctly: The regex is now '[^./]' to eat everything as needed.
+
+  [ Andreas Beckmann ]
+  * Package description reviewed, thanks to Justin B Rye.  (Closes: #679099)
+  * Update compliant.list:
+    - acx100-source
+    + broadcom-sta-source  (Closes: #673782)
+    - cpad-kernel-source
+    + dahdi-source  (Closes: #641857)
+    - drbd0.7-module-source
+    - em8300-source
+    - exmap-modules-source
+    - fglrx-kernel-src
+    + fglrx-legacy-source  (Closes: #697436)
+    + fglrx-source  (Closes: #673411)
+    - freeswan-modules-source
+    - gpib-modules-source
+    + ipset-source  (Closes: #624737)
+    - ivtv-source
+    - kqemu-source
+    + leds-alix-source
+    + lustre-source
+    - madwifi-source
+    + openvswitch-datapath-source
+    + oss4-source
+    - rt2400-source
+    - rt2500-source
+    - rt2570-source
+    - squashfs-source
+    + tp-smapi-source
+    + v4l2loopback-source
+    + virtualbox-guest-source
+    + virtualbox-source
+    + vpb-driver-source
+    + west-chamber-source
+    + xtables-addons-source
+    - zaptel-source (renamed to dahdi-source)
+  * Remove support for pcmcia-source, not in squeeze or later.
+  * Remove support for compilers that have not been in squeeze or later.
+  * Sanitize postrm.
+  * Use canonical Vcs-* URLs.
+  * Clean old builddir before extracting tarball.  (Closes: #481107, #553464)
+    (LP: #349944)
+  * Honour ACLs when checking writability of --userdir <dir>, thanks to
+    Quentin Godfroy.  (Closes: #451721)
+
+  [ Eduard Bloch ]
+  * Add David and Andreas as co-maintainers.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 25 May 2013 22:03:55 +0200
+
+module-assistant (0.11.4) unstable; urgency=low
+
+  * New upstream release
+  * Removed Cyril from Uploaders list as requested, many thanks for the past
+    maintenance work
+  * Handle Linux 3.x version scheme (closes: #630836)
+  * Updated standards version (no changes required)
+  * Fixing minor flaws (postrm handling, French manpage format error)
+  * Correcting some German translation mistakes (closes: #406342)
+  * Restored the original a-i behavior without any package specification, not
+    attempting to build everything (closes: #539195). Also allowed to override
+    default apt-get command name with a custom command in MA_APTCMD
+    environment variable, and added sleep periods to give the use more chance
+    to terminate unexpectedly large operations.
+
+ -- Eduard Bloch <blade@debian.org>  Wed, 29 Jun 2011 22:26:18 +0200
+
+module-assistant (0.11.3) unstable; urgency=low
+
+  * New upstream release.
+  * Add modass/check-known-packages.sh to monitor module-related sources
+    within suites. It takes an optional parameter, which controls where to
+    keep a copy of the summary, if any.
+  * Remove obsolete packages from compliant.list accordingly:
+     - affix-source
+     - arla-modules-source
+     - at76c503a-source
+     - bcm4400-source
+     - cipe-source
+     - cryptoapi-core-source
+     - cryptoloop-source
+     - dazuko-source
+     - ddrmat-source
+     - drbd8-module-source
+     - dvb-driver-source
+     - e100-source
+     - eagle-usb-modules-source
+     - ftape-source
+     - ftpfs-src
+     - fuse-source
+     - fwatch-modules-src
+     - hostap-source
+     - hubcot-source
+     - i2c-source
+     - ieee80211-source
+     - ipw2100-source
+     - ipw2200-source
+     - linux-uvc-source
+     - lm-sensors-source
+     - loop-aes-ciphers-source
+     - lufs-source
+     - misdn-kernel-source
+     - nozomi-source
+     - ov511-source (LP: #573830)
+     - plex86-kernel-src
+     - ppscsi-source
+     - qla2x00-source
+     - realtime-lsm-source
+     - shfs-source
+     - spca5xx-source (Closes: #518144)
+     - thinkpad-source
+     - tidev-modules-source
+     - translucency-source
+     - tun-source
+     - unicorn-source
+     - unionfs-source
+     - userlink-source
+     - vaiostat-source
+     - video4linux-nw802-source
+     - wacom-kernel-source
+     - xdslusb-source
+     - xlibmesa-drm-src
+  * Add nvidia-kernel-legacy-173xx-source to compliant.list, as suggested
+    by Krzesimir Nowak (Closes: #525061).
+  * Add support for recent kernels with utsrelease.h under
+    include/generated/, thanks to Benoît Wallecan for both report and
+    patch (Closes: #566487) (LP: #691906).
+  * As for the related Linux changes:
+     - See #561569 reported against kernel-package, which in turn points
+       to 9204595405 in linux-2.6.git, for compile.h
+     - For utsrelease.h (the problem at hand here), that's 273b281fa2
+       aka. v2.6.32-6501-g273b281.
+  * Bottom line: One probably wants to upgrade to this version if support
+    for versions newer than 2.6.32 is needed.
+
+ -- Cyril Brulebois <kibi@debian.org>  Wed, 27 Jan 2010 02:22:36 +0100
+
+module-assistant (0.11.2) unstable; urgency=low
+
+  * New maintenance release.
+  * Improve upstream build system:
+     - Tweak toplevel Makefile a bit.
+     - Fix install target.
+     - Replace $(prefix) with $(DESTDIR) in toplevel Makefile.
+     - Adapt packaging now that toplevel Makefile is fixed.
+     - Use wildcards to list *.po files.
+     - Remove $(POFILES) from .PHONY line.
+     - Improve po/Makefile to only rebuild when needed.
+     - Use a $(LANGS) variable.
+     - Kill various whitespaces.
+     - Remove useless TODO directory.
+     - Add --statistics to the msgfmt call to monitor the status of
+       translations.
+     - Chain “make -C po all” from “make all”.
+     - Accordingly: No longer need to build and clean the translations
+       from debian/rules.
+  * Improve upstream documentation:
+     - Adjust all half-closed tags.
+     - Harmonize tags: use all-lowercase.
+     - Fix how SEE ALSO looks.
+     - Generate index.html in the doc target.
+     - Install index.html under /usr/share/doc/module-assistant.
+     - Since both index.html and module-assistant.8 are generated, remove
+       them from versioning and remove them in the clean target.
+     - Replace kernel-headers with linux-headers everywhere.
+  * Improve Debian packaging:
+     - Add a Depends: on bzip2 (Closes: #443912, #443769). One could
+       hesitate a bit between Recommends and Depends but well, bzip2 isn't
+       a huge package, and a majority of modules is shipped through bzip2
+       tarballs, so let's make it mandatory.
+     - Fix dh_installdeb/dh_installmodules order in templates. Thanks to
+       John Wright for both the bug and the patch (Closes: #463488).
+     - Switch section from misc to kernel, as agreed with ftpmasters.
+     - Tweak prepare-changelog target to support overriding $(LAST).
+     - Remove the useless dpkg-parsechangelog trick.
+     - Add docbook-utils to Build-Depends for docbook2man.
+     - Set LC_ALL=C in debian/rules, rather than LANG=C.
+
+ -- Cyril Brulebois <kibi@debian.org>  Fri, 08 Jan 2010 04:36:01 +0100
+
+module-assistant (0.11.1) unstable; urgency=low
+
+  * New maintenance release.
+  * Switch to debhelper 7.
+  * debian/changelog:
+     - Clean it up.
+  * debian/control:
+     - Drop ${shlibs:Depends}, add ${misc:Depends}.
+     - Bump Standards-Version to 3.8.1 (no changes needed).
+     - Add pointers to the git repository on alioth.
+  * debian/copyright:
+     - Fix upstream source URL.
+     - Switch to the proposed copyright format.
+  * debian/rules:
+     - Delete commented lines in rules file.
+     - Remove unused CFLAGS and INSTALL_PROGRAM.
+     - Remove unused configure* things.
+     - Stop ignoring $(MAKE) clean errors.
+     - Rephrase the $(MAKE) -C po call.
+     - Move templates tarball generation to build-stamp.
+     - Stop setting SHELL to bash.
+     - Stop deleting .svn files, there's none.
+     - Remove -Xvar/cache/modass from dh_fixperms (useless).
+     - Implement source-package target.
+     - Add a prepare-changelog target.
+     - Add a pristine-tar-commit target.
+     - Set LANG=C.
+  * debian/README.source:
+     - Add it to document extra targets.
+  * debian/* (debhelper) files:
+     - Use examples, dirs, install, links, and manpages files.
+
+ -- Cyril Brulebois <kibi@debian.org>  Mon, 20 Apr 2009 01:41:54 +0200
+
+module-assistant (0.11.0) unstable; urgency=low
+
+  * New bugfix release.
+  * Add myself to Uploaders with Eduard's ACK.
+  * Fix typo resulting in “apt-get-y: command not found”, thanks to Pedro
+    Gimeno (Closes: #482638, #507355).
+  * Update compliant.list:
+     - Remove nvidia-kernel-legacy-source (only in oldstable).
+     - Remove zd1211-source (only in oldstable), thanks to Luca Bruno
+       (Closes: #494014).
+     - Add acerhk-source (Closes: #478050) (LP: #373653).
+     - Add nvidia-kernel-legacy-{71xx,96xx}-source (Closes: #423624).
+     - Add virtualbox-ose-source (Closes: #508594).
+  * Fix broken references to RATIONALE file, formerly renamed to README,
+    thanks to Jö Fahlke (Closes: #410577).
+  * Fix broken references to nvidia (it is now nvidia-kernel) in the
+    manpage, thanks to Hamish Moffatt (Closes: #416019).
+  * Include Basque translation, by Piarres Beobide (Closes: #461356).
+  * Mention “m-a” in the long description, as suggested by Franklin Piat
+    (Closes: #475384).
+
+ -- Cyril Brulebois <kibi@debian.org>  Tue, 24 Mar 2009 22:00:03 +0100
+
+module-assistant (0.10.11.0) unstable; urgency=medium
+
+  * NMU prepared after consultation with the package maintainer.
+  * Name change nvidia-kernel-source -> nvidia-kernel (closes: #459862).
+
+ -- Sean Finney <seanius@debian.org>  Thu, 17 Jan 2008 21:14:15 +0100
+
+module-assistant (0.10.11) unstable; urgency=medium
+
+  * Updated the Makefile list for the languages (sorry translators)
+
+ -- Eduard Bloch <blade@debian.org>  Sat, 27 Jan 2007 14:00:23 +0100
+
+module-assistant (0.10.10) unstable; urgency=high
+
+  * French m-a manpage symlink fixed, patch by Simon Paillard
+
+ -- Eduard Bloch <blade@debian.org>  Mon, 15 Jan 2007 00:18:27 +0100
+
+module-assistant (0.10.9) unstable; urgency=medium
+
+  * added -u... to dpkg-genchanges to make Changed-By identical with
+    Maintainer header (closes: #402059)
+  * added kqemu-source and linux-uvc-source to the static list
+    (closes: #405955, #405492)
+  * manpage rebuilt from module-assistant.8.sgml (closes: #401241)
+  * French translation update (closes: #395879) and  manual page by Simon
+    Paillard (closes: #401244)
+  * Spanish translation by Rudy Godoy (closes: #402521)
+  * Russian translation by Юрий Козлов (closes: #405404)
+  * structured HOWTO-DEVEL a bit and added troubleshooting section, describing
+    how to prevent post-cleaning (closes: #394090) and the --debug option
+    (closes: #386407)
+
+ -- Eduard Bloch <blade@debian.org>  Mon, 08 Jan 2007 23:42:39 +0100
+
+module-assistant (0.10.8) unstable; urgency=low
+
+  * nvidia-kernel-legacy ->nvidia-kernel-legacy-source (closes: #398512, #396491)
+  * deleting VERSION from environment in the frontend, to avoid interaction
+    with that var on users machines (closes: #396299)
+  * moved RATIONALY to README, created a simple structure for better
+    readability, added Marc Haber's KVERS description to glossary
+    (closes: #396488)
+
+ -- Eduard Bloch <blade@debian.org>  Wed, 15 Nov 2006 16:45:36 +0100
+
+module-assistant (0.10.7) unstable; urgency=medium
+
+  * changed templates to use dh_installmodules (closes: #380159)
+  * call initksrc along with prep in a-i processing, makes m-a aware of
+    installed kernel headers (closes: #389580)
+  * fixed an evil mistake when processing additional kernel versions, patch by
+    Matthias Urlichs (closes: #381478)
+  * made the gcc check critical to stop people from shooting themselfes in the
+    foot, can still be overriden by the user. Also added more gcc wrapping
+    directories (closes: #387375, #348815, #386037)
+  * manpage fixes by Simon Paillard (closes: #389812)
+  * fr.po fixes by Simon Paillard (closes: #381691)
+  * sv.po by Daniel Nylander (closes: #388272)
+  * cs.po by Miroslav Kure (closes: #389943)
+  * dropped depmod cludge from example in templates (closes: #380159)
+  * prepare install build-essential, documented in the manpage (closes: #382610)
+  * new option, -O, never unpacking module source (closes: #392761)
+  * documented -q, -o, -O, -S (closes: #385491)
+
+ -- Eduard Bloch <blade@debian.org>  Sat, 14 Oct 2006 00:24:59 +0200
+
+module-assistant (0.10.6) unstable; urgency=low
+
+  * no external command reads untill the package is known, avoids
+    unnecessary command calls while guessing the package name
+  * urgent workaround for a strange bug where the package name was
+    modified during auto-install
+
+ -- Eduard Bloch <blade@debian.org>  Sun, 23 Jul 2006 17:39:25 +0200
+
+module-assistant (0.10.5) unstable; urgency=low
+
+  * sync compliant.list with rdepends (closes: #361011)
+  * applied patch to work with version.h/utsrelease.h refactoring in 2.6.18
+    (thanks to Junichi Uekawa, closes: #377198)
+  * running &up and &prep as part of "auto-install", also some refactoring in
+    prep to make it less noisy with read-only access (closes: #375539)
+  * added CDBS_SAFE_DEB_DESTDIR (copy of DEB_DESTDIR) and a note in
+    HOWTO-DEVEL. Removed old porting example, dh-make provides enough
+    nowadays.
+  * disabled an old crufty "helper" for DEB_DESTDIR && KMAINT mode
+    (closes: #368122)
+
+ -- Eduard Bloch <blade@debian.org>  Sat, 22 Jul 2006 11:21:46 +0200
+
+module-assistant (0.10.4) unstable; urgency=low
+
+  * added sysprof-module-source (closes: #360996), rt2400-source,
+    rt2500-source
+  * added fakesource to bash-completion
+  * i18n related po/Makefile tuning (closes: #361235)
+  * French translation update and language fix (closes: #362574)
+  * misc. fixes: policy version update, build-depends-indep -> build-depends
+
+ -- Eduard Bloch <blade@debian.org>  Mon, 15 May 2006 19:39:53 +0200
+
+module-assistant (0.10.3) unstable; urgency=low
+
+  * changed default source lookup path to prefer Debian's linux headers
+    packages
+  * stop complaining about unconfigured kernel source if version.h is missing,
+    the test is not really reliable (closes: #358332)
+  * restructured version data collection code, solving rare problems like with
+    override files (closes: #342112)
+  * added spca5xx-source (closes: #354329), exmap-modules-source,
+    realtime-lsm-source, nvidia-kernel-legacy (closes: #351852) and fglrx-kernel-src,
+    loop-aes-source to compliant list (no longer requires reqsrc hack,
+    closes: #342804)
+  * prepare always installs build-essential, helps with weird errors caused by
+    compiler inconsistency
+  * French translation update (Thomas Huriaux, closes: #330143) with a trivial
+    fix (Marc Mims, closes: #341659)
+  * Russian translation by Yuri Kozlov (closes: #354114)
+  * documented $KERNELDIRS (closes: #341983)
+  * option parser accepting alternative wording for --user-dir (with hyphen,
+    closes: #341985)
+  * using only the real program name for compiler search (closes: #353328)
+
+ -- Eduard Bloch <blade@debian.org>  Thu, 24 Nov 2005 23:33:09 +0100
+
+module-assistant (0.10.2) unstable; urgency=low
+
+  * Minor typo fix, missing semicolon
+
+ -- Eduard Bloch <blade@debian.org>  Thu, 24 Nov 2005 23:32:16 +0100
+
+module-assistant (0.10.1) unstable; urgency=low
+
+  * workaround to not fail on accidentialy created package description zombies
+    (closes: #339342). Also hidding irrelevant warnings.
+  * bug in generic.sh fixed, lookup for tarball did not look in $MOD_SRCDIR
+    location (closes: #339043)
+  * temporarily setting $ROOT_CMD for prepare and download commands
+    (closes: #330742)
+
+ -- Eduard Bloch <blade@debian.org>  Thu, 24 Nov 2005 01:48:15 +0100
+
+module-assistant (0.10) unstable; urgency=low
+
+  * fixed the auto-completion on unregistered packages
+  * removed the old linux-wlan-ng build control script, added to the list of
+    "compliant" now. Also added zd1211-source.
+  * added more checks for the output file existance to compensate effects of
+    CDBS environment poisoning in some packages
+  * just warning if fakeroot is not installing and no ROOT_CMD variable has
+    been set (closes: #338802)
+
+ -- Eduard Bloch <blade@debian.org>  Sun, 13 Nov 2005 12:00:32 +0100
+
+module-assistant (0.9.12) unstable; urgency=low
+
+  * added fakesource to the bash_completion file
+  * fakesource also calls modules_prepare which is required to compile modpost
+    nowadays
+
+ -- Eduard Bloch <blade@debian.org>  Sat, 12 Nov 2005 00:20:37 +0100
+
+module-assistant (0.9.11) unstable; urgency=low
+
+  * added French translation Clement Stenac / Thomas Huriaux (closes: #330143)
+  * major code cleanup WRT control scripts invocation
+  * changed the target location for generated source when -u switch is
+    used (closes: #332860)
+
+ -- Eduard Bloch <blade@debian.org>  Mon, 07 Nov 2005 19:14:45 +0100
+
+module-assistant (0.9.10) unstable; urgency=low
+
+  * clean up of the sudo command passing, still not perfect (closes: #321302)
+  * workaround for correct sudo calls in the downlolad command (closes: #328869)
+  * stopped using the terminal detection (Perl) modules, they all sucked
+  * debian/copyright updates
+
+ -- Eduard Bloch <blade@debian.org>  Sat, 24 Sep 2005 12:30:45 +0200
+
+module-assistant (0.9.9) unstable; urgency=low
+
+  * Added ieee80211-source to the list
+  * sudo usage in the download command fixed (closes: #288722)
+  * added command abbreviation to the manpage synopsis (closes: #322490)
+  * gramar/spelling error fixes (closes: #323776) and de.po update
+  * using  long tar options and correct input handling (closes: #323344)
+  * using tput if no native module for size detection is installed, moved that
+    module packages to Suggests
+
+ -- Eduard Bloch <blade@debian.org>  Sun, 04 Sep 2005 10:03:36 +0200
+
+module-assistant (0.9.8) unstable; urgency=low
+
+  * preserving more lines for the missing-source window because of whiptail's
+    weak autodetection (closes: #320367)
+  * the linux- transition: resolving alternative prefix using kernel version,
+    basically based on patch from Peter Marschall, thanks! (closes: #319930)
+
+ -- Eduard Bloch <blade@debian.org>  Sat, 30 Jul 2005 17:37:21 +0200
+
+module-assistant (0.9.7) unstable; urgency=high
+
+  * now really fixes the CC provider fix of #317687
+  * prints a strong warning in the prep-deb-files rule if the compiler has not
+    been found
+  * the kernel- -> linux- transition will take time that I do not have right
+    now, so sorry. Sane patches (supporting both versions) are welcome.
+
+ -- Eduard Bloch <blade@debian.org>  Thu, 28 Jul 2005 11:51:11 +0200
+
+module-assistant (0.9.6) unstable; urgency=low
+
+  * explicitely executing oldconfig in the fakesource command on 2.4 kernels,
+    thanks to Max Vozeler (closes: Bug#319633)
+  * installing the original compile.h file to faked trees (again patch
+    by Max, closes: #319062)
+  * removed drbd-source entry (closes: #318310)
+
+ -- Eduard Bloch <blade@debian.org>  Sun, 24 Jul 2005 10:02:59 +0200
+
+module-assistant (0.9.5) unstable; urgency=low
+
+  * the "fighting Zugs^h^h^h^h Murphy's law" release
+  * printing one summary of installation error messages on multiple packages
+    (closes: #318856)
+  * typo fixes in de.po
+
+ -- Eduard Bloch <blade@debian.org>  Tue, 19 Jul 2005 09:10:15 +0200
+
+module-assistant (0.9.4) unstable; urgency=medium
+
+  * generik.make: added a cludge to push the correct gcc into the path.
+    Workaround for the kernel build system stupidity (ignores CC from
+    environment) (closes: #298422, #317687)
+  * droped the slmodem alias, breaks with the new code and no time to fix
+    that. Use sl-modem instead (which is correct name anyways)
+
+ -- Eduard Bloch <blade@debian.org>  Sun, 10 Jul 2005 21:33:46 +0200
+
+module-assistant (0.9.3) unstable; urgency=low
+
+  * improved the package name finishing regexp, workaround for multibyte quotes
+  * adding --force-yes to apt-get calls in --force mode
+  * fixed update command for "compliant" ones
+  * fixed de.po typo
+
+ -- Eduard Bloch <blade@debian.org>  Fri, 01 Jul 2005 00:50:47 +0200
+
+module-assistant (0.9.2) unstable; urgency=low
+
+  * Hiding some new messages in non-debug mode
+
+ -- Eduard Bloch <blade@debian.org>  Thu, 16 Jun 2005 00:52:33 +0200
+
+module-assistant (0.9.1) unstable; urgency=low
+
+  * improved the package name fishing regexp (closes: #311950)
+  * added another "funny" tarball/builddir postfix permutation to the lookup
+    list in generic.sh (closes: #311090)
+  * German translation typo fixes by Jens Seidel (closes: #313969)
+  * removed: qce-source, syscalltrack-source
+  * new package: rtai-source
+  * replaced the symlinks pool with a list file, reviewed the scripts with
+    special modification/fixes and removed those where odities apparently have
+    been fixed in the meantime (or the generic.sh script got other workarounds
+    for them)
+
+ -- Eduard Bloch <blade@debian.org>  Thu, 16 Jun 2005 00:52:01 +0200
+
+module-assistant (0.9) unstable; urgency=high
+
+  * correcting description of the -i option in the manpage
+  * added a rescan method to detect new override files installed by package.
+    Important for the future upgrades when Sarge will be stable.
+  * a nicer version number ;-)
+
+ -- Eduard Bloch <blade@debian.org>  Mon, 16 May 2005 01:02:02 +0200
+
+module-assistant (0.8.12) unstable; urgency=high
+
+  * added workarounds in the misdn script (basically disabled
+    parts in clean/unpack/purge rules since the package does not follow
+    conventions)
+  * while working on misdn found and fixed potential bugs in generic.sh (not
+    catching some build directory names and beginning of the build not logged)
+
+ -- Eduard Bloch <blade@debian.org>  Sun, 15 May 2005 14:23:04 +0200
+
+module-assistant (0.8.11) unstable; urgency=medium
+
+  * manpage updates:
+    + new goals in the TODO list
+    + a-i does not run prepare (recommended prepare elsewhere, closes:#309031)
+    + typo and gramar fixes
+  * added pt_BR.po from Andre Luis Lopes (closes: #308093)
+  * removed control script for cpcieject (package removed, also from Sarge
+    now, closes: #307227)
+
+ -- Eduard Bloch <blade@debian.org>  Sat, 14 May 2005 15:24:12 +0200
+
+module-assistant (0.8.10) unstable; urgency=high
+
+  * actually unpacking the source package before build starts (as done before)
+    and using "unpacked" flags only with -o
+  * fixed typo in the long help (search == "list -s", closes: #305910)
+
+ -- Eduard Bloch <blade@debian.org>  Mon, 25 Apr 2005 00:43:39 +0200
+
+module-assistant (0.8.9) unstable; urgency=high
+
+  * this really needs to go into Sarge now, thus the severity
+  * bash completion file fix (removed experimental/unsupported commands,
+    added all, alli, allu virtual packages)
+  * developer howto revised, minor updates
+
+ -- Eduard Bloch <blade@debian.org>  Thu, 21 Apr 2005 19:34:03 +0200
+
+module-assistant (0.8.8) unstable; urgency=medium
+
+  * bash_completion file and few internal commands to provide data for it
+  * made the checks for terminal checks failures more carefull, no more
+    compilation error without Text::Size (closes: #305083)
+  * various typo fixes, thanks to Flavio Stanchina (closes: #305085)
+  * unfuzzying in ja.po and de.po, typos fixes in de.po
+
+ -- Eduard Bloch <blade@debian.org>  Mon, 18 Apr 2005 02:26:21 +0200
+
+module-assistant (0.8.7) unstable; urgency=medium
+
+  * long options for --quiet and --debug and enforced quiet more aggresively
+  * update command speedups:
+    + fixed the apt-policy data precaching (about three times faster now)
+    + writting version strings from m-a, not running control scripts. Since
+      there are only few "weird" packages with special control scripts today,
+      the command is ultra fast now
+  * more automatic text wrapping (using libterm-size-perl or
+    libterm-readkey-perl)
+  * recoded the Japanese translation to UTF-8 to edit it and fix fuzzyness
+  * moved from fixed dialog sizes to variable sizes where it makes sense
+    (closes: #300208)
+
+ -- Eduard Bloch <blade@debian.org>  Sat, 16 Apr 2005 20:10:58 +0200
+
+module-assistant (0.8.6) unstable; urgency=medium
+
+  * i18n by Kenshi Muto and Luk Claes, thanks guys. Added de.po translated by
+    me (closes: #261989, #304321)
+  * adjusted source dir dupe filter to no count kernel-headers twice (when
+    linked to /usr/src/linux, closes: #302714)
+
+ -- Eduard Bloch <blade@debian.org>  Fri, 15 Apr 2005 01:49:59 +0200
+
+module-assistant (0.8.5) unstable; urgency=low
+
+  * removed the APT_LISTCHANGES_FRONTEND setting again, it is up to the local
+    admin to make it quiet when m-a is called
+
+ -- Eduard Bloch <blade@debian.org>  Sun, 10 Apr 2005 13:12:58 +0200
+
+module-assistant (0.8.4) unstable; urgency=low
+
+  * non-interactive mode fixes: passing -y to apt-get where possible and
+    setting APT_LISTCHANGES_FRONTEND=mail to make it STFU
+
+ -- Eduard Bloch <blade@debian.org>  Sun, 10 Apr 2005 11:43:27 +0200
+
+module-assistant (0.8.3) unstable; urgency=low
+
+  * wrapping most rules in common-rules.sh trough ROOT_CMD. There is a remote
+    possibility that it may break things, but we will see (closes: #303838)
+  * KDREV detection code cleanup, does not stumble over (none) any more if
+    neither -headers not -image has been installed (closes: Bug#303543)
+  * now also adding modules with failed builds to temporary blacklist,
+    avoiding doomed installation attempts (closes: #303407)
+  * if /usr/src/linux seems to be non-existent, print a warning and set KVERS
+    to unknown rather than to ".."
+  * made the list output easier to read and more compact
+  * the -i option slightly modified (meaning now: non-interactive), renamed
+    the long option to non-inter
+  * code review, now avoiding duplicated compilation by using flag files (for
+    "old" packages) or the prediction function for m-a using source packages.
+    Repeated unpack operations can be skipped with an option. All that
+    makes "full-automatic binary installation" (#239695, #303636, #299727)
+    possible but needs a better crystallization of the integration method.
+  * Added an example script for this functionality (for cron or so) and a
+    compressed set of templates for the debian/* directory of future packages.
+
+ -- Eduard Bloch <blade@debian.org>  Sun, 10 Apr 2005 01:21:53 +0200
+
+module-assistant (0.8.2) unstable; urgency=high
+
+  * Yippie! Found and fixed an old Heisenbug. "Random" log lines accidentaly
+    have been used as the initial message in new progress windows created
+    during the build process and this sometimes messed up the dialog call
+    because of ugly things like `' quotes (closes: #234733, #283836, #290126)
+  * new package control script: unionfs-source
+
+ -- Eduard Bloch <blade@debian.org>  Tue, 29 Mar 2005 19:03:31 +0200
+
+module-assistant (0.8.1) unstable; urgency=medium
+
+  * removed the zaptel workaround, using a normal script now (closes: #301484)
+  * added symlink slmodem -> sl-modem
+  * made the gauge updating code unbuffered (more or less)
+  * added a new list expansion keyword allu which allows a similar thing that
+    kernel-package without additional options does, but also updates the source
+
+ -- Eduard Bloch <blade@debian.org>  Sun, 27 Mar 2005 20:11:56 +0200
+
+module-assistant (0.8) unstable; urgency=medium
+
+  * make relative kernel paths absolute if required (eg. -k.)
+  * removed atmelwlandriver-source control script (closes: #297499)
+  * trying to get KDREV from debian/changelog in the kernel-source dir if
+    everything else failed
+  * added Module.symvers copying in fakesource, patch by Max Vozeler
+    (closes: #298113)
+  * removing packages from the task list when some operation (eg. download)
+    fails, not repeating almost the same error messages, also reduced number
+    of redundant error messages on missing/invalid kernel sources
+  * added more meaningfull message about failed source download
+    (closes: #290837)
+  * fixed typo in the help output and the manpage ("--userdir", closes: #298419)
+
+ -- Eduard Bloch <blade@debian.org>  Fri, 11 Mar 2005 19:01:24 +0100
+
+module-assistant (0.7.5) unstable; urgency=medium
+
+  * cosmetics, shorter message lines, not printing spooky error messages
+
+ -- Eduard Bloch <blade@debian.org>  Sun, 27 Feb 2005 13:31:23 +0100
+
+module-assistant (0.7.4) unstable; urgency=medium
+
+  * added patch to use Unicode whitespace types (closes: Bug#297077)
+  * reinit kernel source checks after the prep step is trough (closes: #296910)
+  * added code to warn and give some hints if the module requests the full
+    kernel source (see /usr/share/modass/overrides/loop-aes-source for
+    example, now closes: #296946). Also choosing the "more complete" kernel
+    source directory if two candidates are available.
+
+ -- Eduard Bloch <blade@debian.org>  Sun, 27 Feb 2005 13:12:12 +0100
+
+module-assistant (0.7.3) unstable; urgency=medium
+
+  * check for useable TERM settings (not dumb or unknown and known by
+    infocmp) before choosing the dialog GUI (closes: #293761)
+  * Ubuntu patches from Chris Halls (closes: #284629) and also using Ubuntu
+    defaults when detected in via /etc/lsb-release
+  * hint for getting version.h in the manpage
+  * fixed the old funny bug with "linux" created in the current directory
+    (closes: #292542)
+
+ -- Eduard Bloch <blade@debian.org>  Sun, 06 Feb 2005 22:16:44 +0100
+
+module-assistant (0.7.2) unstable; urgency=medium
+
+  * not setting ARCH from dpkg output in the environment, excepting the
+    sparc workarounds
+  * also stripping -driver when guessing the base package name
+  * eagle-adsl-modules-src -> eagle-usb-modules-source (closes:#288719)
+
+ -- Eduard Bloch <blade@debian.org>  Tue,  4 Jan 2005 02:13:34 +0100
+
+module-assistant (0.7.1) unstable; urgency=medium
+
+  * cosmetic fixes, more meaningful user messages and manpage corrections
+  * GUI invocation without any command fixed
+  * new control scripts: misdn-kernel-source, cpad-kernel-source,
+    gpib-modules-source, wacom-kernel-source, at76c503a-source,
+    xdslusb-source, acx100-source, ndiswrapper-source,
+    openswan-modules-source, oprofile-source, qla2x00-source
+    (did I miss something? ;)
+
+ -- Eduard Bloch <blade@debian.org>  Tue, 04 Jan 2005 01:57:09 +0100
+
+module-assistant (0.7) unstable; urgency=high
+
+  * ARCH=sparc/sparc64 workaround and made other checks more robust
+  * better filter for cruft files in control script directory (closes:#277568)
+  * added ipw2200-source control script (generic as usual, closes: #278895)
+  * don't complain if the user is already in the group src, instead create a
+    replacement directory in /usr/src (closes: #285104)
+  * removed the custom hostap-source script, using pure generic
+  * made dpkg-deb regexp in generic.sh more fuzzy to match languages with
+    blank chars where you can place one (closes: #281664)
+  * extended prep to work for multiple custom kernel versions (closes:#270554)
+  * added advanced warning about for those that cannot think about what
+    kernel-source actually is (closes: #270552)
+  * more carefull check for bad kernel source candidates (closes: #269926)
+  * documented how to deal with additional control scripts (closes: #280215)
+  * fixed a copy-paste error (--apt-search) in the manpage (closes: #272035)
+  * fixed gramar error in the description ("tool to make", closes: #251357)
+  * fixed typos in the manpage (closes: #284197)
+
+ -- Eduard Bloch <blade@debian.org>  Tue, 28 Dec 2004 23:21:40 +0100
+
+module-assistant (0.6.8) unstable; urgency=low
+
+  * better printout of the log file location, also noted in the manpage
+  * generic.mk: work arounds for having epoch number in both, kernel and
+    package revision. Also made it expect "cosmetic" filenames (without
+    epochs) for the package files
+
+ -- Eduard Bloch <blade@debian.org>  Sat,  8 May 2004 00:28:31 +0200
+
+module-assistant (0.6.7) unstable; urgency=low
+
+  * generic.sh: better check for the installed status
+  * fixed the package name completion (closes: #247888)
+
+ -- Eduard Bloch <blade@debian.org>  Fri,  7 May 2004 20:29:21 +0200
+
+module-assistant (0.6.6) unstable; urgency=low
+
+  * changed the Makefile modification routine to act less destructive in
+    "fakesource"
+
+ -- Eduard Bloch <blade@debian.org>  Fri,  7 May 2004 00:25:50 +0200
+
+module-assistant (0.6.5) unstable; urgency=low
+
+  * repeative scan for the build directory in generic.sh, especially after
+    initial source extraction is done. Thanks to Sebastian Ley for providing
+    test data.
+  * a new experimental function: "fakesource" which creates a kernel source
+    tree that "may" be similar to the one used to build the current kernel
+
+ -- Eduard Bloch <blade@debian.org>  Thu, 06 May 2004 23:20:56 +0200
+
+module-assistant (0.6.4) unstable; urgency=low
+
+  * fixed check for the root-UID and replacement directory (closes: #245738).
+    The messages appears early enough to not continue with file download
+    (closes: #239844)
+  * hidding missleading error message showed by echodebfile method when the
+    source is not extracted yet
+  * new control script: ipw2100-source
+
+ -- Eduard Bloch <blade@debian.org>  Tue, 30 Mar 2004 21:54:53 +0200
+
+module-assistant (0.6.3) unstable; urgency=low
+
+  * more meaningful message about not full configured kernel source
+  * self-configuring build mode for "any given package"
+  * new control scripts: ppscsi, qc-usb-source (closes: #240738)
+  * replaced the old script name in the manpage (closes: #239839)
+  * Failing early if the user is not root and not replacement directory is
+    speicified (closes: #239839)
+  * integrated the KSRC calculation hocus-pocus as the last fallback option
+
+ -- Eduard Bloch <blade@debian.org>  Fri, 27 Feb 2004 03:26:03 +0100
+
+module-assistant (0.6.2) unstable; urgency=low
+
+  * Corrected dialog/whiptail detection
+  * NEW: option to simplify non-root usage (-u)
+
+ -- Eduard Bloch <blade@debian.org>  Sat, 31 Jan 2004 23:14:58 +0100
+
+module-assistant (0.6.1) unstable; urgency=low
+
+  * stop on build failures and show a diagnostics menu (closes: #229883)
+
+ -- Eduard Bloch <blade@debian.org>  Sat, 17 Jan 2004 01:27:53 +0100
+
+module-assistant (0.6) unstable; urgency=low
+
+  * only take the current kernel version if kverslist and kerneldirs is empty
+  * generik.mk exports CC
+  * --text-mode documented (closes: #226427)
+  * made the error message on installation of non-existent package less
+    confusing
+
+ -- Eduard Bloch <blade@debian.org>  Sun,  7 Dec 2003 22:18:03 +0100
+
+module-assistant (0.5) unstable; urgency=low
+
+  * kdist_build in common-rules.mk wraps all commands trough $(ROOT_CMD). Not
+    really needed for regular m-a users but apparently useful for some people,
+    closes: #221987
+  * Dialog integration! UI for command invocation and progress bars while
+    building und cache updating. Whiptail is used alternatively instead of
+    dialog but not enabled for everything because of "missing features"
+  * lots of small bug fixes, rewrite of the list method
+  * new option: -l to specify the relevant kernel versions directly
+    + rewrite of the the kerneldirs lookup method
+  * generic.sh:
+    + better error status control
+    + tr instead of sed (Woody version sucked)
+    + better tarball name matching
+
+ -- Eduard Bloch <blade@debian.org>  Wed, 19 Nov 2003 23:50:53 +0100
+
+module-assistant (0.4) unstable; urgency=medium
+
+  * s/apt-get/module-assistant/, closes: #221281
+  * added forgotten $ROOT_CMD in the preventive clean call
+  * postrm wipes /var/cache/modass on purge
+  * binary and manpage symlinked from module-assistant to m-a
+  * better usage instructions for non-root builds
+
+ -- Eduard Bloch <blade@debian.org>  Mon, 17 Nov 2003 16:52:54 +0100
+
+module-assistant (0.3.8) unstable; urgency=low
+
+  * few typos in user messages fixed
+  * set Section to "admin", looks more appropriate then "misc"
+  * "list" no longer looks in the apt cache by default (slowed down normal
+    operation to0 much). Instead, implemented the "-s" option with alias
+    command "search". List tells to use "search" when no binary packages have
+    been found.
+
+ -- Eduard Bloch <blade@debian.org>  Sun, 16 Nov 2003 10:29:12 +0100
+
+module-assistant (0.3.7) unstable; urgency=low
+
+  * in prep(), remove double checks of /usr/src/linux path which could lead to
+    confusion and circular symlinks under certain circumstances
+  * well, never give the not-release-yet tags a chance by not using debuild
+    after svn-devscripts (closes: #219774)
+
+ -- Eduard Bloch <blade@debian.org>  Wed, 12 Nov 2003 14:48:05 +0100
+
+module-assistant (0.3.6) unstable; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Eduard Bloch <blade@debian.org>  Tue,  4 Nov 2003 02:07:24 +0100
+
+module-assistant (0.3.5) unstable; urgency=low
+
+  * dropped dependency on build-essential, instead made the "prepare"
+    function install it when needed
+  * fixed: update call after source package installations
+  * fixed: package path fishing with regexps
+
+ -- Eduard Bloch <blade@debian.org>  Thu, 16 Oct 2003 15:55:44 +0200
+
+module-assistant (0.3.4) unstable; urgency=low
+
+  * new packages: shfs-source, translucency-source
+  * generic.sh: double build of a package in some situations
+  * generic.sh: hide confusing error messages on not available packages
+  * removing tarball detection hook from alsa-source, it is more generalized
+    in generic.sh now
+  * added more look-for-source locations, thanks to
+    Mirco Bauer <meebey@php.net> for help on debugging
+
+ -- Eduard Bloch <blade@debian.org>  Thu, 16 Oct 2003 13:05:19 +0200
+
+module-assistant (0.3.3) unstable; urgency=low
+
+  * double check to exclude non-installable packages in generic.sh
+  * warning to run "update" when the cache is empty
+  * fix for return code to never clash with 0
+  * few new control scripts
+
+ -- Eduard Bloch <blade@debian.org>  Thu, 25 Sep 2003 12:15:07 +0200
+
+module-assistant (0.3.2) unstable; urgency=medium
+
+  * fixed some crappy code for kernel-headers location detection
+
+ -- Eduard Bloch <blade@debian.org>  Mon, 22 Sep 2003 15:58:14 +0200
+
+module-assistant (0.3.1) unstable; urgency=low
+
+  * minor improvements (controlled verbosity, name completion for "list")
+  * corrected settings in few control scripts
+  * better string matching even for unconventional binary package location ".."
+
+ -- Eduard Bloch <blade@debian.org>  Mon, 22 Sep 2003 15:57:53 +0200
+
+module-assistant (0.3) unstable; urgency=medium
+
+  * symlinking identical control scripts to save space
+  * various fixes
+  * new control script: xlibmesa-drm-src
+
+ -- Eduard Bloch <blade@debian.org>  Sat, 20 Sep 2003 14:19:06 +0200
+
+module-assistant (0.2) unstable; urgency=medium
+
+  * "prepare" function to get the kernel-headers
+  * renamed .make files to .mk (to have the popular extension),
+    compatibility symlinks provided
+  * pre-deb-files rule now also handles #KVERS#
+  * Dependency on build-essential
+  * KDREV check improved, handle the case that a package has never been
+    installed
+
+ -- Eduard Bloch <blade@debian.org>  Sat, 20 Sep 2003 13:18:00 +0200
+
+module-assistant (0.1.9) unstable; urgency=low
+
+  * use KDREV from kernel-headers if kernel-image package is not visible for
+    apt-cache (closes: #211593)
+  * few new packages, removed lm-sensors
+  * fixed potential rules concurency problems in common-rules.make
+  * fixed unpack return code in generic.sh
+
+ -- Eduard Bloch <blade@debian.org>  Fri, 12 Sep 2003 00:03:34 +0200
+
+module-assistant (0.1.8) unstable; urgency=low
+
+  * HOWTO improved, new howto for usage
+  * m-a: new shortcut: "auto-build" alias "ab" for get&build
+  * more extensive looking for the source tarball
+  * now using path beautifier where needed
+  * linux-wlan-ng's "installed" command fixed
+  * list output format improved, less wasted space of the screen
+  * clearly separated "clean" and "purge" commands, updated the manpage
+
+ -- Eduard Bloch <blade@debian.org>  Thu, 11 Sep 2003 17:14:20 +0200
+
+module-assistant (0.1.7) unstable; urgency=low
+
+  * generic.sh: looking for more weird tarball names
+  * m-a:
+    + minor bugfixes
+    + more useful return codes + documentation
+  * mini-howto for package building using m-a
+
+ -- Eduard Bloch <blade@debian.org>  Thu, 11 Sep 2003 10:01:41 +0200
+
+module-assistant (0.1.6) unstable; urgency=low
+
+  * new: common-rules.make include for some popular but maybe overlapping rules
+  * m-a:
+    + rerun "apt-get -f install" if direct package installation fails, to
+      install pending dependencies
+    + prints changes file explicitely and with target architecture
+    + fixed auto-install to download the source when needed and not download if
+      (maybe) not needed but force the download with -f though
+  * generic.make:
+    + now uses the "DEBSIGNCOMMAND" variable
+    + new: prep-deb-files rule for often used string substitution
+
+ -- Eduard Bloch <blade@debian.org>  Wed, 10 Sep 2003 16:42:08 +0200
+
+module-assistant (0.1.5) unstable; urgency=low
+
+  * sort packages on listing
+  * return error codes from program calls
+  * less strict checks for headers directory types (thanks to Mario Domgoergen
+    for pointing this out)
+  * -f,--force option to build the package even if the target file exists
+  * disabled hyphenation fix for now, it wreaks random havoc sometimes
+
+
+ -- Eduard Bloch <blade@debian.org>  Tue,  9 Sep 2003 12:29:51 +0200
+
+module-assistant (0.1.4) unstable; urgency=low
+
+  * code restructured a bit, more generalisation
+  * better (locale-proof) string matching for deb-file localisation
+  * fixed hyphenation in manpage (docbook2man bug)
+
+ -- Eduard Bloch <blade@debian.org>  Sun,  7 Sep 2003 17:11:51 +0200
+
+module-assistant (0.1.3) unstable; urgency=low
+
+  * debian/* cleanup
+  * option parser cleanup, all/alli resolve the li-vs.-la problems
+  * old example scripts from pcmcia removed (obsolete)
+  * manpage improvements, documented environment variables
+
+ -- Eduard Bloch <blade@debian.org>  Sat,  6 Sep 2003 19:20:23 +0200
+
+module-assistant (0.1.2) unstable; urgency=low
+
+  * Manpage written
+  * nvidia-kernel and linux-wlan-ng included
+
+ -- Eduard Bloch <blade@debian.org>  Sat,  6 Sep 2003 19:18:36 +0200
+
+module-assistant (0.1.1) unstable; urgency=low
+
+  * Bug fixes, lots of bug fixes
+  * Moved cache data dir to /var/cache/modass
+
+ -- Eduard Bloch <blade@debian.org>  Sat,  6 Sep 2003 00:15:54 +0200
+
+module-assistant (0.1) unstable; urgency=low
+
+  * Initial Release, closes: #207709
+
+ -- Eduard Bloch <blade@debian.org>  Fri, 05 Sep 2003 23:47:01 +0200

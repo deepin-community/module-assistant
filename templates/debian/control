@@ -1,0 +1,35 @@
+Source: someproject
+Section: misc
+Priority: optional
+Maintainer: Eduard Bloch <blade@debian.org>
+Build-Depends:
+ debhelper (>= 11),
+ bzip2,
+Standards-Version: 4.1.4
+
+Package: someproject-utils
+Architecture: any
+Recommends: someproject-source
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: someproject that does something - management tools
+ The someproject driver provides ... for the Linux
+ kernel...
+ .
+ This package contains utilities needed to configure the someproject
+ drivers.
+
+Package: someproject-source
+Architecture: all
+Depends:
+ module-assistant,
+ bzip2,
+ debhelper (>= 11),
+Suggests: someproject-utils
+Description: source for the someproject driver
+ The someproject driver provides ... for the Linux
+ kernel...
+ .
+ .
+ This package contains the module source. The kernel driver can be built from
+ it using module-assistant or make-kpkg.
+

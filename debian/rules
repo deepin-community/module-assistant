@@ -1,0 +1,92 @@
+#!/usr/bin/make -f
+
+#export DH_VERBOSE=1
+
+include /usr/share/dpkg/pkg-info.mk
+
+# Make sure not to generate manpages with a non-C locale date format:
+export LC_ALL=C
+
+prepare-changelog: LAST?=$(shell git describe | sed 's/-.*//')
+prepare-changelog: BRANCH=$(shell git branch | grep '^*' | awk '{print $$2}')
+prepare-changelog:
+	# Make sure git-buildpackage is installed (ensures git-core is, too):
+	@if [ -z "$(shell which git-dch)" ] ; then \
+		echo "E: git-buildpackage isn't installed, needed for this target." ; \
+		exit 1 ; \
+	fi
+
+	# Determine last tag:
+	git dch --debian-branch=$(BRANCH) --since=$(LAST)
+
+
+git-build: PACKAGE=module-assistant
+git-build: VERSION=$(DEB_VERSION)
+git-build:
+	# Make sure git-core is installed:
+	@if [ -z "$(shell which git)" ] ; then \
+		echo "E: git-core isn't installed, needed for this target." ; \
+		exit 1 ; \
+	fi
+
+	# Generate the tarball with an appropriate prefix:
+	git archive --prefix=$(PACKAGE)-$(VERSION)/ HEAD | gzip -9 \
+		> ../$(PACKAGE)_$(VERSION).tar.gz ; echo $$?
+
+	# Extract it, build the source package, clean afterwards
+	# (also clean before, there might be something already):
+	cd .. && \
+		rm -rf $(PACKAGE)-$(VERSION) && \
+		tar xfz $(PACKAGE)_$(VERSION).tar.gz && \
+		cd $(PACKAGE)-$(VERSION) && \
+		debuild $(DEBUILDFLAGS) && \
+		cd .. && \
+		rm -rf $(PACKAGE)-$(VERSION)
+
+source-package: DEBUILDFLAGS=-us -uc -S
+source-package: git-build
+
+binary-package: git-build
+
+git-release: git-build pristine-tar-commit
+
+.NOTPARALLEL:
+# keep the order above. Could use
+# $(MAKE) -f $(lastword $(MAKEFILE_LIST)) pristine-tar-commit
+# instead but this is easier and speed is hardly an issue
+
+pristine-tar-commit: PACKAGE=module-assistant
+pristine-tar-commit: VERSION=$(DEB_VERSION)
+pristine-tar-commit: TARBALL=../$(PACKAGE)_$(VERSION).tar.gz
+pristine-tar-commit: BRANCH=$(shell git branch | grep '^*' | awk '{print $$2}')
+pristine-tar-commit:
+	# Make sure pristine-tar is installed:
+	@if [ -z "$(shell which pristine-tar)" ] ; then \
+		echo "E: pristine-tar isn't installed, needed for this target." ; \
+		exit 1 ; \
+	fi
+
+	# Make sure the tarball exists:
+	@if [ ! -f $(TARBALL) ] ; then \
+		echo "E: $(TARBALL) tarball is missing." ; \
+		echo "I: Need to use the 'source-package' target first?" ; \
+		exit 1 ; \
+	fi
+
+	# Commit the tarball:
+	pristine-tar commit $(TARBALL) $(subst ~,_,$(VERSION))
+
+############################################################################
+
+%:
+	dh $@ --with bash-completion
+
+override_dh_auto_build:
+	dh_auto_build
+	# Build the templates tarball:
+	tar cfj templates-debian-dir.tar.bz2 --sort=name --owner=root --group=root --mode=go=rX,u+rw,a-s templates
+
+override_dh_auto_clean:
+	dh_auto_clean
+	# Clean the tarball:
+	rm -rf templates-debian-dir.tar.bz2

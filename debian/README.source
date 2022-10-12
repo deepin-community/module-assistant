@@ -1,0 +1,76 @@
+Source README for module-assistant:
+-----------------------------------
+
+Some extra targets exist in debian/rules to help with common tasks.
+
+
+ + Build the final source package:
+   -------------------------------
+
+   How:
+      make -f debian/rules source-package
+
+   Why:
+    - For native packages, the directory can't be changed when
+      dpkg-source is run, so the tarball needs to be of the
+      $package-$version form.
+    - The .git/ directory would be embedded, even with “-i”.
+
+   Summary of what it does:
+    - Use “git archive | gzip” to create the tarball.
+    - Extract it, run “debuild -S” there, clean.
+
+   What it needs:
+    - git (git-core).
+
+
+ + Prepare a changelog entry:
+   --------------------------
+
+   How:
+      make -f debian/rules prepare-changelog
+
+   Why:
+    - In order to avoid duplicating git log messages directly in
+      debian/changelog (although it could be done thanks to
+      “debcommit”), and to make debian/changelog more concise (when a
+      commit fixes a mistake in a previous one or improves one, a
+      single line could be written), that target is to be called when
+      finalizing an upload. That way, a prospective changelog entry is
+      written, and can then be rephrased as wanted before it is
+      committed.
+
+   Summary of what it does:
+    - Determine the last known tag, using “git describe”.
+    - Determine the current branch, using “git branch”.
+    - Call “git-dch” with those parameters, so as to prepare a
+      changelog entry with all commit messages since the last known
+      tag.
+
+   What it needs:
+    - git-dch (git-buildpackage).
+    - git (git-core).
+
+
+ + Commit the tarball to the pristine-tar branch:
+   ----------------------------------------------
+
+   How:
+      make -f debian/rules pristine-tar-commit
+
+   Why:
+    - Make it possible to commit very easily the tarball once a
+      version has been built, uploaded, and tagged, so that it is
+      possible to regenerate the exact tarball that was uploaded, only
+      from the git repository.
+
+   Summary of what it does:
+    - Determine the version, and the tarball name.
+    - Make sure the tarball is available in the parent directory.
+    - Commit it using “pristine-tar” and the determined version.
+
+   What it needs:
+    - pristine-tar (pristine-tar).
+
+
+ -- Cyril Brulebois <kibi@debian.org>, Wed, 25 Mar 2009 00:57:43 +0100

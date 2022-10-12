@@ -1,0 +1,735 @@
+# translation of module-assistant-0.10.11-eu.po to Euskara
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Piarres Beobide <pi@beobide.net>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: module-assistant-0.10.11-eu\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-06-25 22:16+0200\n"
+"PO-Revision-Date: 2008-01-18 01:15+0100\n"
+"Last-Translator: Piarres Beobide <pi@beobide.net>\n"
+"Language-Team: Euskara <Librezale@librezale.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: ../module-assistant:57
+msgid ""
+"USAGE:\n"
+"\n"
+"  module-assistant update\n"
+"  module-assistant [options] COMMAND [ packages ]\n"
+"\n"
+"module-assistant is the tool to get debianized source of kernel modules,\n"
+"build module package from it and install them. The most frequently used\n"
+"command may be auto-install followed by the 'alli' argument.\n"
+"\n"
+"Commands:\n"
+"\n"
+"  update - refresh internal information about the packages\n"
+"  unpack - unpacks the tarballs of specified packages (or similar action)\n"
+"  get - download/install the source (package) and unpack if needed\n"
+"  build - build the specified package(s)\n"
+"  list - print information about installed/available/compiled packages\n"
+"  install - install the generated binary modules DEB package with dpkg\n"
+"  auto-install - the whole process, get & build & install (abbreviated: a-"
+"i)\n"
+"  prepare - install headers for the current kernel and set the linux "
+"symlink\n"
+"  clean - quick clean of the source (eg. wiping the build directory)\n"
+"  purge - removes cached data and existing modules packages\n"
+"  la (alias for \"list all\"), li (= \"list all installed\"), search (= "
+"\"list -s\")\n"
+"\n"
+"Package arguments:\n"
+"\n"
+"  Source package name(s). If -src or -source is omitted, name\n"
+"  completion will try to guess the package name. If the first argument\n"
+"  is 'all', the list will be expanded to all packages. 'alli' will be\n"
+"  expanded to \"all installed\".\n"
+"\n"
+"Options:\n"
+" -h, --help        Print this help screen\n"
+" -v, --verbose     Be verbose, show full paths, etc.\n"
+" -q, --quiet       The opposite of verbose\n"
+" -n, --no-rebuild  Don't rebuild when any usable modules package for \n"
+"                   this kernel exists (even an old one)\n"
+" -i, --non-inter   Don't stop on build failures, auto-install deps when "
+"needed\n"
+" -o, --unpack-once Unpack the source only once after source upgrade or "
+"clean\n"
+" -O, --not-unpack  Don't unpack the source at all\n"
+" -s, --apt-search  Search for installation candidates in the Debian archive\n"
+" -S, --sudo-cmd    An alternative command for sudo\n"
+" -f, --force       Force duplicated work: source package reinstallation,\n"
+"                   rebuild though existing packages are found, etc.\n"
+" -t, --text-mode   Text mode, no dialog boxes\n"
+" -u, --userdir     Specifies a (writeable) replacement directory for /var&/"
+"usr\n"
+" -k, --kernel-dir  List of kernel headers/source directories, comma "
+"separated\n"
+" -l, --kvers-list  List of kernel versions to work on (default: current "
+"version)\n"
+"Lists in options are strings separated by commas, spaces or newlines.\n"
+"\n"
+"Example:\n"
+"  m-a update ; m-a a-i nvidia-kernel ; echo Enjoy!"
+msgstr ""
+"ERABILERA:\n"
+"\n"
+"  module-assistant update\n"
+"  module-assistant [aukerak] KOMANDOA [ paketeak ]\n"
+"\n"
+"module-assistant debian kernel modulu iturburua eskuratu,\n"
+"bertatik modulu paketea eraiki eta instalatzeko lanabesa da\n"
+"Gehien erabilitako komandoa 'auto-install' 'alli' argumentuaz jarraitua izan "
+"daiteke.\n"
+"\n"
+"Komandoak:\n"
+"\n"
+"  update - paketeei buruzko barne informazioa freskatu\n"
+"  unpack - ezarritako paketeen artxiboak despaketatu (edo antzeko ekintza).\n"
+"  get - iturburu paketea deskargatu/instalatu eta despaketatu behar izanez "
+"gero.\n"
+"  build - ezarritako paketea(k) eraiki\n"
+"  list - instalatutako/eskuragarri/konpilaturiko paketeen informazioa "
+"inprimatu\n"
+"  install - sortutako modulu DEB paketea dpkg bidez instalatu\n"
+"  auto-install - prozesu osoa, eskuratu eta eraiki eta instalatu (laburtua: "
+"a-i)\n"
+"  prepare - erabiltzen den kernel buruak prestatu eta linux lotura "
+"sinbolikoa ezarri\n"
+"  clean - iturburuaren garbiketa azkarra (adib. eraikitze direktorio "
+"ezabatu)\n"
+"  purge - ezabatu katxeaturiko eta sorturik dauden modulu paketeak\n"
+"  la (\"list all\"-ren laburpena), li (= \"instalatutakoen zerrenda\"), "
+"bilatu (= \"list -s\")\n"
+"\n"
+"Pakete argumentuak:\n"
+"\n"
+"  Iturburu pakete izena(k).  -src  edo -source ipintzen ez bada, izen "
+"osatzeak\n"
+"  pakete izena asmatzen saiatuko da. Lehen argumentua 'all' bada\n"
+"  zerrenda pakete guztietara hedatuko da. 'alli' bada \"instalatutako\n"
+"  guztietara hedatuko da.\n"
+"\n"
+"Aukerak:\n"
+" -h, --help        Laguntza testu hau inprimatu\n"
+" -v, --verbose     Luzeago izan, bide osoak ikusi, etab.\n"
+" -q, --quiet       Luzeagoren aurkakoa\n"
+" -n, --no-rebuild  Ez berreraiki kernel honentzat pakete erabilgarri "
+"batenbat\n"
+"                   badago (nahiz zaharra izan)\n"
+" -i, --non-inter   Ez gelditu eraikitze akatsetan dependetziak auto-"
+"instalatu behar izanez gero.\n"
+" -o, --unpack-once Iturburua siturburu eguneratze edo garbitzean bakarrik "
+"despaketatu\n"
+" -O, --not-unpack  Ez despaketatu iturburua\n"
+" -s, --apt-search  Instalazio hautagaien bilaketa bat egin Debian artxiboan\n"
+" -S, --sudo-cmd    sudor-rentzat beste hautagai bat\n"
+" -f, --force       Behartu bikoizturiko lana: iturburu pakete "
+"berrinstalazioa,\n"
+"                   berreraiki nahiz paketea aurkitu etab.\n"
+" -t, --text-mode   Testu modua, ez elkarrizketa kutxarik\n"
+" -u, --userdir     Ezarri beste direktorio (idazgarri) bat /var eta /usr-"
+"entzat\n"
+" -k, --kernel-dir  Kernel goiburu/iturburu direktorio zerrenda gakoz  "
+"bereizirik\n"
+" -l, --kvers-list  Bertan lan egiteko kernel bertsio zerreda (lehenetsia: "
+"uneko bertsioa)\n"
+"Aukera zerrendak gako zuriunez edo lerro berriz bereiziriko kate osoak "
+"dira.\n"
+"\n"
+"Adibidea:\n"
+"  m-a update ; m-a a-i nvidia-kernel ; echo Gozatu!"
+
+#: ../module-assistant:110
+msgid ""
+"Warning: the selected module source is known to require a complete\n"
+"kernel source structure in order to be built correctly. However, only\n"
+"a reduced version of the source (linux-headers) has been found, so\n"
+"the build process will probably fail.\n"
+"\n"
+"In order to get a full kernel source, you have the following options:\n"
+"\n"
+" - fake the source directory - create one that may look very similar\n"
+"   to the one that has been used to build your kernel (based on its\n"
+"   configuration and fresh source archive). The results are uncertain,\n"
+"   but it should work in most cases.\n"
+"   Call \"module-assistant fakesource\" to automate this.\n"
+" - use a custom kernel built from scratch (custom configuration,\n"
+"   custom source, custom kernel package installed). Please read the\n"
+"   Kernel HOWTO and/or make-kpkg documentation for the further steps."
+msgstr ""
+"Abisua:  hautatutako iturburu moduluak ezaguna denez kernel\n"
+"iturburu oso baten beharra du behar bezala eraiki ahal izateko. Hala ere,\n"
+"iturburuaren txikituriko bertsio bat (goiburuak) dago instalaturik, beraz\n"
+"ziurrenik eraikitze prozesuak huts egingo du.\n"
+"\n"
+"Kernel iturburu oso bat eskuratu ahal izateko hurrengo aukera dituzu:\n"
+"\n"
+" - Iturburu direktorioa faltsutu - sortu kernela eraikitzeko erabiltzen den\n"
+"   direktorioaren itsura berdina duen bat sortu (bere konfigurazio eta "
+"iturburu\n"
+"   artxibo freskoan oinarritzen). Emaitza jakin ezina da, baina "
+"funtzionatuko du\n"
+"   kasu gehienetan.\n"
+"   \"module-assistant fakesource' abiarazi hori automatikoki egiteko.\n"
+" - pertsonalizatutako kernel bat erabili zure moduan (konfigurazio\n"
+"   pertsonalizatua, kernel pakete pertsonalizatua instalaturik). Mesedez\n"
+"   irakurri Kernel HOWTO eta/Edo make-kpkg dokumentazioa hurrengo "
+"pausuetarako."
+
+#: ../module-assistant:335 ../module-assistant:338
+msgid "module-assistant, error message"
+msgstr "module-assistant, errore mezua"
+
+#: ../module-assistant:354
+msgid "Press Return to continue... (ctrl-c to abort)"
+msgstr "Sakatu return aurrera jarraitzeko... (ktrl+c uzteko)"
+
+#: ../module-assistant:363
+#, perl-format
+msgid "%s is not a directory!"
+msgstr "%s ez da direktorio bat!"
+
+#: ../module-assistant:364 ../module-assistant:369
+#, perl-format
+msgid "%s is not writeable!"
+msgstr "Ezin da %s-en idatzi!"
+
+#: ../module-assistant:376
+msgid "Found sudo, will use it for %s and dpkg commands."
+msgstr "Sudo aurkitua, berau erabiliko da %s eta dpkg komandoentzat."
+
+#: ../module-assistant:380
+msgid "Warning: sudo not found. Automatic package installations not possible!"
+msgstr ""
+"Abisua: ez da sudo aurkitu. Ezin da pakete instalazio automatikoa egin!"
+
+#: ../module-assistant:410
+msgid ""
+"Bad luck, the kernel headers for the target kernel version could not be "
+"found and you did not specify other valid kernel headers to use."
+msgstr ""
+"Zorte txarra, helburu den kernelarentzat kernel goiburuak ez dira aurkitzen "
+"eta zuk ez duzu zehaztu erabiltzeko baliozko kernel goibururik."
+
+#: ../module-assistant:416
+#, perl-format
+msgid ""
+"However, you can install the header files for your kernel which are provided "
+"by the %s package. For most modules packages, these files are perfectly "
+"sufficient without having the original kernel source.\n"
+"\n"
+"To install the package, run"
+msgstr ""
+"Hala ere %s paketearen bidez zure kenrlari dagozkion kernel goiburuak "
+"deskarga ditzakezu. Modulu pakete gehienentzat nahiko da hau egitearekin "
+"nahiz ez kernel ituburu osoa izan.\n"
+"\n"
+"Paketea instalatzeko abiarazi"
+
+#: ../module-assistant:420
+msgid " the PREPARE command from the main menu, or on the command line"
+msgstr " PREPARE komandoa menu nagusitik edo komando lerrotik"
+
+#: ../module-assistant:421
+#, perl-format
+msgid ""
+":\n"
+"\n"
+"module-assistant prepare\n"
+"\n"
+"or\n"
+"\n"
+"%s install %s"
+msgstr ""
+":\n"
+"\n"
+"module-assistant prepare\n"
+"\n"
+"edo\n"
+"\n"
+"%s install %s"
+
+#: ../module-assistant:436
+#, perl-format
+msgid ""
+"If the running kernel has been shipped with the Debian distribution, please "
+"install the package %s. If your kernel source tree (or headers) is located "
+"in some non-usual location, please set the KERNELDIRS environment variable "
+"to the path of this directory, or (alternatively) specify the source "
+"directory we build for with the --kernel-dir option in module-assistant "
+"calls."
+msgstr ""
+"Martxan dagoen kernela Debian banaketarekin eskuratu baduzu, mesedez "
+"instalatu %s paketea. Zure kernel iturburu zuhaitza (edo goiburuak) beste "
+"leku batetan kokaturik badago, ezarri KERNELDIRS ingurune aldagaia "
+"direktorioaren bidean, edo (bestela) ezarri eraikitzean erabiliko den "
+"direktorioa --kernel-dir aukerarekin module-assistant deitzean."
+
+#: ../module-assistant:484
+msgid "Updating cached package data"
+msgstr "Eguneratu katxeko pakete datuak"
+
+#: ../module-assistant:484
+msgid "Reading apt-cache output..."
+msgstr "Apt-cache irteera Irakurtzen..."
+
+#: ../module-assistant:494
+#, perl-format
+msgid "Updating info about %s"
+msgstr "%s-ren informazioa eguneratzen"
+
+#: ../module-assistant:524
+#, perl-format
+msgid "Updated infos about %s packages"
+msgstr "%s paketeren informazioa eguneratua"
+
+#: ../module-assistant:524
+#, perl-format
+msgid "Updated infos about %s package"
+msgstr "%s paketearen informazioa eguneratua"
+
+#: ../module-assistant:567
+msgid "Getting source for kernel version:"
+msgstr "Kernel bertsiorako iturburua eskuratzen:"
+
+#: ../module-assistant:568
+#, perl-format
+msgid "%s."
+msgstr "%s."
+
+#: ../module-assistant:572
+#, perl-format
+msgid "Kernel headers available in %s"
+msgstr "Kernel goiburuak %s-en daude eskuragarri"
+
+#: ../module-assistant:592
+msgid "Creating symlink..."
+msgstr "Lotura sinbolikoak sortzen..."
+
+#: ../module-assistant:594
+#, perl-format
+msgid "Couldn't create the %s/linux symlink!"
+msgstr "Ezin da %s/linux lotura sinbolikoa sortu!"
+
+#: ../module-assistant:598
+msgid "Installing packages needed for the build environment..."
+msgstr "Eraikitze ingurunerako behar diren paketeak instalatzen..."
+
+#: ../module-assistant:601
+msgid "Done!"
+msgstr "Eginda!"
+
+#: ../module-assistant:626
+msgid "PROBE:"
+msgstr "PROBATU:"
+
+#: ../module-assistant:629
+msgid "GOT NAME:"
+msgstr "ESKURATU IZENA:"
+
+#: ../module-assistant:660
+#, perl-format
+msgid "%s, what is %s?"
+msgstr "%s, zer da %s?"
+
+#: ../module-assistant:738
+#, perl-format
+msgid "Installation of the %s source failed."
+msgstr "%s jatorriaren instalazioa huts egin du."
+
+#: ../module-assistant:742
+msgid ""
+"Ignoring this package. Maybe you need to add something to sources.list, "
+"maybe the contrib and non-free archives."
+msgstr ""
+"Pakete hau alde batetara uzten. Agian zerbait gehitu beharko diozu zure "
+"sources.list fitxategiari, adibidez contrib edo non-free artxiboak."
+
+#: ../module-assistant:798
+msgid "$KPKG_DEST_DIR is not set and the target directory"
+msgstr "$KPKG_DEST_DIR ez dago ezarria eta "
+
+#: ../module-assistant:799
+#, perl-format
+msgid ""
+"%s is not writeable for you!\n"
+"Your build will probably fail!"
+msgstr ""
+"%s helburu direktorioan ez duzu idazteko baimenik!\n"
+"Eraikitzeak ziurrenik huts egingo du!"
+
+#: ../module-assistant:846
+#, perl-format
+msgid "Recently built package %s found, not rebuilding %s"
+msgstr ""
+"Azken aldian eraikitako %s paketea aurkitu da, ez da %s berriz eraikiko"
+
+#: ../module-assistant:851
+#, perl-format
+msgid "Target package file %s already exists, not rebuilding!"
+msgstr "%s helburu pakete fitxategia badago dagoeneko, ez da berriz eraikiko!"
+
+#: ../module-assistant:879 ../module-assistant:905
+#, perl-format
+msgid "Building %s, step %d, please wait..."
+msgstr "%s eraikitzen, %d urratsa, itxoin mesedez..."
+
+#: ../module-assistant:879
+msgid "Build starting..."
+msgstr "Eraikitzea abiarazten..."
+
+#: ../module-assistant:905
+msgid "Build continues..."
+msgstr "Eraikitzea jarraitzen..."
+
+#: ../module-assistant:923
+#, perl-format
+msgid ""
+"Done! Run\n"
+"m-a install %s\n"
+"to install."
+msgstr ""
+"Eginda! Exekutatu\n"
+"m-a install %s\n"
+"instalatzeko."
+
+#: ../module-assistant:935 ../module-assistant:1507
+msgid "module-assistant, interactive mode"
+msgstr "module-assistant, modu interaktiboa"
+
+#: ../module-assistant:935
+#, perl-format
+msgid "Build of the package %s failed! How do you wish to proceed?"
+msgstr "Huts %s paketea eraikitzean! Zer egin nahi duzu?"
+
+#: ../module-assistant:935
+msgid "Examine the build log file"
+msgstr "Eraikitze erregistro fitxategia aztertu"
+
+#: ../module-assistant:935
+msgid "Skip and continue with the next operation"
+msgstr "Saltatu eta hurrengo ekintzarekin jarraitu"
+
+#: ../module-assistant:935
+msgid "Stop processing the build commands"
+msgstr "Gelditu eraikitze komandoak prozesatzez"
+
+#: ../module-assistant:940 ../module-assistant:1464
+msgid "Dialog command not working correctly!"
+msgstr "Elkarrizketa komandoak ez du behar bezala funtzionatzen!"
+
+#: ../module-assistant:943
+msgid "module-assistant, log file viewer"
+msgstr "module-assistant, erregistro fitxategia ikustatzailea"
+
+#: ../module-assistant:954
+#, perl-format
+msgid "Build failed! See %s for details!"
+msgstr "Eraikitzeak huts egin du. Begiratu %s xehetasun gehiagorako!"
+
+#: ../module-assistant:957
+#, perl-format
+msgid "Done with %s ."
+msgstr "%s-rekin eginda."
+
+#: ../module-assistant:962
+msgid "Build failed. Press Return to continue..."
+msgstr "Huts eraikitzean. Return sakatu aurrera jarraitzeko..."
+
+#: ../module-assistant:1002
+#, perl-format
+msgid "Package %s was not built successfully, see %s for details!"
+msgstr "%s paketea ez da behar bezala eraiki, %s ikusi xehetasunentzat!"
+
+#: ../module-assistant:1004
+msgid "You maybe want to run \"auto-install\" instead of install."
+msgstr ""
+"Zuk beharbada \"auto-install\" erabili nahi zenuen \"install\" beharrean."
+
+#: ../module-assistant:1013
+msgid "Direct installation failed, trying to post-install the dependencies"
+msgstr ""
+"Instalazio zuzenak huts egin du, dependentziak atze-instalatzen saiatzen"
+
+#: ../module-assistant:1037
+msgid ""
+"Warning, the cache is empty. You maybe wish to run the command \"module-"
+"assistant update\" first!"
+msgstr ""
+"Oharra. Katxea hutsik dago. Agian \"module assistant update\" komandoa "
+"exekutatu beharko zenuke lehenengo!"
+
+#: ../module-assistant:1054
+#, perl-format
+msgid "%s (source) available (not up-to-date, V: %s vs. %s)"
+msgstr "%s (iturburua) eskuragarri (eguneratu gabea , Bertsioa: %s vs. %s)"
+
+#: ../module-assistant:1057
+#, perl-format
+msgid "%s (source) installed (V: %s):"
+msgstr "%s (iturburua) instalaturik (Bertsioa: %s):"
+
+#: ../module-assistant:1064
+#, perl-format
+msgid "%s (source package not installed):"
+msgstr "%s (iturburu pakettea ez da instalatu):"
+
+#: ../module-assistant:1097
+msgid "not found, possible candidate(s) installable with %s:"
+msgstr "ez da aurkitu, %s bidez instalatu daitezkeen hautagai posibleak:"
+
+#: ../module-assistant:1100
+msgid "package not found, but following is already installed:"
+msgstr "paketea ez aurkitu, baina hurrengoa instalaturik dago:"
+
+#: ../module-assistant:1106
+msgid "not found"
+msgstr "ez da aurkitu"
+
+#: ../module-assistant:1111
+msgid "-- Binary package(s) for kernel(s):"
+msgstr "-- Kernelarentzat pakete bitarra(k):"
+
+#: ../module-assistant:1127
+msgid ""
+"Some packages could not be found. The \"search\" command can search in the "
+"package pool for precompiled packages."
+msgstr ""
+"Zenbait pakete ezin dira aurkitu. \"search\" komandoak pakete bilduman "
+"bilatu dezake aurrekonpilaturiko paketeen bila."
+
+#: ../module-assistant:1131
+msgid "No data? You maybe want to run \"module-assistant update\" first."
+msgstr ""
+"Daturik ez? Agian lehenengo \"module-assistant update\" exekutatu beharko "
+"zenuke."
+
+#: ../module-assistant:1217
+msgid ""
+"Experimental kernel source recreating method...\n"
+"Getting source..."
+msgstr ""
+"Kernel iturburu birsortze metodo esperimentala...\n"
+"Iturburua eskuratzen..."
+
+#: ../module-assistant:1220
+msgid "Config not found, getting headers to extract the config..."
+msgstr ""
+"Ez da konfigurazioa aurkitu, konfigurazioa ateratzeko goiburuak eskuratzen..."
+
+#: ../module-assistant:1227
+msgid "Extracting pristine kernel source, please wait..."
+msgstr "Pristine kernel iturburua ateratzen, itxoin mesedez..."
+
+#: ../module-assistant:1229
+msgid "Installing to final location and configuring, please wait..."
+msgstr "Aken kokalekuan instalatu eta konfiguratzen, itxoin mesedez..."
+
+#: ../module-assistant:1258
+#, perl-format
+msgid ""
+"Faked kernel source for the Kernel %s.\n"
+"Warning: the configuration may not match the running kernel."
+msgstr ""
+"Gezurrezko kertle iturburua %s kernelarentzat.\n"
+"Oharra: konfigurazioa agian ez da martxan dagoen kernelaren berdina."
+
+#: ../module-assistant:1292
+#, perl-format
+msgid ""
+"Warning, %s seems to contain unconfigured kernel source (see manpage for "
+"details)!"
+msgstr ""
+"Abisua, %s-ek dirudienez konfiguratu gabeko kernel iturburu bat du (ikusi "
+"manual orrialdea xehetasunetarako)!"
+
+#: ../module-assistant:1296
+#, perl-format
+msgid "Warning, could not access the %s directory!"
+msgstr "Abisua, ezin da %s direktorioa atzitu!"
+
+#: ../module-assistant:1300
+#, perl-format
+msgid "Warning, %s does not contain a valid kernel source tree, skipping!"
+msgstr ""
+"Abisua, %s-ek ez du baliozko kernel iturburu zuhaitz bat, alde batetara "
+"uzten!"
+
+#: ../module-assistant:1458
+msgid ""
+"Welcome to the dialog frontend of module-assistant. This user interface "
+"provides access to the few commands of this program."
+msgstr ""
+"Ongi etorri module-assitant-ren elkarrizketa interfazera. Erabiltzaile "
+"interfaze honek programa honen komando gutxiak erabitzeko aukera ematen du."
+
+#: ../module-assistant:1458
+msgid "If you wish to learn more, choose the OVERVIEW option."
+msgstr "Gehiago ikasi nahi izanez gero, hautatu OVERVIEW aukera."
+
+#: ../module-assistant:1458
+msgid "You should better run UPDATE once before you proceed."
+msgstr "Aurrera jarraitu aurretik UPDATE komandoa exekutatu beharko zenuke."
+
+#: ../module-assistant:1458
+msgid ""
+"If you wish to look for existing module packages for your needs or wish to "
+"compile a new one from source, choose them in the SELECT dialog and continue "
+"with possible commands."
+msgstr ""
+"Dauden modulu paketeak bilatu edo berri batenbat iturburutik konpilatu behar "
+"izanez gero, hautatu itzazu SELECT aukeran eta jarraitu komando "
+"erabilgarriekin."
+
+#: ../module-assistant:1458
+msgid "Show all possible command line commands"
+msgstr "Ikusi komando-lerro komando posible guztiak"
+
+#: ../module-assistant:1458
+msgid "Update the cached package information"
+msgstr "Eguneratu katxeko pakete informazioa"
+
+#: ../module-assistant:1458
+msgid "Configure the system to compile modules"
+msgstr "Konfiguratu sistema moduluak konpilatzeko"
+
+#: ../module-assistant:1458
+msgid "Select the module/source packages to work on"
+msgstr "Hautau lan egiteko modulu/iturbu paketea(k)"
+
+#: ../module-assistant:1458
+msgid "Exit the program"
+msgstr "Irten programatik"
+
+#: ../module-assistant:1470
+msgid "module-assistant, command overview"
+msgstr "module-assistant, komando aurreikuspena"
+
+#: ../module-assistant:1478
+msgid "Press Return to continue..."
+msgstr "Return sakatu aurrera jarraitzeko..."
+
+#: ../module-assistant:1489
+msgid "module-assistant, package selection"
+msgstr "module-assistant, pakete hutapena"
+
+#: ../module-assistant:1489
+msgid "Please select the interesting module (source) packages."
+msgstr "Mesedez hautatu interesgarri zaizkizun (iturburu) paketeak."
+
+#: ../module-assistant:1489
+msgid "Use Cursor keys to browse, Space to select and Return to continue."
+msgstr ""
+"Erabili kurtsore teklak nabigatzeko, zuriunea hautatzeko eta return "
+"jarraitzeko."
+
+#: ../module-assistant:1489
+msgid "Cancel to return to the main menu."
+msgstr "Utzi menu nagusira itzultzeko."
+
+#: ../module-assistant:1507
+msgid "You have selected the following packages:"
+msgstr "Hurrengo paketeak hautatu dituzu:"
+
+#: ../module-assistant:1509
+msgid ""
+"Choose one of the following commands to proceed or Cancel to return to the "
+"selection menu."
+msgstr ""
+"Hautatu hurrengo komandoetako bat jarraitzeko edo Cancel hautapen menura "
+"itzultzeko."
+
+#: ../module-assistant:1509
+msgid "List installed (binary) packages"
+msgstr "Zerrendatu instalaturiko (iturburu) paketeak"
+
+#: ../module-assistant:1509
+msgid "List and search with apt-cache"
+msgstr "Zerrendatu eta bilatu apt-cache bidez"
+
+#: ../module-assistant:1509
+msgid "Get or update the source package"
+msgstr "Eskuratu edo eguneratu iturburu paketea"
+
+#: ../module-assistant:1509
+msgid "Compiles module packages for the current kernel"
+msgstr "Uneko kernelarentzat modulu paketeak konpilatu"
+
+#: ../module-assistant:1509
+msgid "Installs the packages for the current kernel"
+msgstr "Uneko kernelarentzat modulu paketeak instalatu"
+
+#: ../module-assistant:1509
+msgid "Returns to the module selection"
+msgstr "Itzuli modulu hautapenera"
+
+#: ../module-assistant:1524
+msgid "module-assistant, present packages"
+msgstr "module-assistant, dauden paketeak"
+
+#: ../module-assistant:1537
+msgid "module-assistant, source installation"
+msgstr "module-assistant, iturburu instalazioa"
+
+#: ../module-assistant:1537
+msgid ""
+"The source package may not to be installed. Would you like to install or "
+"upgrade selected source packages now?"
+msgstr ""
+"Posible da iturburu paketea ez instalatzea. Hautatutako iturburu paketeak "
+"orain instalatu edo eguneratu nahi dituzu?"
+
+#: ../module-assistant:1546
+msgid "module-assistant, package installation"
+msgstr "module-assistant, pakete instalazioa"
+
+#: ../module-assistant:1546
+msgid "Would you like to install the created module package(s) now?"
+msgstr "Orain sortutako modulu paketea(k) instalatu nahi al duzu?"
+
+#: ../module-assistant:1573
+#, perl-format
+msgid ""
+"NOTE: You are not root but member of the src group. Mapping the base working "
+"directory to \"%s\"."
+msgstr ""
+"OHARRA: Zu ez zara root baina bai src taldeko partaidea. Oinarrizko lan "
+"direktorioa \"%s\"-ra mapatzen."
+
+#: ../module-assistant:1581
+#, perl-format
+msgid ""
+"You are member of the src group but the replacement directory %s could not "
+"be created or is not writeable."
+msgstr ""
+"Zu src taldeko partaidea zara baina %s ordezkatze direktorioa ezin da sortu "
+"edo ezin da bertan idatzi."
+
+#: ../module-assistant:1590
+msgid ""
+"You are not root and no replacement directory (the -u option) is specified. "
+"Unable to continue."
+msgstr ""
+"Zu ez zara root eta ez ordezte direktoriorik (-u aukera) ezarrri. Ezin da "
+"aurrera jarraitu."
+
+#~ msgid "No package specified. STOP."
+#~ msgstr "Ez da paketerik ezarri. GELDITU."
+
+#~ msgid ""
+#~ "Do you really wish to remove all binary packages?\n"
+#~ "If so, use the --force option."
+#~ msgstr ""
+#~ "Benetan pakete bitar guztiak ezabatu nahi dituzula?\n"
+#~ "Hala bada \"--force\" aukera erabili."
+
+#~ msgid "Starting the Dialog UI..."
+#~ msgstr "Elkarrizketa interfazea abiarazten..."

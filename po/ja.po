@@ -1,0 +1,721 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: module-assistant\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-06-25 22:16+0200\n"
+"PO-Revision-Date: 2005-04-11 23:35+0900\n"
+"Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
+"Language-Team: Japanese <debian-japanese@lists.debian.org>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../module-assistant:57
+#, fuzzy
+msgid ""
+"USAGE:\n"
+"\n"
+"  module-assistant update\n"
+"  module-assistant [options] COMMAND [ packages ]\n"
+"\n"
+"module-assistant is the tool to get debianized source of kernel modules,\n"
+"build module package from it and install them. The most frequently used\n"
+"command may be auto-install followed by the 'alli' argument.\n"
+"\n"
+"Commands:\n"
+"\n"
+"  update - refresh internal information about the packages\n"
+"  unpack - unpacks the tarballs of specified packages (or similar action)\n"
+"  get - download/install the source (package) and unpack if needed\n"
+"  build - build the specified package(s)\n"
+"  list - print information about installed/available/compiled packages\n"
+"  install - install the generated binary modules DEB package with dpkg\n"
+"  auto-install - the whole process, get & build & install (abbreviated: a-"
+"i)\n"
+"  prepare - install headers for the current kernel and set the linux "
+"symlink\n"
+"  clean - quick clean of the source (eg. wiping the build directory)\n"
+"  purge - removes cached data and existing modules packages\n"
+"  la (alias for \"list all\"), li (= \"list all installed\"), search (= "
+"\"list -s\")\n"
+"\n"
+"Package arguments:\n"
+"\n"
+"  Source package name(s). If -src or -source is omitted, name\n"
+"  completion will try to guess the package name. If the first argument\n"
+"  is 'all', the list will be expanded to all packages. 'alli' will be\n"
+"  expanded to \"all installed\".\n"
+"\n"
+"Options:\n"
+" -h, --help        Print this help screen\n"
+" -v, --verbose     Be verbose, show full paths, etc.\n"
+" -q, --quiet       The opposite of verbose\n"
+" -n, --no-rebuild  Don't rebuild when any usable modules package for \n"
+"                   this kernel exists (even an old one)\n"
+" -i, --non-inter   Don't stop on build failures, auto-install deps when "
+"needed\n"
+" -o, --unpack-once Unpack the source only once after source upgrade or "
+"clean\n"
+" -O, --not-unpack  Don't unpack the source at all\n"
+" -s, --apt-search  Search for installation candidates in the Debian archive\n"
+" -S, --sudo-cmd    An alternative command for sudo\n"
+" -f, --force       Force duplicated work: source package reinstallation,\n"
+"                   rebuild though existing packages are found, etc.\n"
+" -t, --text-mode   Text mode, no dialog boxes\n"
+" -u, --userdir     Specifies a (writeable) replacement directory for /var&/"
+"usr\n"
+" -k, --kernel-dir  List of kernel headers/source directories, comma "
+"separated\n"
+" -l, --kvers-list  List of kernel versions to work on (default: current "
+"version)\n"
+"Lists in options are strings separated by commas, spaces or newlines.\n"
+"\n"
+"Example:\n"
+"  m-a update ; m-a a-i nvidia-kernel ; echo Enjoy!"
+msgstr ""
+"使い方:\n"
+"\n"
+"  module-assistant update\n"
+"  module-assistant [オプション] コマンド [ パッケージ ]\n"
+"\n"
+"module-assistant は Debian 化されたカーネルモジュールソースを取得し、そこ\n"
+"からモジュールパッケージをビルドしてインストールするツールです。以下の引\n"
+"数のうち、最もよく使われるであろうコマンドは、auto-install でしょう。\n"
+"\n"
+"コマンド:\n"
+"\n"
+"  update - パッケージの内部情報を更新する\n"
+"  unpack - 指定されたパッケージの tarball を展開する (またはそれに似たアク\n"
+"  ションを行う)\n"
+"  get - ソース (パッケージ) のダウンロード/インストールを行い、必要なら展\n"
+"  開する\n"
+"  build - 指定のパッケージをビルドする\n"
+"  list - インストール済み/利用可能/コンパイル済みのパッケージの情報を表示\n"
+"  する\n"
+"  install - 生成されたバイナリモジュール DEB パッケージを dpkg でインスト\n"
+"  ールする\n"
+"  auto-install - get、build、install のすべての手順を行う (短縮名: a-i)\n"
+"  prepare - 現在のカーネルのヘッダをインストールし、linux にシンボリックリ\n"
+"  ンクを設定する\n"
+"  clean - ソースのクイック清掃を行う (ビルドディレクトリの消去)\n"
+"  purge - キャッシュされたデータと既存のモジュールパッケージの削除\n"
+"  la (\"list all\" の別名), li (= \"list all installed\"), search (= \"list -"
+"s\")\n"
+"\n"
+"パッケージ引数:\n"
+"\n"
+"  ソースパッケージ名。-src または -source が省略されると、パッケージ\n"
+"  名を推測するために名前補完が試みられます。最初の引数が 'all' の場合、\n"
+"  リストは全パッケージに展開されます。'alli' は \"all installed\" に展開\n"
+"  されます。\n"
+"\n"
+"オプション:\n"
+" -h, --help        ヘルプ画面を表示する\n"
+" -v, --verbose     詳細モードとなり、完全パスの表示などを行う\n"
+" -q, --quiet       verbose の逆\n"
+" -n, --no-rebuild  カーネルに対して利用可能なモジュールパッケージが存在\n"
+"                   するとき (古いものであっても) に再ビルドしない\n"
+" -i, --non-inter   ビルド失敗、auto-install 依存が必要なときにも停止しない\n"
+" -o, --unpack-once ソースが更新または消去されたときに1度だけソースを展開す\n"
+"                   る\n"
+" -s, --apt-search  Debian アーカイブの中からインストール候補を検索する\n"
+" -f, --force       重複する作業を強制する: ソースパッケージは既存のパッケ\n"
+"                   ージが存在していても再インストールされる\n"
+" -u, --userdir     /var および /usr の(書き込み可能な) 代替ディレクトリを\n"
+"                   指定する\n"
+" -k, --kernel-dir  カンマで区切られたカーネルヘッダ/ソースディレクトリのリ\n"
+"                   スト\n"
+" -l, --kvers-list  作業するカーネルバージョンのリスト (デフォルト: 現在の\n"
+"                   バージョン)\n"
+"オプションのリストはカンマ、スペースまたは改行で区切られた文字列です。\n"
+"\n"
+"例:\n"
+"  m-a update ; m-a a-i nvidia-kernel ; echo Enjoy!"
+
+#: ../module-assistant:110
+msgid ""
+"Warning: the selected module source is known to require a complete\n"
+"kernel source structure in order to be built correctly. However, only\n"
+"a reduced version of the source (linux-headers) has been found, so\n"
+"the build process will probably fail.\n"
+"\n"
+"In order to get a full kernel source, you have the following options:\n"
+"\n"
+" - fake the source directory - create one that may look very similar\n"
+"   to the one that has been used to build your kernel (based on its\n"
+"   configuration and fresh source archive). The results are uncertain,\n"
+"   but it should work in most cases.\n"
+"   Call \"module-assistant fakesource\" to automate this.\n"
+" - use a custom kernel built from scratch (custom configuration,\n"
+"   custom source, custom kernel package installed). Please read the\n"
+"   Kernel HOWTO and/or make-kpkg documentation for the further steps."
+msgstr ""
+"警告: 選択されたモジュールソースは、正しくビルドするために完全なカーネ\n"
+"ルソース構造を必要とすることが知られています。しかしながら、ソースの縮\n"
+"小されたバージョン (linux-headers) が発見されており、ビルド処理はおそ\n"
+"らく失敗するでしょう。\n"
+"\n"
+"完全なカーネルソースを取得するために、次の選択肢があります:\n"
+"\n"
+" - ソースディレクトリを偽装する - あなたのカーネルをビルドするのに\n"
+"   (設定および新しいソースアーカイブに基き) 使われたものとよく似て\n"
+"   いる構成を作成します。結果は不確かですが、たいていはうまく動く\n"
+"   でしょう。\n"
+"   これを自動的に行うには \"module-assistant fakesource\" を呼び出します。\n"
+" - スクラッチからビルドされた (カスタム設定、カスタムソース、インス\n"
+"   トールされたカスタムカーネルパッケージ) カスタムカーネルを使います。\n"
+"   さらなる手順についてはカーネル HOWTO および make-kpkg ドキュメントを読んで"
+"ください。"
+
+#: ../module-assistant:335 ../module-assistant:338
+msgid "module-assistant, error message"
+msgstr "module-assistant, エラーメッセージ"
+
+#: ../module-assistant:354
+msgid "Press Return to continue... (ctrl-c to abort)"
+msgstr "続けるために Return を押してください... (停止するには ctrl-c)"
+
+#: ../module-assistant:363
+#, perl-format
+msgid "%s is not a directory!"
+msgstr "%s はディレクトリではありません!"
+
+#: ../module-assistant:364 ../module-assistant:369
+#, perl-format
+msgid "%s is not writeable!"
+msgstr "%s は書き込み可能ではありません!"
+
+#: ../module-assistant:376
+msgid "Found sudo, will use it for %s and dpkg commands."
+msgstr "sudo を発見したので、%s および dpkg コマンドにこれを使います。"
+
+#: ../module-assistant:380
+msgid "Warning: sudo not found. Automatic package installations not possible!"
+msgstr "警告: sudo が見つかりません。自動パッケージインストールは不可能です!"
+
+#: ../module-assistant:410
+msgid ""
+"Bad luck, the kernel headers for the target kernel version could not be "
+"found and you did not specify other valid kernel headers to use."
+msgstr ""
+"残念ながらターゲットのカーネルバージョンに対するカーネルヘッダが見つからず、 "
+"利用するためのほかの有効なカーネルヘッダも指定されていません。"
+
+#: ../module-assistant:416
+#, fuzzy, perl-format
+msgid ""
+"However, you can install the header files for your kernel which are provided "
+"by the %s package. For most modules packages, these files are perfectly "
+"sufficient without having the original kernel source.\n"
+"\n"
+"To install the package, run"
+msgstr ""
+"ただし、%s パッケージとして提供されている、カーネルに対するヘッダファイルを "
+"インストールできます。多くのモジュールパッケージでは、オリジナルのカーネル "
+"ソースなしにこのファイルでまったく十分です。\n"
+"\n"
+"パッケージをインストールする方法:"
+
+#: ../module-assistant:420
+msgid " the PREPARE command from the main menu, or on the command line"
+msgstr "メインメニューから PREPARE コマンド、 またはコマンドラインで"
+
+#: ../module-assistant:421
+#, perl-format
+msgid ""
+":\n"
+"\n"
+"module-assistant prepare\n"
+"\n"
+"or\n"
+"\n"
+"%s install %s"
+msgstr ""
+":\n"
+"\n"
+"module-assistant prepare\n"
+"\n"
+"または\n"
+"\n"
+"%s install %s"
+
+#: ../module-assistant:436
+#, perl-format
+msgid ""
+"If the running kernel has been shipped with the Debian distribution, please "
+"install the package %s. If your kernel source tree (or headers) is located "
+"in some non-usual location, please set the KERNELDIRS environment variable "
+"to the path of this directory, or (alternatively) specify the source "
+"directory we build for with the --kernel-dir option in module-assistant "
+"calls."
+msgstr ""
+"実行中のカーネルが Debian ディストリビューションで供給しているものなら、 %s "
+"パッケージをインストールしてください。カーネルソースツリー (または ヘッダ) が"
+"通常とは異なる場所に配置されているなら、そのディレクトリのパ スを示す "
+"KERNELDIRS 環境変数を設定するか、module-assistant の呼び出し時 に --kernel-"
+"dir オプションでビルドに使うソースディレクトリを指定してく ださい。"
+
+#: ../module-assistant:484
+msgid "Updating cached package data"
+msgstr "キッシュされたパッケージデータを更新中"
+
+#: ../module-assistant:484
+msgid "Reading apt-cache output..."
+msgstr "apt-cache の出力を読み込み中..."
+
+#: ../module-assistant:494
+#, perl-format
+msgid "Updating info about %s"
+msgstr "%s についての情報を更新中"
+
+#: ../module-assistant:524
+#, perl-format
+msgid "Updated infos about %s packages"
+msgstr "%s パッケージについての情報を更新しました"
+
+#: ../module-assistant:524
+#, perl-format
+msgid "Updated infos about %s package"
+msgstr "%s パッケージについての情報を更新しました"
+
+#: ../module-assistant:567
+msgid "Getting source for kernel version:"
+msgstr ""
+
+#: ../module-assistant:568
+#, perl-format
+msgid "%s."
+msgstr "%s。"
+
+#: ../module-assistant:572
+#, perl-format
+msgid "Kernel headers available in %s"
+msgstr "%s のカーネルヘッダを利用できます"
+
+#: ../module-assistant:592
+msgid "Creating symlink..."
+msgstr "symlink を作成中..."
+
+#: ../module-assistant:594
+#, perl-format
+msgid "Couldn't create the %s/linux symlink!"
+msgstr "%s/linux シンボリックリンクを作成できませんでした!"
+
+#: ../module-assistant:598
+msgid "Installing packages needed for the build environment..."
+msgstr "ビルド環境に必要なパッケージをインストール中..."
+
+#: ../module-assistant:601
+msgid "Done!"
+msgstr "完了!"
+
+#: ../module-assistant:626
+msgid "PROBE:"
+msgstr "検出:"
+
+#: ../module-assistant:629
+msgid "GOT NAME:"
+msgstr "名前を取得:"
+
+#: ../module-assistant:660
+#, perl-format
+msgid "%s, what is %s?"
+msgstr "%s、%s は何?"
+
+#: ../module-assistant:738
+#, perl-format
+msgid "Installation of the %s source failed."
+msgstr "%s ソースのインストールに失敗しました。"
+
+#: ../module-assistant:742
+msgid ""
+"Ignoring this package. Maybe you need to add something to sources.list, "
+"maybe the contrib and non-free archives."
+msgstr ""
+"このパッケージを無視します。おそらく、sources.list に contrib や non-free "
+"アーカイブといった何かを追加する必要があるでしょう。"
+
+#: ../module-assistant:798
+msgid "$KPKG_DEST_DIR is not set and the target directory"
+msgstr ""
+"$KPKG_DEST_DIR は設定されておらず、ターゲットディレクトリではありません"
+
+#: ../module-assistant:799
+#, perl-format
+msgid ""
+"%s is not writeable for you!\n"
+"Your build will probably fail!"
+msgstr ""
+"%s に書き込みできません!\n"
+"ビルドはおそらく失敗します!"
+
+#: ../module-assistant:846
+#, perl-format
+msgid "Recently built package %s found, not rebuilding %s"
+msgstr "最近ビルドされたパッケージ %s が発見されたので、%s は再ビルドしません"
+
+#: ../module-assistant:851
+#, perl-format
+msgid "Target package file %s already exists, not rebuilding!"
+msgstr ""
+"ターゲットのパッケージファイル %s がすでに存在するので、再ビルドはしません!"
+
+#: ../module-assistant:879 ../module-assistant:905
+#, perl-format
+msgid "Building %s, step %d, please wait..."
+msgstr "%s をビルド中。ステップ %d。お待ちください..."
+
+#: ../module-assistant:879
+msgid "Build starting..."
+msgstr "ビルドを開始しています..."
+
+#: ../module-assistant:905
+msgid "Build continues..."
+msgstr "ビルドを続けています..."
+
+#: ../module-assistant:923
+#, perl-format
+msgid ""
+"Done! Run\n"
+"m-a install %s\n"
+"to install."
+msgstr ""
+"完了! インストールするために\n"
+"m-a install %s\n"
+"を実行してください。"
+
+#: ../module-assistant:935 ../module-assistant:1507
+msgid "module-assistant, interactive mode"
+msgstr "module-assistant, インタラクティブモード"
+
+#: ../module-assistant:935
+#, perl-format
+msgid "Build of the package %s failed! How do you wish to proceed?"
+msgstr "%s パッケージのビルドに失敗しました! どのように処理しますか?"
+
+#: ../module-assistant:935
+msgid "Examine the build log file"
+msgstr "ビルドログファイルの調査"
+
+#: ../module-assistant:935
+msgid "Skip and continue with the next operation"
+msgstr "飛ばして次の操作を継続"
+
+#: ../module-assistant:935
+msgid "Stop processing the build commands"
+msgstr "ビルドコマンドの処理を停止"
+
+#: ../module-assistant:940 ../module-assistant:1464
+msgid "Dialog command not working correctly!"
+msgstr "ダイアログコマンドが正しく動作しません!"
+
+#: ../module-assistant:943
+msgid "module-assistant, log file viewer"
+msgstr "module-assistant, ログファイルビューア"
+
+#: ../module-assistant:954
+#, perl-format
+msgid "Build failed! See %s for details!"
+msgstr "ビルドに失敗しました! 詳細については %s を参照してください。"
+
+#: ../module-assistant:957
+#, perl-format
+msgid "Done with %s ."
+msgstr "%s が完了しました。"
+
+#: ../module-assistant:962
+msgid "Build failed. Press Return to continue..."
+msgstr "ビルドに失敗しました。続けるには Return を押してください..."
+
+#: ../module-assistant:1002
+#, perl-format
+msgid "Package %s was not built successfully, see %s for details!"
+msgstr ""
+"%s パッケージが正しくビルドできませんでした。詳細については %s を参照してくだ"
+"さい。"
+
+#: ../module-assistant:1004
+msgid "You maybe want to run \"auto-install\" instead of install."
+msgstr "install の代わりに \"auto-install\" を実行したかったのでしょう。"
+
+#: ../module-assistant:1013
+msgid "Direct installation failed, trying to post-install the dependencies"
+msgstr "直接インストールに失敗したので、依存関係の事後インストールを試行します"
+
+#: ../module-assistant:1037
+msgid ""
+"Warning, the cache is empty. You maybe wish to run the command \"module-"
+"assistant update\" first!"
+msgstr ""
+"警告: キャッシュが空です。\"module-assistant update\" コマンドを 最初に実行し"
+"てください!"
+
+#: ../module-assistant:1054
+#, perl-format
+msgid "%s (source) available (not up-to-date, V: %s vs. %s)"
+msgstr "%s (ソース) 利用可能 (最新でない, V: %s 対 %s)"
+
+#: ../module-assistant:1057
+#, perl-format
+msgid "%s (source) installed (V: %s):"
+msgstr "%s (ソース) インストール済み (V: %s):"
+
+#: ../module-assistant:1064
+#, perl-format
+msgid "%s (source package not installed):"
+msgstr "%s (ソースパッケージは未インストール):"
+
+#: ../module-assistant:1097
+msgid "not found, possible candidate(s) installable with %s:"
+msgstr "見つかりません。%s でインストール可能な候補:"
+
+#: ../module-assistant:1100
+msgid "package not found, but following is already installed:"
+msgstr "パッケージが見つからないが、以下はインストール済み:"
+
+#: ../module-assistant:1106
+msgid "not found"
+msgstr "見つかりません"
+
+#: ../module-assistant:1111
+msgid "-- Binary package(s) for kernel(s):"
+msgstr "-- カーネルのバイナリパッケージ:"
+
+#: ../module-assistant:1127
+msgid ""
+"Some packages could not be found. The \"search\" command can search in the "
+"package pool for precompiled packages."
+msgstr ""
+"いくつかのパッケージが見つかりませんでした。\"search\" コマンドで事前コンパイ"
+"ルされたパッケージをパッケージプールから探すことができます。"
+
+#: ../module-assistant:1131
+msgid "No data? You maybe want to run \"module-assistant update\" first."
+msgstr ""
+"データがないようです。\"module-assistant update\" を最初に実行してください。"
+
+#: ../module-assistant:1217
+msgid ""
+"Experimental kernel source recreating method...\n"
+"Getting source..."
+msgstr ""
+"カーネルソース再構築手法を実験しています...\n"
+"ソースを取得中..."
+
+#: ../module-assistant:1220
+msgid "Config not found, getting headers to extract the config..."
+msgstr "設定が見つかりません。設定を展開するためにヘッダを取得しています..."
+
+#: ../module-assistant:1227
+msgid "Extracting pristine kernel source, please wait..."
+msgstr "新しいカーネルソースを展開中。お待ちください..."
+
+#: ../module-assistant:1229
+msgid "Installing to final location and configuring, please wait..."
+msgstr "最終的な場所にインストールおよび設定中。お待ちください..."
+
+#: ../module-assistant:1258
+#, perl-format
+msgid ""
+"Faked kernel source for the Kernel %s.\n"
+"Warning: the configuration may not match the running kernel."
+msgstr ""
+"カーネル %s のカーネルソースを偽装しました。\n"
+"警告: 設定は実行中のカーネルと適合しないかもしれません。"
+
+#: ../module-assistant:1292
+#, perl-format
+msgid ""
+"Warning, %s seems to contain unconfigured kernel source (see manpage for "
+"details)!"
+msgstr ""
+"警告: %s は未設定のカーネルソースを含んでいます (詳細については man ページを"
+"参照)!"
+
+#: ../module-assistant:1296
+#, perl-format
+msgid "Warning, could not access the %s directory!"
+msgstr ""
+
+#: ../module-assistant:1300
+#, perl-format
+msgid "Warning, %s does not contain a valid kernel source tree, skipping!"
+msgstr "警告: %s は有効なカーネルソースツリーを含んでいません。飛ばします。"
+
+#: ../module-assistant:1458
+msgid ""
+"Welcome to the dialog frontend of module-assistant. This user interface "
+"provides access to the few commands of this program."
+msgstr ""
+"module-assistantのダイアログフロントエンドにようこそ。このユーザインターフェ"
+"イスは、このプログラムのいくつかのコマンドへのアクセスを提供します。"
+
+#: ../module-assistant:1458
+msgid "If you wish to learn more, choose the OVERVIEW option."
+msgstr "さらに知りたければ、OVERVIEW 選択肢を選んでください。"
+
+#: ../module-assistant:1458
+msgid "You should better run UPDATE once before you proceed."
+msgstr "処理をする前に、UPDATE を一度実行するのがよいでしょう。"
+
+#: ../module-assistant:1458
+msgid ""
+"If you wish to look for existing module packages for your needs or wish to "
+"compile a new one from source, choose them in the SELECT dialog and continue "
+"with possible commands."
+msgstr ""
+"必要とする既存のモジュールパッケージを見たい、あるいは新しいものをソースから"
+"コンパイルしたいときには、SELECT ダイアログで選び、可能なコマンドを続けてくだ"
+"さい。"
+
+#: ../module-assistant:1458
+msgid "Show all possible command line commands"
+msgstr "すべての利用可能なコマンドラインコマンドを表示"
+
+#: ../module-assistant:1458
+msgid "Update the cached package information"
+msgstr "キャッシュされたパッケージ情報の更新"
+
+#: ../module-assistant:1458
+msgid "Configure the system to compile modules"
+msgstr "モジュールをコンパイルするためのシステムの設定"
+
+#: ../module-assistant:1458
+msgid "Select the module/source packages to work on"
+msgstr "作業するモジュール/ソースパッケージの選択"
+
+#: ../module-assistant:1458
+msgid "Exit the program"
+msgstr "プログラムの終了"
+
+#: ../module-assistant:1470
+msgid "module-assistant, command overview"
+msgstr "module-assistant, コマンド概要"
+
+#: ../module-assistant:1478
+msgid "Press Return to continue..."
+msgstr "続けるには Return を押してください..."
+
+#: ../module-assistant:1489
+msgid "module-assistant, package selection"
+msgstr "module-assistant, パッケージの選択"
+
+#: ../module-assistant:1489
+msgid "Please select the interesting module (source) packages."
+msgstr "関心のあるモジュール (ソース) パッケージを選択してください。"
+
+#: ../module-assistant:1489
+msgid "Use Cursor keys to browse, Space to select and Return to continue."
+msgstr "閲覧するにはカーソルキーを使い、スペースで選択、Return で続けます。"
+
+#: ../module-assistant:1489
+msgid "Cancel to return to the main menu."
+msgstr "メインメニューに戻るには「取消」を選びます。"
+
+#: ../module-assistant:1507
+msgid "You have selected the following packages:"
+msgstr "以下のパッケージが選択されました:"
+
+#: ../module-assistant:1509
+msgid ""
+"Choose one of the following commands to proceed or Cancel to return to the "
+"selection menu."
+msgstr ""
+"処理を行うために以下のコマンドから1つ選ぶか、または選択メニューに戻るために"
+"キャンセルを選んでください。"
+
+#: ../module-assistant:1509
+msgid "List installed (binary) packages"
+msgstr "インストール済みの (バイナリ) パッケージのリスト"
+
+#: ../module-assistant:1509
+msgid "List and search with apt-cache"
+msgstr "apt-cache で一覧または検索"
+
+#: ../module-assistant:1509
+msgid "Get or update the source package"
+msgstr "ソースパッケージの取得または更新"
+
+#: ../module-assistant:1509
+msgid "Compiles module packages for the current kernel"
+msgstr "現在のカーネル用にモジュールパッケージをコンパイル"
+
+#: ../module-assistant:1509
+msgid "Installs the packages for the current kernel"
+msgstr "現在のカーネル用にパッケージをインストール"
+
+#: ../module-assistant:1509
+msgid "Returns to the module selection"
+msgstr "モジュール選択に戻る"
+
+#: ../module-assistant:1524
+msgid "module-assistant, present packages"
+msgstr "module-assistant, パッケージの提供"
+
+#: ../module-assistant:1537
+msgid "module-assistant, source installation"
+msgstr "module-assistant, ソースのインストール"
+
+#: ../module-assistant:1537
+msgid ""
+"The source package may not to be installed. Would you like to install or "
+"upgrade selected source packages now?"
+msgstr ""
+"ソースパッケージがインストールされていません。選択されたソースパッケージを今"
+"インストールあるいは更新しますか?"
+
+#: ../module-assistant:1546
+msgid "module-assistant, package installation"
+msgstr "module-assistant, パッケージのインストール"
+
+#: ../module-assistant:1546
+msgid "Would you like to install the created module package(s) now?"
+msgstr "作成されたモジュールパッケージを今インストールしますか?"
+
+#: ../module-assistant:1573
+#, perl-format
+msgid ""
+"NOTE: You are not root but member of the src group. Mapping the base working "
+"directory to \"%s\"."
+msgstr ""
+"注意: あなたは root ではありませんが、src グループのメンバーです。ベース作業"
+"ディレクトリを \"%s\" にマッピングしています。"
+
+#: ../module-assistant:1581
+#, fuzzy, perl-format
+msgid ""
+"You are member of the src group but the replacement directory %s could not "
+"be created or is not writeable."
+msgstr ""
+"あなたは src グループのメンバーですが、置換ディレクトリ %s が作成できません。"
+
+#: ../module-assistant:1590
+#, fuzzy
+msgid ""
+"You are not root and no replacement directory (the -u option) is specified. "
+"Unable to continue."
+msgstr ""
+"あなたは root ではなく、置換ディレクトリ (-u オプション) も指定されていませ"
+"ん。継続できません。"
+
+#~ msgid "No package specified. STOP."
+#~ msgstr "パッケージが指定されていません。停止します。"
+
+#~ msgid ""
+#~ "Do you really wish to remove all binary packages?\n"
+#~ "If so, use the --force option."
+#~ msgstr ""
+#~ "本当にすべてのバイナリパッケージを削除しますか?\n"
+#~ "もしそうなら、--force オプションを使ってください。"
+
+#~ msgid "Starting the Dialog UI..."
+#~ msgstr "ダイアログ UI を開始しています..."
+
+#~ msgid "Warning, %s seems to contain unconfigured kernel source!"
+#~ msgstr "警告: %s は未設定のカーネルソースを含んでいます!"

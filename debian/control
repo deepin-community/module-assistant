@@ -1,0 +1,36 @@
+Source: module-assistant
+Section: kernel
+Priority: optional
+Maintainer: Eduard Bloch <blade@debian.org>
+Uploaders: David Kalnischkies <kalnischkies@gmail.com>, Andreas Beckmann <anbe@debian.org>
+Build-Depends: debhelper (>= 11),
+ bzip2,
+ gettext,
+ docbook-utils,
+ docbook,
+ bash-completion (>= 1:2.1-4.2~),
+ tar (>= 1.28),
+Standards-Version: 4.1.4
+Vcs-Browser: https://salsa.debian.org/debian/module-assistant
+Vcs-Git: https://salsa.debian.org/debian/module-assistant.git
+
+Package: module-assistant
+Architecture: all
+Depends: ${misc:Depends}, ${perl:Depends}, libtext-wrapi18n-perl, bzip2, xz-utils
+Recommends: liblocale-gettext-perl
+Suggests: build-essential, dialog | whiptail
+Description: tool to make module package creation easier
+ The module-assistant tool (also known as m-a) helps users and maintainers
+ with managing external Linux kernel modules packaged for Debian. It can
+ do:
+ .
+  * automated preparation of build environment for module compilation
+    (e.g. automatic detection and installation of required kernel
+    source/headers);
+  * automated module source downloads;
+  * configuration and tracking of external and locally built modules
+    packages;
+  * semi-automated multiple builds for multiple kernel versions;
+ .
+ It also contains some infrastructure to be used by the build-scripts in the
+ accompanying modules-source packages in Debian.

@@ -1,0 +1,160 @@
+
+General documentation for module-assistant's functionality
+
+Contents:
+=========
+
+ - How does it work
+ - Interface of control scripts
+ - scripts/include directory structure
+ - mini-HOWTO
+ - Conventions
+ - Glossary
+
+
+How does the whole thing work?
+------------------------------
+
+Every package that should be controlled with modass provides a control script
+(see below) that accepts a set of defined commands
+
+Control scripts interface:
+--------------------------
+
+ update
+        updates the intenal data when needed, eg. version number.
+        Scripts can do whatever they want, any may use the
+        /var/lib/modass/cache directory as playground for caching the
+        data. Before update is executed, every packakage gets its dpkg
+        info delivered into /var/cache/modass/PACKAGE.dkpgstatus
+
+ cur_version
+        outputs the currently installed version of the package;
+        syntax == dpkg-style
+
+ avail_version
+        prints the latest available version of the package
+
+ lastpkg
+        outputs the filename (full path) of the last built package for the
+        specified (or current) kernel. Empty if the build was not successful.
+
+ download
+        installs the latest source package or fetches the source with
+        apt-get/apt-src/whatever
+
+ unpack
+        unpacks the downloaded package source in $MODULE_LOC
+
+ clean
+        cleanup in the build-directory, eg. wiping it. User can restore
+        the cleaned files with the "unpack" rule.
+
+ purge
+        removes the cached data and localy built binary packages. USE
+        WITH CARE!
+
+ installed
+        output: "installed" or "not installed"
+
+ update
+        updated cached data
+
+ prefix
+        print symbolic name of the package (eg. ftpfs for ftpfs-2.4.20)
+
+ build  well, selfexpaining. Usualy started in the build directory.
+
+
+Ressource directory (planned location: /usr/share/modass)
+---------------------------------------------------------
+
+modass
+|-- include     (files to be sourced by package maintaining scripts and
+                 makefile includes)
+|-- overrides   (package maintscripts taking precedence over the default ones)
+`-- packages    (some default scripts, provided by the modass package itself)
+
+Package maintainence scripts are either shipped with module-assistant or
+installed by other binary package that have something to do with the
+modules. For example, cloop-utils installs one into modass/overrides/.
+Installing it is a matter of taste - if you wish your package to be listed in
+m-a frontend's list of "known" packages, add a control script.
+m-a can also work if there is no control script by guessing the package names.
+However, this requires additional processing on the client side and is
+error-prone, so having a such script installed in the overrides directory does
+not hurt.
+
+You can ship the control script inside of the -source package or some other
+-utils package that is always installed (to make the source package visible for
+the users).
+
+HOW TO PREPARE YOUR PACKAGES:
+-----------------------------
+
+See HOWTO-DEVEL file for more detailed explanation.
+
+There are generic rules to be included in the debian/rules files, this
+way:
+
+-----------------------
+PACKAGE=cloop
+-include $(MA_DIR)/include/generic.make
+
+# other stuff, including build-mod install-mod and build-deb rules
+# specific for the module building
+
+kdist_targets: clean build-mod install-mod build-deb
+
+kdist_image: kdist_targets clean
+
+# create the package and the changes file, maybe sign it
+kdist: kdist_targets genchanges clean
+------------------------
+
+CONVENTIONS:
+------------
+
+- If $SIGNCHANGES is set, the generated .changes file will be signed
+  with debsign, gpg or pgp.
+
+generic.make calculates following variables that can be used in your rules:
+
+ - DEB_DESTDIR : destination directory
+ - CHFILE : changes file (full path)
+ - DEB_NAME : maintainer's name (may be unset!)
+ - DEB_MAIL : maintainer's email address (may be unset!)
+ - MAINT : definitive maintainers ID, either from DEB_NAME/DEB_MAIL or
+   from local username and hostname
+ - CC : compiler used for the found kernel headers. If
+   $IGNORE_CC_MISMATCH is set and CC was not found, CC will be set to gcc
+
+generic.make provides following targets:
+
+ - genchanges : generates the changes files and signs it when
+   $SIGNCHANGES is set
+
+ - echo-vars : prints relevant variables
+ - echo-changes : prints the name of the changes file
+ - echo-debfile : prints the name of binary Debian package
+ - echo-deb : prints the module package name
+ - configure-checks: complain loudly about wrong gcc version and suggest
+   to install the right package if the compiler was not found
+ - prep-deb-files : first, copies the files matching debian/*_KVERS_* to
+   filenames with real $KVERS. Then read files matching
+   debian/*.modules.in, substitue _KVERS_ inside with the real $KVERS
+   and store the file under the similar name without .modules.in.
+
+GLOSSARY:
+---------
+
+KVERS:
+
+If you are using a packaged debian kernel with a name like
+linux-image-2.6.16-2-k7-smp then KVERS is the whole last part of the name:
+2.6.16-2-k7-smp.
+
+If you have built a package using make-kpkg then the kernel version is the
+concatenation of the main upstream version and the --append-to-version
+argument, but not the --revision argument.  If you look at the name of the
+resulting deb, you can apply the same rule as in the previous paragraph.
